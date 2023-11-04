@@ -203,7 +203,7 @@ return {
   ),
   s(
     { trig = "int", regTrig = true, snippetType = "autosnippet" },
-    c(3, {
+    c(1, {
       sn(nil, { t("\\int") }),
       sn(nil, { t("\\int_{"), i(1), t("} ") }),
       sn(nil, { t("\\int_{"), i(1), t("}^{"), i(2), t("} ") }),
@@ -212,7 +212,7 @@ return {
   ),
   s(
     { trig = "iint", regTrig = true, snippetType = "autosnippet", priority = 2000 },
-    c(2, {
+    c(1, {
       sn(nil, { t("\\iint") }),
       sn(nil, { t("\\iint_{"), i(1), t("} ") }),
     }),
