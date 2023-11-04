@@ -119,10 +119,10 @@ return {
     })
   ),
   s(
-    { trig = "qq", snippetType = "autosnippet", priority = 2000 },
+    { trig = "tet", snippetType = "autosnippet", priority = 2000 },
     fmta("\\text{\\ <>\\ }", {
       d(1, get_visual),
-    }, { conditon = tex.in_mathzone })
+    }, { condition = tex.in_mathzone })
   ),
   s(
     { trig = "tet", snippetType = "autosnippet" },

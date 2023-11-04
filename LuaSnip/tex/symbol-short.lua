@@ -33,40 +33,40 @@ return {
   s({ trig = "iff", snippetType = "autosnippet" }, {
     t("\\iff "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "inn", snippetType = "autosnippet" }, {
+  s({ trig = "in ", snippetType = "autosnippet" }, {
     t("\\in "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "nin", snippetType = "autosnippet" }, {
     t("\\notin "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "aa", snippetType = "autosnippet" }, {
+  s({ trig = "aa ", snippetType = "autosnippet" }, {
     t("\\forall "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "ee", snippetType = "autosnippet" }, {
+  s({ trig = "ee ", snippetType = "autosnippet" }, {
     t("\\exists "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "!=", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\neq "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "neq", snippetType = "autosnippet" }, {
+  s({ trig = "neq ", snippetType = "autosnippet" }, {
     t("\\neq "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "==", wordTrig = false, snippetType = "autosnippet" }, {
     t("&= "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "leq", snippetType = "autosnippet" }, {
+  s({ trig = "leq ", snippetType = "autosnippet" }, {
     t("\\leq "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "geq", snippetType = "autosnippet" }, {
+  s({ trig = "geq ", snippetType = "autosnippet" }, {
     t("\\geq "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "app", snippetType = "autosnippet" }, {
+  s({ trig = "ap ", snippetType = "autosnippet" }, {
     t("\\approx "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "~", wordTrig = false, snippetType = "autosnippet" }, {
+  s({ trig = "~ ", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\sim "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "sim", wordTrig = false, snippetType = "autosnippet" }, {
+  s({ trig = "sim ", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\sim "),
   }, { condition = tex.in_mathzone }),
   s({ trig = ">=", wordTrig = false, snippetType = "autosnippet" }, {
@@ -75,10 +75,10 @@ return {
   s({ trig = "<=", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\leq "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "too", snippetType = "autosnippet" }, {
+  s({ trig = "to ", snippetType = "autosnippet" }, {
     t("\\to "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "mto", snippetType = "autosnippet", priority = 1001 }, {
+  s({ trig = "mto ", snippetType = "autosnippet", priority = 1001 }, {
     t("\\mapsto "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "--", wordTrig = false, snippetType = "autosnippet" }, {
@@ -87,13 +87,19 @@ return {
   s({ trig = "||", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\mid "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "mid", snippetType = "autosnippet" }, {
+  s({ trig = "mid ", snippetType = "autosnippet" }, {
     t("\\mid "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "nmid", wordTrig = false, snippetType = "autosnippet", priority = 2000 }, {
+  s({ trig = "nmid ", snippetType = "autosnippet", priority = 2000 }, {
     t("\\nmid "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "  ", wordTrig = false, snippetType = "autosnippet" }, {
+    t(" "),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = ";  ", wordTrig = false, snippetType = "autosnippet", priority = 2000 }, {
+    t("\\, "),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = " ; ", wordTrig = false, snippetType = "autosnippet", priority = 2000 }, {
     t("\\, "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "<>", wordTrig = false, snippetType = "autosnippet" }, {
@@ -105,28 +111,28 @@ return {
   s({ trig = "-+", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\mp "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "rhs", snippetType = "autosnippet" }, {
+  s({ trig = "rhs ", snippetType = "autosnippet" }, {
     t("\\mathrm{R.H.S} "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "lhs", snippetType = "autosnippet" }, {
+  s({ trig = "lhs ", snippetType = "autosnippet" }, {
     t("\\mathrm{L.H.S} "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "cap", snippetType = "autosnippet" }, {
+  s({ trig = "cap ", snippetType = "autosnippet" }, {
     t("\\cap "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "cup", snippetType = "autosnippet" }, {
+  s({ trig = "cup ", snippetType = "autosnippet" }, {
     t("\\cup "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "sub", snippetType = "autosnippet" }, {
+  s({ trig = "sub ", snippetType = "autosnippet" }, {
     t("\\subset "),
   }, { condition = tex.in_mathzone }),
   -- s({ trig = "sup", wordTrig = false, snippetType = "autosnippet" }, {
   --   t("\\supseteq "),
   -- }, { condition = tex.in_mathzone }),
-  s({ trig = "inf", snippetType = "autosnippet" }, {
+  s({ trig = "inf ", snippetType = "autosnippet" }, {
     t("\\infty "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "perp", snippetType = "autosnippet" }, {
+  s({ trig = "perp ", snippetType = "autosnippet" }, {
     t("^\\perp "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "xx", snippetType = "autosnippet" }, {
@@ -141,31 +147,31 @@ return {
   s({ trig = "llr", snippetType = "autosnippet" }, {
     t("\\longleftrightarrow "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "circ", snippetType = "autosnippet" }, {
+  s({ trig = "circ ", snippetType = "autosnippet" }, {
     t("\\circ "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "iso", snippetType = "autosnippet" }, {
+  s({ trig = "iso ", snippetType = "autosnippet" }, {
     t("\\cong "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "cong", snippetType = "autosnippet" }, {
+  s({ trig = "cong ", snippetType = "autosnippet" }, {
     t("\\cong "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "equ", snippetType = "autosnippet" }, {
+  s({ trig = "equ ", snippetType = "autosnippet" }, {
     t("\\equiv "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "##", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\# "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "oxx", snippetType = "autosnippet" }, {
+  s({ trig = "oti ", snippetType = "autosnippet" }, {
     t("\\otimes "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "opp", snippetType = "autosnippet" }, {
+  s({ trig = "opl ", snippetType = "autosnippet" }, {
     t("\\oplus "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "not", snippetType = "autosnippet", priority = 2000 }, {
+  s({ trig = "not ", snippetType = "autosnippet", priority = 2000 }, {
     t("\\not "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "par", snippetType = "autosnippet", priority = 2000 }, {
+  s({ trig = "par ", snippetType = "autosnippet", priority = 2000 }, {
     t("\\partial "),
   }, { condition = tex.in_mathzone }),
   s(

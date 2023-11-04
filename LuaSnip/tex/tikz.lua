@@ -62,7 +62,7 @@ return {
         d(2, get_visual),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_tikz }
   ),
   s(
     { trig = "lu", snippetType = "autosnippet", dscr = "Left up annotate" },
@@ -135,7 +135,7 @@ return {
         i(2),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_tikz }
   ),
   s(
     { trig = "hl", snippetType = "autosnippet", priority = 2000 },
@@ -148,10 +148,10 @@ return {
         d(2, get_visual),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_tikz }
   ),
   s(
-    { trig = "hl", snippetType = "autosnippet" },
+    { trig = "hl ", snippetType = "autosnippet" },
     fmta(
       [[
       \hltext{<>}{<>}
@@ -164,7 +164,7 @@ return {
     { condition = tex.in_text }
   ),
   s(
-    { trig = "hl", snippetType = "autosnippet", priority = 2000 },
+    { trig = "hl ", snippetType = "autosnippet", priority = 2000 },
     fmta(
       [[
       \hltext{<>}{<>}

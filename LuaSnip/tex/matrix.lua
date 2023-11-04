@@ -125,7 +125,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "pma(%a)", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "pma(%a)", regTrig = true, snippetType = "autosnippet" },
     fmta("\\pmat<>{<>}", {
       f(function(_, snip)
         return snip.captures[1]

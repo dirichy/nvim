@@ -9,6 +9,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    enabled = { "latex" },
+    enabled = true,
   },
 }

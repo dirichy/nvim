@@ -9,8 +9,8 @@ local MATH_NODES = {
 local ts_utils = require("nvim-treesitter.ts_utils")
 
 M.in_env = function(name)
-  x, y = vim.api.nvim_eval("vimtex#env#is_inside('" .. name .. "')")
-  return x ~= 0 and y ~= 0
+  local x = vim.api.nvim_eval("vimtex#env#is_inside('" .. name .. "')")
+  return x[1] ~= 0 and x[2] ~= 0
 end
 
 M.in_mathzone = function()
