@@ -13,5 +13,5 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 end
-map("n", "<leader>rr", "<cmd>!mylatex %<cr>")
-map("n", "<leader>rv", "<cmd>!nohup okular --unique %:r.pdf &<cr>")
+map("n", "<leader>rr", "<cmd>!mylatex %:p<cr>")
+map("n", "<leader>rv", "<cmd>!mytexviewer %:p<cr>")
