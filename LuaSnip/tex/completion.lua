@@ -31,6 +31,60 @@ return {
   --   { condition = tex.in_mathzone}
   -- ),
   s(
+    { trig = "(\\%a+)(%d)", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta("<>_<>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      f(function(_, snip)
+        return snip.captures[2]
+      end),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "(\\%a+)_(%d)(%d)", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta("<>_{<><>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      f(function(_, snip)
+        return snip.captures[2]
+      end),
+      f(function(_, snip)
+        return snip.captures[3]
+      end),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "([%)%]%}])(%d)", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta("<>_<>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      f(function(_, snip)
+        return snip.captures[2]
+      end),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "([%)%]%}])_(%d)(%d)", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta("<>_{<><>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      f(function(_, snip)
+        return snip.captures[2]
+      end),
+      f(function(_, snip)
+        return snip.captures[3]
+      end),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
     { trig = "([%a%)%]%}])(%d)", regTrig = true, snippetType = "autosnippet" },
     fmta("<>_<>", {
       f(function(_, snip)
