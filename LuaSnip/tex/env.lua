@@ -124,13 +124,12 @@ return {
     { trig = "ben", snippetType = "autosnippet" },
     fmta(
       [[
-      \begin{enumerate}[<>]
+      \begin{enumerate}
         \item <>
       \end{enumerate}
       ]],
       {
-        i(1, "(a)"),
-        i(0),
+        i(1),
       }
     ),
     { condition = line_begin }
