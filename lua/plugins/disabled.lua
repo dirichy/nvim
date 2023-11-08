@@ -8,7 +8,7 @@ return {
     enabled = false,
   },
   {
-    "neovim/nvim-lspconfig",
-    enabled = true,
+    "echasnovski/mini.pairs",
+    enabled = false,
   },
 }

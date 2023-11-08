@@ -85,7 +85,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "([%a%)%]%}])(%d)", regTrig = true, snippetType = "autosnippet" },
+    { trig = "(%a)(%d)", regTrig = true, snippetType = "autosnippet" },
     fmta("<>_<>", {
       f(function(_, snip)
         return snip.captures[1]
@@ -97,7 +97,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "([%a%)%]%}])_(%d)(%d)", regTrig = true, snippetType = "autosnippet" },
+    { trig = "(%a)_(%d)(%d)", regTrig = true, snippetType = "autosnippet" },
     fmta("<>_{<><>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -112,7 +112,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "([%a%)%]%}])(%a)%2", regTrig = true, snippetType = "autosnippet", priority = 100 },
+    { trig = "([%a%)%]%}])(%a)%2", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 100 },
     fmta("<>_<>", {
       f(function(_, snip)
         return snip.captures[1]
@@ -124,7 +124,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "([%a%)%]%}])_(%a)(%a)%3", regTrig = true, snippetType = "autosnippet", priority = 2000 },
+    { trig = "([%a%)%]%}])_(%a)(%a)%3", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
     fmta("<>_{<><>} ", {
       f(function(_, snip)
         return snip.captures[1]
@@ -159,7 +159,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "%((.+)%)/", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "<(.+)>/", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -240,7 +240,6 @@ return {
   s(
     { trig = "bcap", regTrig = true, snippetType = "autosnippet", priority = 2000 },
     c(1, {
-      sn(nil, { t("\\bigcap") }),
       sn(nil, { t("\\bigcap_{"), i(1), t("} ") }),
       sn(nil, { t("\\bigcap_{"), i(1), t("}^{"), i(2), t("} ") }),
     }),
@@ -249,7 +248,6 @@ return {
   s(
     { trig = "bcup", regTrig = true, snippetType = "autosnippet", priority = 2000 },
     c(1, {
-      sn(nil, { t("\\bigcup") }),
       sn(nil, { t("\\bigcup_{"), i(1), t("} ") }),
       sn(nil, { t("\\bigcup_{"), i(1), t("}^{"), i(2), t("} ") }),
     }),
@@ -258,7 +256,6 @@ return {
   s(
     { trig = "int", regTrig = true, snippetType = "autosnippet" },
     c(1, {
-      sn(nil, { t("\\int") }),
       sn(nil, { t("\\int_{"), i(1), t("} ") }),
       sn(nil, { t("\\int_{"), i(1), t("}^{"), i(2), t("} ") }),
     }),
@@ -267,7 +264,6 @@ return {
   s(
     { trig = "iint", regTrig = true, snippetType = "autosnippet", priority = 2000 },
     c(1, {
-      sn(nil, { t("\\iint") }),
       sn(nil, { t("\\iint_{"), i(1), t("} ") }),
     }),
     { condition = tex.in_mathzone }
