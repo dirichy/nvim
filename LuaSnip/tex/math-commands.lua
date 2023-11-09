@@ -22,6 +22,13 @@ local get_visual = function(args, parent)
 end
 
 return {
+  s(
+    { trig = "sqrt", snippetType = "autosnippet" },
+    fmta("\\sqrt{<>}", {
+      i(1),
+    }),
+    { condition = tex.in_mathzone }
+  ),
   s({ trig = "set", snippetType = "autosnippet" }, {
     t("\\set"),
   }, { condition = tex.in_mathzone }),
