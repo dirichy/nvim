@@ -149,22 +149,21 @@ return {
     { condition = line_begin }
   ),
   s(
-    { trig = "ben", snippetType = "autosnippet" },
+    { trig = "ben" },
     fmta(
       [[
-      \begin{enumerate}[<>]
+      \begin{enumerate}
         \item <>
       \end{enumerate}
       ]],
       {
-        i(1, "(a)"),
-        i(0),
+        i(1),
       }
     ),
     { condition = line_begin }
   ),
   s(
-    { trig = "box", snippetType = "autosnippet" },
+    { trig = "box" },
     fmta(
       [[
       \begin{framed}
@@ -220,7 +219,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "beq", snippetType = "autosnippet" },
+    { trig = "beq" },
     fmta(
       [[
       \begin{equation}
@@ -231,7 +230,7 @@ return {
         i(0),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_text }
   ),
   s(
     { trig = "bal", snippetType = "autosnippet", priority = 2000 },
@@ -248,7 +247,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "bit", snippetType = "autosnippet" },
+    { trig = "bit" },
     fmta(
       [[
       \begin{itemize}
@@ -261,7 +260,7 @@ return {
     ),
     { condition = line_begin }
   ),
-  s({ trig = "item", snippetType = "autosnippet" }, {
+  s({ trig = "  item", snippetType = "autosnippet" }, {
     t("\\item"),
   }, { condition = tex.in_item * line_begin }),
   s(
@@ -296,7 +295,7 @@ return {
     { condition = line_begin }
   ),
   s(
-    { trig = "cha", snippetType = "autosnippet" },
+    { trig = "cha" },
     fmta(
       [[
         \chapter{<>}
@@ -308,7 +307,7 @@ return {
     { condition = line_begin }
   ),
   s(
-    { trig = "par", snippetType = "autosnippet" },
+    { trig = "par" },
     fmta(
       [[
         \paragraph{<>}
@@ -320,7 +319,7 @@ return {
     { condition = line_begin }
   ),
   s(
-    { trig = "sec", snippetType = "autosnippet" },
+    { trig = "sec" },
     fmta(
       [[
         \section{<>}
@@ -332,7 +331,7 @@ return {
     { condition = line_begin }
   ),
   s(
-    { trig = "ssec", snippetType = "autosnippet" },
+    { trig = "ssec" },
     fmta(
       [[
         \subsection{<>}
@@ -344,12 +343,12 @@ return {
     { condition = line_begin }
   ),
   s(
-    { trig = "sss", snippetType = "autosnippet" },
+    { trig = "sss" },
     c(1, { sn(nil, { t("\\subsubsection{"), i(1), t("}") }), sn(nil, { t("\\subsubsection*{"), i(1), t("}") }) }),
     { condition = tex.in_text }
   ),
   s(
-    { trig = "sss", snippetType = "autosnippet" },
+    { trig = "sss" },
     fmta(
       [[
         \subsubsection{<>}
