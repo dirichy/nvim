@@ -159,7 +159,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "<(.+)>/", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "%<(.+)%>/", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]

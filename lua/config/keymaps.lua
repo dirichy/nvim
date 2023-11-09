@@ -15,3 +15,7 @@ local function map(mode, lhs, rhs, opts)
 end
 map("n", "<leader>rr", "<cmd>!mylatex %:p<cr>")
 map("n", "<leader>rv", "<cmd>!mytexviewer %:p<cr>")
+map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })

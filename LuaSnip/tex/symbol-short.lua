@@ -21,11 +21,23 @@ local get_visual = function(args, parent)
 end
 
 return {
+  s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\vee"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "or ", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\wedge "),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "band", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\bigvee"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "bor", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\bigwedge"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "...", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\cdots"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ". ", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\cdot "),
+  s({ trig = "c.", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\cdot"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "v.", wordTrig = false, snippetType = "autosnippet", priority = 2000 }, {
     t("\\vdots"),
@@ -94,22 +106,13 @@ return {
     t("\\nmid"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "  ", wordTrig = false, snippetType = "autosnippet" }, {
-    t(" "),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = ";  ", wordTrig = false, snippetType = "autosnippet", priority = 2000 }, {
     t("\\, "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = " ; ", wordTrig = false, snippetType = "autosnippet", priority = 2000 }, {
-    t("\\, "),
+  s({ trig = "pm ", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\pm "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "<>", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\diamond"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = "pm", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\pm"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = "mp", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\mp"),
+  s({ trig = "mp ", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\mp "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "rhs", snippetType = "autosnippet" }, {
     t("\\mathrm{R.H.S}"),
