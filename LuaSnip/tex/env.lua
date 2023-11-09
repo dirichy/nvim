@@ -75,6 +75,20 @@ return {
     { condition = line_begin }
   ),
   s(
+    { trig = "bso" },
+    fmta(
+      [[
+      \begin{solution}
+        <>
+      \end{solution}
+      ]],
+      {
+        i(1),
+      }
+    ),
+    { condition = line_begin }
+  ),
+  s(
     { trig = "bpf" },
     fmta(
       [[

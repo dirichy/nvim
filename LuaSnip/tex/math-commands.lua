@@ -192,6 +192,14 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
+    { trig = "abs", snippetType = "autosnippet" },
+    fmta("|<>|<>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
     { trig = "vec", snippetType = "autosnippet", priority = 2000 },
     fmta("\\vec{<>}", {
       d(1, get_visual),
