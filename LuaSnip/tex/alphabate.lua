@@ -28,13 +28,7 @@ return {
   s({ trig = "Alp", snippetType = "autosnippet" }, {
     t("\\Alpha"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ";a", snippetType = "autosnippet" }, {
-    t("\\alpha"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "bet", snippetType = "autosnippet" }, {
-    t("\\beta"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = ";b", snippetType = "autosnippet" }, {
     t("\\beta"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "Bet", snippetType = "autosnippet" }, {
@@ -43,37 +37,25 @@ return {
   s({ trig = "gam", snippetType = "autosnippet" }, {
     t("\\gamma"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ";c", snippetType = "autosnippet" }, {
-    t("\\gamma"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "Gam", snippetType = "autosnippet" }, {
     t("\\Gamma"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "del", snippetType = "autosnippet" }, {
     t("\\delta"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ";d", snippetType = "autosnippet" }, {
-    t("\\delta"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "Del", snippetType = "autosnippet" }, {
     t("\\Delta"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "eps", snippetType = "autosnippet" }, {
-    t("\\epsilon"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = ";e", snippetType = "autosnippet" }, {
     t("\\varepsilon"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "vps", snippetType = "autosnippet" }, {
+  s({ trig = "vep", snippetType = "autosnippet" }, {
     t("\\varepsilon"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "Eps", snippetType = "autosnippet" }, {
     t("\\Epsilon"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "zet", snippetType = "autosnippet" }, {
-    t("\\zeta"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = ";z", snippetType = "autosnippet" }, {
     t("\\zeta"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "Zet", snippetType = "autosnippet" }, {
@@ -100,16 +82,10 @@ return {
   s({ trig = "kap", snippetType = "autosnippet" }, {
     t("\\kappa"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ";k", snippetType = "autosnippet" }, {
-    t("\\kappa"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "Kap", snippetType = "autosnippet" }, {
     t("\\Kappa"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "lam", snippetType = "autosnippet" }, {
-    t("\\lambda"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = ";l", snippetType = "autosnippet" }, {
     t("\\lambda"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "Lam", snippetType = "autosnippet" }, {

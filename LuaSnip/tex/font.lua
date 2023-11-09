@@ -89,6 +89,20 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
+    { trig = "frk", snippetType = "autosnippet", priority = 2000 },
+    fmta("\\mathfrak{<>}", {
+      d(1, get_visual),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "frk", snippetType = "autosnippet" },
+    fmta("\\mathfrak{<>}", {
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
     { trig = "tit", snippetType = "autosnippet", priority = 2000 },
     fmta("\\textit{<>}", {
       d(1, get_visual),

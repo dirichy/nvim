@@ -32,7 +32,7 @@ return {
     { condition = tex.in_text }
   ),
   s(
-    { trig = ";;", snippetType = "autosnippet" },
+    { trig = "tt", snippetType = "autosnippet" },
     fmta(
       [[
       \[
@@ -81,6 +81,20 @@ return {
       \begin{solution}
         <>
       \end{solution}
+      ]],
+      {
+        i(1),
+      }
+    ),
+    { condition = line_begin }
+  ),
+  s(
+    { trig = "ble" },
+    fmta(
+      [[
+      \begin{lemma}
+        <>
+      \end{lemma}
       ]],
       {
         i(1),
@@ -205,6 +219,20 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
+    { trig = "beq", snippetType = "autosnippet" },
+    fmta(
+      [[
+      \begin{equation}
+        <>
+      \end{equation}
+      ]],
+      {
+        i(0),
+      }
+    ),
+    { condition = tex.in_mathzone }
+  ),
+  s(
     { trig = "bal", snippetType = "autosnippet", priority = 2000 },
     fmta(
       [[
@@ -232,7 +260,7 @@ return {
     ),
     { condition = line_begin }
   ),
-  s({ trig = "im", snippetType = "autosnippet" }, {
+  s({ trig = "item", snippetType = "autosnippet" }, {
     t("\\item"),
   }, { condition = tex.in_item * line_begin }),
   s(

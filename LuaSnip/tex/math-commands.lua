@@ -22,6 +22,15 @@ local get_visual = function(args, parent)
 end
 
 return {
+  s({ trig = "set", snippetType = "autosnippet" }, {
+    t("\\set"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "ord", snippetType = "autosnippet" }, {
+    t("\\ord"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "card", snippetType = "autosnippet" }, {
+    t("\\card"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "ide", snippetType = "autosnippet" }, {
     t("\\ide"),
   }, { condition = tex.in_mathzone }),
@@ -79,6 +88,14 @@ return {
       f(function(_, snip)
         return string.upper(snip.captures[1])
       end),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "fun", snippetType = "autosnippet", priority = 2000 },
+    fmta("\\fun{<>}{<>}", {
+      i(1),
+      i(2),
     }),
     { condition = tex.in_mathzone }
   ),
