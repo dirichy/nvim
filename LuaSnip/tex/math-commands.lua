@@ -76,6 +76,12 @@ return {
   s({ trig = "log", snippetType = "autosnippet" }, {
     t("\\log"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "max", snippetType = "autosnippet" }, {
+    t("\\max"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "min", snippetType = "autosnippet" }, {
+    t("\\min"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "ln ", snippetType = "autosnippet" }, {
     t("\\ln "),
   }, { condition = tex.in_mathzone }),
