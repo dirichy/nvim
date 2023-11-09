@@ -57,6 +57,9 @@ return {
   s({ trig = "ee ", snippetType = "autosnippet" }, {
     t("\\exists "),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "dd ", snippetType = "autosnippet" }, {
+    t("\\d "),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "!=", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\neq"),
   }, { condition = tex.in_mathzone }),

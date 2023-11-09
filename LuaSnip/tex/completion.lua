@@ -238,7 +238,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "bcap", regTrig = true, snippetType = "autosnippet", priority = 2000 },
+    { trig = "bcap", snippetType = "autosnippet", priority = 2000 },
     c(1, {
       sn(nil, { t("\\bigcap_{"), i(1), t("} ") }),
       sn(nil, { t("\\bigcap_{"), i(1), t("}^{"), i(2), t("} ") }),
@@ -264,7 +264,16 @@ return {
   s(
     { trig = "iint", regTrig = true, snippetType = "autosnippet", priority = 2000 },
     c(1, {
+      t("\\iint "),
       sn(nil, { t("\\iint_{"), i(1), t("} ") }),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "sup", regTrig = true, snippetType = "autosnippet", priority = 2000 },
+    c(1, {
+      t("\\sup "),
+      sn(nil, { t("\\sup_{"), i(1), t("} ") }),
     }),
     { condition = tex.in_mathzone }
   ),

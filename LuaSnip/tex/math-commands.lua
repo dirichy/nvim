@@ -76,6 +76,12 @@ return {
   s({ trig = "log", snippetType = "autosnippet" }, {
     t("\\log"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "max", snippetType = "autosnippet" }, {
+    t("\\max"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "min", snippetType = "autosnippet" }, {
+    t("\\min"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "ln ", snippetType = "autosnippet" }, {
     t("\\ln "),
   }, { condition = tex.in_mathzone }),
@@ -205,6 +211,14 @@ return {
     { trig = "hat", snippetType = "autosnippet" },
     fmta("\\hat{<>}", {
       i(1),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "abs", snippetType = "autosnippet" },
+    fmta("|<>|<>", {
+      i(1),
+      i(0),
     }),
     { condition = tex.in_mathzone }
   ),
