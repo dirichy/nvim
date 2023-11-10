@@ -21,16 +21,16 @@ local get_visual = function(args, parent)
 end
 
 return {
-  s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
+  s({ trig = "or ", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\vee"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "or ", wordTrig = false, snippetType = "autosnippet" }, {
+  s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\wedge "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "band", wordTrig = false, snippetType = "autosnippet" }, {
+  s({ trig = "bor", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\bigvee"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "bor", wordTrig = false, snippetType = "autosnippet" }, {
+  s({ trig = "band", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\bigwedge"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "...", wordTrig = false, snippetType = "autosnippet" }, {
