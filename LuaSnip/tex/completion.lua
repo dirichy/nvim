@@ -125,7 +125,7 @@ return {
   ),
   s(
     { trig = "([%a%)%]%}])_(%a)(%a)%3", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
-    fmta("<>_{<><>} ", {
+    fmta("<>_{<><>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),

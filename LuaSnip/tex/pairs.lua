@@ -15,34 +15,6 @@ local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
 return {
   s(
-    { trig = "(", snippetType = "autosnippet" },
-    fmta("(<>)<>", {
-      i(1),
-      i(2),
-    })
-  ),
-  s(
-    { trig = "[", snippetType = "autosnippet" },
-    fmta("[<>]<>", {
-      i(1),
-      i(2),
-    })
-  ),
-  s(
-    { trig = "{", snippetType = "autosnippet" },
-    fmta("{<>}<>", {
-      i(1),
-      i(2),
-    })
-  ),
-  s(
-    { trig = "[[", snippetType = "autosnippet" },
-    fmta("\\{<>\\}<>", {
-      i(1),
-      i(2),
-    })
-  ),
-  s(
     { trig = ";a", wordTrig = false, snippetType = "autosnippet" },
     fmta("(<>)<>", {
       i(1),
