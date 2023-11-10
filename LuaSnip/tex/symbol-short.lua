@@ -132,9 +132,12 @@ return {
   s({ trig = "sub", snippetType = "autosnippet" }, {
     t("\\subset"),
   }, { condition = tex.in_mathzone }),
-  -- s({ trig = "sup", wordTrig = false, snippetType = "autosnippet" }, {
-  --   t("\\supseteq "),
-  -- }, { condition = tex.in_mathzone }),
+  s({ trig = "sqs", snippetType = "autosnippet" }, {
+    t("\\sqsubset"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "prec", snippetType = "autosnippet" }, {
+    t("\\prec"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "ifn", snippetType = "autosnippet" }, {
     t("\\infty"),
   }, { condition = tex.in_mathzone }),
