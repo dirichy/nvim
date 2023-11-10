@@ -254,7 +254,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "int", regTrig = true, snippetType = "autosnippet" },
+    { trig = "\\int", snippetType = "autosnippet" },
     c(1, {
       sn(nil, { t("\\int_{"), i(1), t("} ") }),
       sn(nil, { t("\\int_{"), i(1), t("}^{"), i(2), t("} ") }),
