@@ -25,7 +25,7 @@ return {
     t("\\vee"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\wedge "),
+    t("\\wedge"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "bor", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\bigvee"),
