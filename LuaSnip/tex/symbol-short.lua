@@ -21,16 +21,16 @@ local get_visual = function(args, parent)
 end
 
 return {
-  s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\vee"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "or ", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\wedge "),
+    t("\\vee "),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "band", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\bigvee"),
+  s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\wedge"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "bor", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\bigvee"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "band", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\bigwedge"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "...", wordTrig = false, snippetType = "autosnippet" }, {
@@ -182,6 +182,15 @@ return {
   }, { condition = tex.in_mathzone }),
   s({ trig = "par", snippetType = "autosnippet", priority = 2000 }, {
     t("\\partial"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "0set", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\varnothing"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "hom", snippetType = "autosnippet" }, {
+    t("\\hom"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "dim", snippetType = "autosnippet" }, {
+    t("\\dim"),
   }, { condition = tex.in_mathzone }),
   s(
     { trig = "__", wordTrig = false, snippetType = "autosnippet" },

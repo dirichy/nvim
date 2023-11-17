@@ -205,7 +205,7 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "bal", snippetType = "autosnippet" },
+    { trig = "bal" },
     fmta(
       [[
       \begin{aligned}

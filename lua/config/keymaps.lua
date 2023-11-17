@@ -13,8 +13,14 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 end
+local function forwardsearch()
+  local line = vim.api.nvim_eval("line('.')")
+  local col = vim.api.nvim_eval("col('.')")
+  vim.cmd("!myforwardsearch " .. vim.fn.expand("%:p") .. " " .. line .. " " .. col)
+end
 map("n", "<leader>rr", "<cmd>!mylatex %:p<cr>")
 map("n", "<leader>rv", "<cmd>!mytexviewer %:p<cr>")
+map("n", "<leader>rf", forwardsearch)
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
