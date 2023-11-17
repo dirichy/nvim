@@ -22,7 +22,7 @@ end
 
 return {
   s({ trig = "or ", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\vee"),
+    t("\\vee "),
   }, { condition = tex.in_mathzone }),
   s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\wedge"),
@@ -182,6 +182,12 @@ return {
   }, { condition = tex.in_mathzone }),
   s({ trig = "par", snippetType = "autosnippet", priority = 2000 }, {
     t("\\partial"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "0set", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\varnothing"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "hom", snippetType = "autosnippet" }, {
+    t("\\hom"),
   }, { condition = tex.in_mathzone }),
   s(
     { trig = "__", wordTrig = false, snippetType = "autosnippet" },

@@ -106,8 +106,26 @@ return {
   s({ trig = "xi ", snippetType = "autosnippet" }, {
     t("\\xi "),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "x_ii", snippetType = "autosnippet" }, {
+    t("\\xi_i"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "\\xi_ii", snippetType = "autosnippet" }, {
+    t("x_{ii}"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "x_{ii}i", snippetType = "autosnippet" }, {
+    t("\\xi_{ii}"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "Xi ", snippetType = "autosnippet" }, {
     t("\\Xi "),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "X_ii", snippetType = "autosnippet" }, {
+    t("\\Xi_i"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "\\Xi_ii", snippetType = "autosnippet" }, {
+    t("X_{ii}"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "X_{ii}i", snippetType = "autosnippet" }, {
+    t("\\Xi_{ii}"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "omi", snippetType = "autosnippet" }, {
     t("\\omicron"),
@@ -115,8 +133,26 @@ return {
   s({ trig = "pi ", snippetType = "autosnippet" }, {
     t("\\pi "),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "p_ii", snippetType = "autosnippet" }, {
+    t("\\pi_i"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "\\pi_ii", snippetType = "autosnippet" }, {
+    t("p_{ii}"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "p_{ii}i", snippetType = "autosnippet" }, {
+    t("\\pi_{ii}"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "Pi ", snippetType = "autosnippet" }, {
     t("\\Pi "),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "P_ii", snippetType = "autosnippet" }, {
+    t("\\Pi_i"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "\\Pi_ii", snippetType = "autosnippet" }, {
+    t("P_{ii}"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "P_{ii}i", snippetType = "autosnippet" }, {
+    t("\\Pi_{ii}"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "rho", snippetType = "autosnippet" }, {
     t("\\rho"),
@@ -145,11 +181,23 @@ return {
   s({ trig = "phi", snippetType = "autosnippet" }, {
     t("\\phi"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "\\phii", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\phii"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "Phi", snippetType = "autosnippet" }, {
     t("\\Phi"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "\\Phii", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\Phii"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "vhi", snippetType = "autosnippet" }, {
     t("\\varphi"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "\\vhii", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\vhii"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "\\Vhii", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\Vhii"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "Vhi", snippetType = "autosnippet" }, {
     t("\\Varphi"),
@@ -163,8 +211,14 @@ return {
   s({ trig = "psi", snippetType = "autosnippet" }, {
     t("\\psi"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "\\psii", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\psii"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "Psi", snippetType = "autosnippet" }, {
     t("\\Psi"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "\\Psii", snippetType = "autosnippet", priority = 2000 }, {
+    t("\\Psii"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "ome", snippetType = "autosnippet" }, {
     t("\\omega"),
