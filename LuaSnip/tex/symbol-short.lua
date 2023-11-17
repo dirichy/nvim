@@ -189,6 +189,9 @@ return {
   s({ trig = "hom", snippetType = "autosnippet" }, {
     t("\\hom"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "dim", snippetType = "autosnippet" }, {
+    t("\\dim"),
+  }, { condition = tex.in_mathzone }),
   s(
     { trig = "__", wordTrig = false, snippetType = "autosnippet" },
     fmta(
