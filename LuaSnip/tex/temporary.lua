@@ -26,4 +26,12 @@ return {
   -- s({ trig = "tv", snippetType = "autosnippet" }, fmta("\\mathrm{TV}", {}), { condition = tex.in_mathzone }),
   -- s({ trig = "ce", snippetType = "autosnippet" }, fmta("\\mathrm{couple}", {}), { condition = tex.in_mathzone }),
   -- s({ trig = "mix", snippetType = "autosnippet" }, fmta("\\mathrm{mix}", {}), { condition = tex.in_mathzone }),
+
+  s(
+    { trig = "norm", snippetType = "autosnippet" },
+    fmta("\\norm{<>}", {
+      i(1),
+    }),
+    { condition = tex.in_mathzone }
+  ),
 }
