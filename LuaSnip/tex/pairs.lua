@@ -91,7 +91,6 @@ return {
     { trig = ";G", wordTrig = false, snippetType = "autosnippet" },
     fmta("\\left\\langle <>\\right\\rangle ", {
       i(1),
-      i(2),
     })
   ),
   s({ trig = ";hg", wordTrig = false, snippetType = "autosnippet" }, {
