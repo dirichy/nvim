@@ -34,4 +34,12 @@ return {
     }),
     { condition = tex.in_mathzone }
   ),
+  s(
+    { trig = "ipro", regTrig = true, snippetType = "autosnippet", priority = 3000 },
+    fmta("\\langle <> , <> \\rangel", {
+      i(1),
+      i(2),
+    }),
+    { condition = tex.in_mathzone }
+  ),
 }
