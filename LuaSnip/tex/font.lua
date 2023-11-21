@@ -33,30 +33,20 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "cal", snippetType = "autosnippet", priority = 2000 },
+    { trig = "cal(%w)", regTrig = true, snippetType = "autosnippet" },
     fmta("\\mathcal{<>}", {
-      d(1, get_visual),
+      f(function(_, snip)
+        return string.upper(snip.captures[1])
+      end),
     }),
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "cal", snippetType = "autosnippet" },
-    fmta("\\mathcal{<>}", {
-      i(0),
-    }),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "scr", snippetType = "autosnippet", priority = 2000 },
+    { trig = "scr(%w)", regTrig = true, snippetType = "autosnippet" },
     fmta("\\mathscr{<>}", {
-      d(1, get_visual),
-    }),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "scr", snippetType = "autosnippet" },
-    fmta("\\mathscr{<>}", {
-      i(0),
+      f(function(_, snip)
+        return string.upper(snip.captures[1])
+      end),
     }),
     { condition = tex.in_mathzone }
   ),
