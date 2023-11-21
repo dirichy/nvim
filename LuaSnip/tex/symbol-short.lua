@@ -132,10 +132,16 @@ return {
   s({ trig = "sub", snippetType = "autosnippet" }, {
     t("\\subset"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "sqs", snippetType = "autosnippet" }, {
+  s({ trig = "ssub", snippetType = "autosnippet", priority = 2000 }, {
     t("\\sqsubset"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "prec", snippetType = "autosnippet" }, {
+    t("\\prec"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "prec", snippetType = "autosnippet" }, {
+    t("\\prec"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "pleq", snippetType = "autosnippet" }, {
     t("\\prec"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "ifn", snippetType = "autosnippet" }, {

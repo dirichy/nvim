@@ -223,9 +223,8 @@ return {
   ),
   s(
     { trig = "abs", snippetType = "autosnippet" },
-    fmta("|<>|<>", {
+    fmta("|<>|", {
       i(1),
-      i(0),
     }),
     { condition = tex.in_mathzone }
   ),

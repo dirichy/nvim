@@ -140,65 +140,59 @@ return {
   ),
   s(
     { trig = "(%d+)/", regTrig = true, snippetType = "autosnippet", priority = 100 },
-    fmta("\\frac{<>}{<>}<>", {
+    fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
       i(1),
-      i(2),
     }),
     { condition = tex.in_mathzone }
   ),
   s(
     { trig = "(%a)/", regTrig = true, snippetType = "autosnippet", priority = 100 },
-    fmta("\\frac{<>}{<>}<>", {
+    fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
       i(1),
-      i(2),
     }),
     { condition = tex.in_mathzone }
   ),
   s(
     { trig = "%<(.+)%>/", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("\\frac{<>}{<>}<>", {
+    fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
       i(1),
-      i(2),
     }),
     { condition = tex.in_mathzone }
   ),
   s(
     { trig = "(\\%a+)/", regTrig = true, snippetType = "autosnippet", priority = 2000 },
-    fmta("\\frac{<>}{<>}<>", {
+    fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
       i(1),
-      i(2),
     }),
     { condition = tex.in_mathzone }
   ),
   s(
     { trig = "(\\%a+%{%a+%})/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
-    fmta("\\frac{<>}{<>}<>", {
+    fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
       i(1),
-      i(2),
     }),
     { condition = tex.in_mathzone }
   ),
   s(
     { trig = "//", regTrig = true, snippetType = "autosnippet", priority = 3000 },
-    fmta("\\frac{<>}{<>}<>", {
+    fmta("\\frac{<>}{<>}", {
       i(1),
       i(2),
-      i(3),
     }),
     { condition = tex.in_mathzone }
   ),
