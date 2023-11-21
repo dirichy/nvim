@@ -17,9 +17,8 @@ local tex = require("util.latex")
 return {
   s(
     { trig = ";a", wordTrig = false, snippetType = "autosnippet" },
-    fmta("(<>)<>", {
+    fmta("(<>)", {
       i(1),
-      i(2),
     })
   ),
   s({ trig = ";ha", wordTrig = false, snippetType = "autosnippet" }, {
@@ -30,23 +29,20 @@ return {
   }, { condition = tex.in_mathzone }),
   s(
     { trig = ";A", wordTrig = false, snippetType = "autosnippet" },
-    fmta("\\left(<>\\right)<>", {
+    fmta("\\left(<>\\right)", {
       i(1),
-      i(2),
     })
   ),
   s(
     { trig = ";s", wordTrig = false, snippetType = "autosnippet" },
-    fmta("[<>]<>", {
+    fmta("[<>]", {
       i(1),
-      i(2),
     })
   ),
   s(
     { trig = ";S", wordTrig = false, snippetType = "autosnippet" },
-    fmta("\\left[<>\\right]<>", {
+    fmta("\\left[<>\\right]", {
       i(1),
-      i(2),
     })
   ),
   s({ trig = ";hs", wordTrig = false, snippetType = "autosnippet" }, {
@@ -57,9 +53,8 @@ return {
   }, { condition = tex.in_mathzone }),
   s(
     { trig = ";d", wordTrig = false, snippetType = "autosnippet" },
-    fmta("{<>}<>", {
+    fmta("{<>}", {
       i(1),
-      i(2),
     })
   ),
   s({ trig = ";hd", wordTrig = false, snippetType = "autosnippet" }, {
@@ -70,16 +65,14 @@ return {
   }, { condition = tex.in_mathzone }),
   s(
     { trig = ";f", wordTrig = false, snippetType = "autosnippet" },
-    fmta("\\{<>\\}<>", {
+    fmta("\\{<>\\}", {
       i(1),
-      i(2),
     })
   ),
   s(
     { trig = ";F", wordTrig = false, snippetType = "autosnippet" },
-    fmta("\\left\\{<>\\right\\}<>", {
+    fmta("\\left\\{<>\\right\\}", {
       i(1),
-      i(2),
     })
   ),
   s({ trig = ";hf", wordTrig = false, snippetType = "autosnippet" }, {
@@ -90,14 +83,13 @@ return {
   }, { condition = tex.in_mathzone }),
   s(
     { trig = ";g", wordTrig = false, snippetType = "autosnippet" },
-    fmta("\\langle <>\\rangle <>", {
+    fmta("\\langle <>\\rangle ", {
       i(1),
-      i(2),
     })
   ),
   s(
     { trig = ";G", wordTrig = false, snippetType = "autosnippet" },
-    fmta("\\left\\langle <>\\right\\rangle <>", {
+    fmta("\\left\\langle <>\\right\\rangle ", {
       i(1),
       i(2),
     })
