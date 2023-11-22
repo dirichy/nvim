@@ -6,7 +6,9 @@ let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'mathcal', 'mathmode': 1, 'conceal': 1, 'argstyle': 'bold'},
   \ {'name': 'ide', 'mathmode': 1, 'conceal': 1, 'concealchar':'𝕀'},
   \ {'name': 'van', 'mathmode': 1, 'conceal': 1, 'concealchar':'𝕍'},
-  \ {'name': 'iff', 'mathmode': 1, 'conceal': 1, 'concealchar':'↔'},
+  \ {'name': 'iff', 'mathmode': 1, 'conceal': 1, 'concealchar':'⬄'},
+  \ {'name': 'Rightarrow', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇨'},
+  \ {'name': 'Leftarrow', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇦'},
   \]
 ]])
 vim.cmd([[
@@ -14,7 +16,7 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'ket', 'mathmode': 1, 'cchar_open': '|', 'cchar_close': '>'},
   \ {'name': 'bra', 'mathmode': 1, 'cchar_open': '<', 'cchar_close': '|'},
   \ {'name': 'abs', 'mathmode': 1, 'cchar_open': '|', 'cchar_close': '|'},
-  \ {'name': 'norm', 'mathmode': 1, 'cchar_open': '⫼', 'cchar_close': '⫼'},
+  \ {'name': 'norm', 'mathmode': 1, 'cchar_open': '‖', 'cchar_close': '‖'},
   \ {'name': 'ceil', 'mathmode': 1, 'cchar_open': '⌈', 'cchar_close': '⌉'},
   \ {'name': 'floor', 'mathmode': 1, 'cchar_open': '⌊', 'cchar_close': '⌋'},
   \ {'name': 'overline', 'mathmode': 1, 'cchar_open': '‾', 'cchar_close': '‾'},
@@ -22,3 +24,4 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'Cref', 'mathmode': 0, 'nargs':1,'cchar_open': '※','cchar_close': '>','argstyle':'bold','hlgroup':'Error'},
   \]
 ]])
+vim.cmd("hi Conceal guifg=#99ffcc")
