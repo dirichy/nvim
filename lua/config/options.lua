@@ -24,4 +24,3 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'Cref', 'mathmode': 0, 'nargs':1,'cchar_open': '※','cchar_close': '>','argstyle':'bold','hlgroup':'Error'},
   \]
 ]])
-vim.cmd("hi Conceal guifg=#99ffcc")
