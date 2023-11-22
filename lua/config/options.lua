@@ -6,7 +6,7 @@ let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'mathcal', 'mathmode': 1, 'conceal': 1, 'argstyle': 'bold'},
   \ {'name': 'ide', 'mathmode': 1, 'conceal': 1, 'concealchar':'𝕀'},
   \ {'name': 'van', 'mathmode': 1, 'conceal': 1, 'concealchar':'𝕍'},
-  \ {'name': 'overline', 'mathmode': 1, 'conceal': 1,'concealchar': '‾'},
+  \ {'name': 'iff', 'mathmode': 1, 'conceal': 1, 'concealchar':'↔'},
   \]
 ]])
 vim.cmd([[
@@ -18,5 +18,7 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'ceil', 'mathmode': 1, 'cchar_open': '⌈', 'cchar_close': '⌉'},
   \ {'name': 'floor', 'mathmode': 1, 'cchar_open': '⌊', 'cchar_close': '⌋'},
   \ {'name': 'overline', 'mathmode': 1, 'cchar_open': '‾', 'cchar_close': '‾'},
+  \ {'name': 'fun', 'mathmode': 1, 'nargs':2,'cchar_open': '{', 'cchar_mid':'→','cchar_close': '}'},
+  \ {'name': 'Cref', 'mathmode': 0, 'nargs':1,'cchar_open': '※','cchar_close': '>','argstyle':'bold','hlgroup':'Error'},
   \]
 ]])
