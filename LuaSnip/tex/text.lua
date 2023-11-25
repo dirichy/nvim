@@ -29,6 +29,11 @@ return {
     i(0),
     t("}"),
   }, { condition = tex.in_text, show_condition = tex.in_text }),
+  s({ trig = "cref", snippetType = "autosnippet" }, {
+    t("\\Cref{"),
+    i(0),
+    t("}"),
+  }, { condition = tex.in_text, show_condition = tex.in_text }),
   s(
     { trig = "href", snippetType = "autosnippet" },
     fmta("\\href{<>}{<>}", {

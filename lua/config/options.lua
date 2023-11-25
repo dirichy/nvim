@@ -9,6 +9,7 @@ let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'iff', 'mathmode': 1, 'conceal': 1, 'concealchar':'⬄'},
   \ {'name': 'Rightarrow', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇨'},
   \ {'name': 'Leftarrow', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇦'},
+  \ {'name': 'varnothing', 'mathmode': 1, 'conceal': 1, 'concealchar':'∅'},
   \]
 ]])
 vim.cmd([[
@@ -21,6 +22,7 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'floor', 'mathmode': 1, 'cchar_open': '⌊', 'cchar_close': '⌋'},
   \ {'name': 'overline', 'mathmode': 1, 'cchar_open': '‾', 'cchar_close': '‾'},
   \ {'name': 'fun', 'mathmode': 1, 'nargs':2,'cchar_open': '{', 'cchar_mid':'→','cchar_close': '}'},
-  \ {'name': 'Cref', 'mathmode': 0, 'nargs':1,'cchar_open': '※','cchar_close': '>','argstyle':'bold','hlgroup':'Error'},
+  \ {'name': 'Cref', 'mathmode': 0, 'nargs':1,'cchar_open': '※','cchar_close': '>','argstyle':'bold'},
+  \ {'name': 'label', 'mathmode': 0, 'nargs':1,'cchar_open': '<','cchar_close': '※','argstyle':'bold'},
   \]
 ]])

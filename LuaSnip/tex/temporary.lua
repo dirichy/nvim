@@ -42,4 +42,10 @@ return {
     }),
     { condition = tex.in_mathzone }
   ),
+  s({ trig = "dom", snippetType = "autosnippet" }, {
+    t("\\dom"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "ran", snippetType = "autosnippet" }, {
+    t("\\ran"),
+  }, { condition = tex.in_mathzone }),
 }
