@@ -18,9 +18,13 @@ local function forwardsearch()
   local col = vim.api.nvim_eval("col('.')")
   vim.cmd("!myforwardsearch " .. vim.fn.expand("%:p") .. " " .. line .. " " .. col)
 end
-map("n", "<leader>rr", "<cmd>!mylatex %:p<cr>")
-map("n", "<leader>rv", "<cmd>!mytexviewer %:p<cr>")
-map("n", "<leader>rf", forwardsearch)
+local lp = "<leader>t"
+local lmap = function(key, cmd, opts)
+  map("n", lp .. key, cmd, opts)
+end
+lmap("b", "<cmd>!mylatex %:p<cr>", { desc = "Build LaTeX file" })
+lmap("v", "<cmd>!mytexviewer %:p<cr>", { desc = "View pdf file" })
+lmap("f", forwardsearch, { desc = "Forwardsearch" })
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
