@@ -239,4 +239,7 @@ return {
   s({ trig = "sgn", snippetType = "autosnippet", priority = 2000 }, fmta("\\sgn", {}), { condition = tex.in_mathzone }),
   s({ trig = "gcd", snippetType = "autosnippet", priority = 2000 }, fmta("\\gcd", {}), { condition = tex.in_mathzone }),
   s({ trig = "deg", snippetType = "autosnippet", priority = 2000 }, fmta("\\deg", {}), { condition = tex.in_mathzone }),
+  s({ trig = "span", snippetType = "autosnippet" }, {
+    t("\\Span"),
+  }, { condition = tex.in_mathzone }),
 }
