@@ -84,12 +84,6 @@ return {
   s({ trig = "sim", snippetType = "autosnippet" }, {
     t("\\sim"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ">=", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\geq"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = "<=", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\leq"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "to", snippetType = "autosnippet" }, {
     t("\\to"),
   }, { condition = tex.in_mathzone }),
@@ -156,8 +150,8 @@ return {
   s({ trig = "=>", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\implies"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "To", snippetType = "autosnippet" }, {
-    t("\\implies"),
+  s({ trig = "<=", snippetType = "autosnippet" }, {
+    t("\\impliedby"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "llr", snippetType = "autosnippet" }, {
     t("\\longleftrightarrow "),

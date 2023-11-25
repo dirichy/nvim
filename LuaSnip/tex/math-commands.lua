@@ -23,6 +23,34 @@ end
 
 return {
   s(
+    { trig = "res", snippetType = "autosnippet" },
+    fmta("\\res{<>}{<>}", {
+      i(1),
+      i(2),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "(%a)res", regTrig = true, priority = 2000, snippetType = "autosnippet" },
+    fmta("\\res{<>}{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      i(1),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "(\\%a+)res", regTrig = true, priority = 3000, snippetType = "autosnippet" },
+    fmta("\\res{<>}{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      i(1),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
     { trig = "sqrt", snippetType = "autosnippet" },
     fmta("\\sqrt{<>}", {
       i(1),
