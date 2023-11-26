@@ -24,5 +24,6 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'fun', 'mathmode': 1, 'nargs':2,'cchar_open': '{', 'cchar_mid':'↝','cchar_close': '}'},
   \ {'name': 'Cref', 'mathmode': 0, 'nargs':1,'cchar_open': '🔍','cchar_close': '🔍','argstyle':'bold'},
   \ {'name': 'label', 'mathmode': 0, 'nargs':1,'cchar_open': '📎','cchar_close': '📎','argstyle':'bold'},
+  \ {'name': 'res', 'mathmode': 1, 'nargs':2, 'cchar_mid':'↾',},
   \]
 ]])
