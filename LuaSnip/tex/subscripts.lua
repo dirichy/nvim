@@ -37,6 +37,29 @@ local postfix_snippet = require("util.scaffolding").postfix_snippet
 M = {
   autosnippet(
     {
+      trig = "([%a%]%)}])(%d)",
+      regTrig = true,
+      wordTrig = false,
+      hidden = true,
+    },
+    fmta(
+      [[
+   <>_<><>
+    ]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        f(function(_, snip)
+          return snip.captures[2]
+        end),
+        i(0),
+      }
+    ),
+    { condition = tex.in_math, show_condition = tex.in_math }
+  ),
+  autosnippet(
+    {
       trig = "([%a%)}%]])_([^ \n\t%.']+) ",
       regTrig = true,
       wordTrig = false,
