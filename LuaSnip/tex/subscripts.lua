@@ -82,7 +82,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%)}%]])_([^%s%.']+) ",
+      trig = "([%a%)}%]])_([^{][^%s%.']+) ",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -105,7 +105,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]])^([^%s%.']) ",
+      trig = "([%a%d%)}%]])^([^{][^%s%.']) ",
       regTrig = true,
       wordTrig = false,
       hidden = true,
