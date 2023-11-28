@@ -1,137 +1,122 @@
+-- [
+-- snip_env + autosnippets
+-- ]
 local ls = require("luasnip")
 local s = ls.snippet
 local sn = ls.snippet_node
+local isn = ls.indent_snippet_node
 local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
+local c = ls.choice_node
 local d = ls.dynamic_node
+local r = ls.restore_node
+local events = require("luasnip.util.events")
+local ai = require("luasnip.nodes.absolute_indexer")
+local extras = require("luasnip.extras")
+local l = extras.lambda
+local rep = extras.rep
+local p = extras.partial
+local m = extras.match
+local n = extras.nonempty
+local dl = extras.dynamic_lambda
+local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
-local rep = require("luasnip.extras").rep
-local line_begin = require("luasnip.extras.expand_conditions").line_begin
+local conds = require("luasnip.extras.expand_conditions")
+local postfix = require("luasnip.extras.postfix").postfix
+local types = require("luasnip.util.types")
+local parse = require("luasnip.util.parser").parse_snippet
+local ms = ls.multi_snippet
+local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 
-local tex = require("util.latex")
+-- [
+-- personal imports
+-- ]
+local tex = require("util.conditions")
+local line_begin = require("luasnip.extras.conditions.expand").line_begin
 
-local get_visual = function(args, parent)
-  if #parent.snippet.env.SELECT_RAW > 0 then
-    return sn(nil, i(1, parent.snippet.env.SELECT_RAW))
-  else -- If SELECT_RAW is empty, return a blank insert node
-    return sn(nil, i(1))
+-- Generating functions for Matrix/Cases - thanks L3MON4D3!
+local generate_matrix = function(args, snip)
+  local rows = snip.captures[2] and tonumber(snip.captures[2]) or 2
+  local cols = snip.captures[3] and tonumber(snip.captures[3]) or rows
+  local nodes = {}
+  local ins_indx = 1
+  for j = 1, rows do
+    table.insert(nodes, r(ins_indx, tostring(j) .. "x1", i(1)))
+    ins_indx = ins_indx + 1
+    for k = 2, cols do
+      table.insert(nodes, t(" & "))
+      table.insert(nodes, r(ins_indx, tostring(j) .. "x" .. tostring(k), i(1)))
+      ins_indx = ins_indx + 1
+    end
+    table.insert(nodes, t({ "\\\\", "" }))
   end
+  -- fix last node.
+  nodes[#nodes] = t("\\\\")
+  return sn(nil, nodes)
 end
 
-return {
+-- update for cases
+local generate_cases = function(args, snip)
+  local rows = tonumber(snip.captures[1]) or 2 -- default option 2 for cases
+  local cols = 2 -- fix to 2 cols
+  local nodes = {}
+  local ins_indx = 1
+  for j = 1, rows do
+    table.insert(nodes, r(ins_indx, tostring(j) .. "x1", i(1)))
+    ins_indx = ins_indx + 1
+    for k = 2, cols do
+      table.insert(nodes, t(" & "))
+      table.insert(nodes, r(ins_indx, tostring(j) .. "x" .. tostring(k), i(1)))
+      ins_indx = ins_indx + 1
+    end
+    table.insert(nodes, t({ "\\\\", "" }))
+  end
+  -- fix last node.
+  table.remove(nodes, #nodes)
+  return sn(nil, nodes)
+end
+
+M = {
   s(
-    { trig = "bmat", snippetType = "autosnippet" },
+    {
+      trig = "([bBpvV])mat(%d*)x?(%d*) ",
+      name = "[bBpvV]matrix",
+      dscr = "matrices",
+      regTrig = true,
+      hidden = true,
+      snippetType = "autosnippet",
+    },
     fmta(
       [[
-      \begin{bmatrix}
-        <>
-      \end{bmatrix}
-      ]],
+    \begin{<>}
+    <>
+    \end{<>}]],
       {
-        i(0),
+        f(function(_, snip)
+          return snip.captures[1] .. "matrix"
+        end),
+        d(1, generate_matrix),
+        f(function(_, snip)
+          return snip.captures[1] .. "matrix"
+        end),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math, show_condition = tex.in_math }
   ),
-  s(
-    { trig = "Bmat", snippetType = "autosnippet" },
+
+  autosnippet(
+    { trig = "(%d?)cases", name = "cases", dscr = "cases", regTrig = true, hidden = true, snippetType = "autosnippet" },
     fmta(
       [[
-      \begin{Bmatrix}
-        <>
-      \end{Bmatrix}
-      ]],
-      {
-        i(0),
-      }
+    \begin{cases}
+    <>
+    \end{cases}
+    ]],
+      { d(1, generate_cases) }
     ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "pmat", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \begin{pmatrix}
-        <>
-      \end{pmatrix}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "Vmat", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \begin{Vmatrix}
-        <>
-      \end{Vmatrix}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "pmat", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \pmat{<>}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "Bmat", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \Bmat{<>}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "vmat", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \vmat{<>}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "Vmat", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \Vmat{<>}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "pma(%a)", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\pmat<>{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      i(0),
-    }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math, show_condition = tex.in_math }
   ),
 }
+
+return M

@@ -37,9 +37,9 @@ local postfix_snippet = require("util.scaffolding").postfix_snippet
 M = {
   autosnippet(
     {
-      trig = "([%a%]%)}])(%d)",
+      trig = "(%a)(%d)",
+      wordTrig = true,
       regTrig = true,
-      wordTrig = false,
       hidden = true,
     },
     fmta(
@@ -60,7 +60,29 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%)}%]])_([^ \n\t%.']+) ",
+      trig = "(\\[^%(%[][^%s]-)(%d)",
+      regTrig = true,
+      hidden = true,
+    },
+    fmta(
+      [[
+   <>_<><>
+    ]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        f(function(_, snip)
+          return snip.captures[2]
+        end),
+        i(0),
+      }
+    ),
+    { condition = tex.in_math, show_condition = tex.in_math }
+  ),
+  autosnippet(
+    {
+      trig = "([%a%)}%]])_([^%s%.']+) ",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -83,7 +105,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]])^([^ \n\t%.']) ",
+      trig = "([%a%d%)}%]])^([^%s%.']) ",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -152,18 +174,21 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%)}%]])%.%.",
+      trig = "([%a%)}%]])%.%.([^%.%s])",
       regTrig = true,
       wordTrig = false,
       hidden = true,
     },
     fmta(
       [[
-   <>_{<>}<>
+   <>_{<><>}<>
     ]],
       {
         f(function(_, snip)
           return snip.captures[1]
+        end),
+        f(function(_, snip)
+          return snip.captures[2]
         end),
         i(1),
         i(0),
@@ -173,18 +198,21 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]])''",
+      trig = "([%a%d%)}%]])''([^%.%s])",
       regTrig = true,
       wordTrig = false,
       hidden = true,
     },
     fmta(
       [[
-   <>^{<>}<>
+   <>^{<><>}<>
     ]],
       {
         f(function(_, snip)
           return snip.captures[1]
+        end),
+        f(function(_, snip)
+          return snip.captures[2]
         end),
         i(1),
         i(0),
