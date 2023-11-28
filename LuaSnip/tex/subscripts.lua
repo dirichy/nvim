@@ -60,7 +60,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "(\\[^%(%[][^%s]-)(%d)",
+      trig = "(\\[^%(%[][%a%d%[%]{}]-[%a}%]])(%d)",
       regTrig = true,
       hidden = true,
     },
