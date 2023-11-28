@@ -82,7 +82,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%)}%]])_([^{][^%s%.']+) ",
+      trig = "([%a%)}%]])_([^{][%d%a\\{}%[%]]+) ",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -105,7 +105,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]])^([^{][^%s%.']) ",
+      trig = "([%a%d%)}%]])^([^{][%d%a\\{}%[%]]+) ",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -158,7 +158,7 @@ M = {
     },
     fmta(
       [[
-   <>^{<>}<>
+   <>^<><>
     ]],
       {
         f(function(_, snip)
