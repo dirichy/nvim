@@ -90,6 +90,9 @@ return {
   s({ trig = "mto", snippetType = "autosnippet", priority = 1001 }, {
     t("\\mapsto"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "ker", snippetType = "autosnippet" }, {
+    t("\\ker"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "--", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\setminus"),
   }, { condition = tex.in_mathzone }),

@@ -36,7 +36,7 @@ M = {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "(\\[^%s]-[%}%]%a])/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
+    { trig = "(\\[%a][^%s]-[%}%]%a])/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
     fmta("\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
