@@ -48,4 +48,7 @@ return {
   s({ trig = "ran", snippetType = "autosnippet" }, {
     t("\\ran"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "mad", snippetType = "autosnippet" }, {
+    t("\\madd"),
+  }, { condition = tex.in_mathzone }),
 }

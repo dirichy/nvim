@@ -43,12 +43,14 @@ local brackets = {
   G = { "\\left\\langle ", "\\right\\rangle " },
   b = { "|", "|" },
   B = { "\\left|", "\\right|" },
+  q = { "``", "''" },
+  w = { "`", "'" },
 }
 
 M = {
   autosnippet(
     {
-      trig = ";([aAsSdfFgGbB])",
+      trig = ";([aAsSdfFgGbBqw])",
       name = "left right",
       dscr = "left right delimiters",
       regTrig = true,
