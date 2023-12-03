@@ -33,7 +33,7 @@ return {
         {
           "<Tab>",
           function()
-            return require("luasnip").expand_or_locally_jumpable() and "<Plug>luasnip-jump-next"
+            return require("luasnip").expand_or_locally_jumpable() and "<Plug>luasnip-jump-next" or "<Tab>"
             -- or "<c-\\><c-n>:call searchpair('[([{<|]', '', '[)\\]}>|]', 'W')<cr>a"
           end,
           expr = true,

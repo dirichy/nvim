@@ -124,28 +124,10 @@ return {
     t("\\mathbbm{1}"),
   }, { condition = tex.in_mathzone }),
   s(
-    { trig = "bb(%w)", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\mathbb{<>}", {
-      f(function(_, snip)
-        return string.upper(snip.captures[1])
-      end),
-    }),
-    { condition = tex.in_mathzone }
-  ),
-  s(
     { trig = "fun", snippetType = "autosnippet", priority = 2000 },
     fmta("\\fun{<>}{<>}", {
       i(1),
       i(2),
-    }),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "mbm(%w)", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\mathbbm{<>}", {
-      f(function(_, snip)
-        return string.upper(snip.captures[1])
-      end),
     }),
     { condition = tex.in_mathzone }
   ),
