@@ -27,12 +27,6 @@ return {
   s({ trig = "and", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\wedge"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "bor", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\bigvee"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = "band", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\bigwedge"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "...", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\cdots"),
   }, { condition = tex.in_mathzone }),
@@ -135,10 +129,7 @@ return {
   s({ trig = "prec", snippetType = "autosnippet" }, {
     t("\\prec"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "prec", snippetType = "autosnippet" }, {
-    t("\\prec"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = "pleq", snippetType = "autosnippet" }, {
+  s({ trig = "ple", snippetType = "autosnippet" }, {
     t("\\prec"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "ifn", snippetType = "autosnippet" }, {
@@ -195,24 +186,4 @@ return {
   s({ trig = "dim", snippetType = "autosnippet" }, {
     t("\\dim"),
   }, { condition = tex.in_mathzone }),
-  s(
-    { trig = "__", wordTrig = false, snippetType = "autosnippet" },
-    fmta(
-      [[
-    _{<>}
-    ]],
-      { i(1) }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "^^", wordTrig = false, snippetType = "autosnippet" },
-    fmta(
-      [[
-    ^{<>}
-    ]],
-      { i(1) }
-    ),
-    { condition = tex.in_mathzone }
-  ),
 }
