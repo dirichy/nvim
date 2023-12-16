@@ -151,7 +151,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]|])'([%a%d])",
+      trig = "([%a%d%)}%]|])'([%a%d%*])",
       regTrig = true,
       wordTrig = false,
       hidden = true,
