@@ -37,7 +37,7 @@ local postfix_snippet = require("util.scaffolding").postfix_snippet
 M = {
   autosnippet(
     {
-      trig = "(%a)(%d)",
+      trig = "([%a%)%]|}])(%d)",
       wordTrig = true,
       regTrig = true,
       hidden = true,
@@ -128,7 +128,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%)}%]])%.([%a%d])",
+      trig = "([%a%)}%]|])%.([%a%d])",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -151,7 +151,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]])'([%a%d])",
+      trig = "([%a%d%)}%]|])'([%a%d])",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -174,7 +174,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%)}%]])%.%.([^%.%s])",
+      trig = "([%a%)}%]|])%.%.([^%.%s])",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -198,7 +198,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]])''([^%.%s])",
+      trig = "([%a%d%)}%]|])''([^%.%s])",
       regTrig = true,
       wordTrig = false,
       hidden = true,
@@ -222,7 +222,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = "([%a%d%)}%]])`",
+      trig = "([%a%d%)}%]|])`",
       regTrig = true,
       wordTrig = false,
       hidden = true,

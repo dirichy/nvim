@@ -80,7 +80,7 @@ end
 M = {
   s(
     {
-      trig = "([bBpvV])mat(%d*)x?(%d*) ",
+      trig = "([bBpvV]?)mat(%d*)x?(%d*) ",
       name = "[bBpvV]matrix",
       dscr = "matrices",
       regTrig = true,

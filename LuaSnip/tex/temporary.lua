@@ -51,4 +51,13 @@ return {
   s({ trig = "mad", snippetType = "autosnippet" }, {
     t("\\madd"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "img", snippetType = "autosnippet" }, {
+    t("\\im"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "rel", snippetType = "autosnippet" }, {
+    t("\\re"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "cof", snippetType = "autosnippet" }, {
+    t("\\cof"),
+  }, { condition = tex.in_mathzone }),
 }

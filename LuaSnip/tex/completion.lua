@@ -113,10 +113,7 @@ return {
   ),
   s(
     { trig = "sup", regTrig = true, snippetType = "autosnippet", priority = 2000 },
-    c(1, {
-      t("\\sup "),
-      sn(nil, { t("\\sup_{"), i(1), t("} ") }),
-    }),
+    t("\\sup"),
     { condition = tex.in_mathzone }
   ),
 }
