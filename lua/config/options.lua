@@ -10,6 +10,14 @@ let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'Rightarrow', 'mathmode': 1, 'conceal': 1, 'concealchar':'➡'},
   \ {'name': 'Leftarrow', 'mathmode': 1, 'conceal': 1, 'concealchar':'⬅'},
   \ {'name': 'varnothing', 'mathmode': 1, 'conceal': 1, 'concealchar':'∅'},
+  \ {'name': 'upharpoonleft', 'mathmode': 1, 'conceal': 1, 'concealchar':'↿'},
+  \ {'name': 'upharpoonright', 'mathmode': 1, 'conceal': 1, 'concealchar':'↾'},
+  \ {'name': 'downharpoonleft', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇃'},
+  \ {'name': 'downharpoonright', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇂'},
+  \ {'name': 'rightharpoonup', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇀'},
+  \ {'name': 'leftharpoonup', 'mathmode': 1, 'conceal': 1, 'concealchar':'↽'},
+  \ {'name': 'rightharpoondown', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇁'},
+  \ {'name': 'leftharpoondown', 'mathmode': 1, 'conceal': 1, 'concealchar':'↽'},
   \]
 ]])
 vim.cmd([[
