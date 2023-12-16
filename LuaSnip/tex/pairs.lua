@@ -89,10 +89,12 @@ M = {
       [[
    <>
     ]],
-      { f(function(_, snip)
-        local cap = snip.captures[1]
-        return brackets[cap][1]
-      end) }
+      {
+        f(function(_, snip)
+          local cap = snip.captures[1]
+          return brackets[string.upper(cap)][1]
+        end),
+      }
     ),
     { condition = tex.in_math, show_condition = tex.in_math }
   ),
@@ -109,10 +111,12 @@ M = {
       [[
    <>
     ]],
-      { f(function(_, snip)
-        local cap = snip.captures[1]
-        return brackets[cap][2]
-      end) }
+      {
+        f(function(_, snip)
+          local cap = snip.captures[1]
+          return brackets[string.upper(cap)][2]
+        end),
+      }
     ),
     { condition = tex.in_math, show_condition = tex.in_math }
   ),
