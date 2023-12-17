@@ -191,20 +191,6 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "case", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \begin{cases}
-        <>
-      \end{cases}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
     { trig = "bal" },
     fmta(
       [[
