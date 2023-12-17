@@ -78,7 +78,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -89,7 +89,7 @@ M = {
     },
     fmta(
       [[
-   <>_{<>}<>
+   <>_{<>} <>
     ]],
       {
         f(function(_, snip)
@@ -101,7 +101,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -112,7 +112,7 @@ M = {
     },
     fmta(
       [[
-   <>^{<>}<>
+   <>^{<>} <>
     ]],
       {
         f(function(_, snip)
@@ -124,7 +124,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -147,7 +147,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -170,7 +170,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -181,7 +181,7 @@ M = {
     },
     fmta(
       [[
-   <>_{<><>}<>
+   <>_{<><>} <>
     ]],
       {
         f(function(_, snip)
@@ -194,7 +194,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -205,7 +205,7 @@ M = {
     },
     fmta(
       [[
-   <>^{<><>}<>
+   <>^{<><>} <>
     ]],
       {
         f(function(_, snip)
@@ -218,7 +218,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -229,7 +229,7 @@ M = {
     },
     fmta(
       [[
-   <>^{(<>)}<>
+   <>^{(<>)} <>
     ]],
       {
         f(function(_, snip)
