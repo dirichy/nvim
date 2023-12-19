@@ -41,18 +41,18 @@ return {
           mode = "i",
         },
         {
-          "fj",
+          "jj",
           function()
             return require("luasnip").jump(1)
           end,
           mode = "s",
         },
         {
-          "fk",
+          "<c-p>",
           function()
             require("luasnip").jump(-1)
           end,
-          mode = { "s" },
+          mode = { "s", "i" },
         },
         {
           "<c-j>",

@@ -60,4 +60,7 @@ return {
   s({ trig = "cof", snippetType = "autosnippet" }, {
     t("\\cof"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "wp", snippetType = "autosnippet" }, {
+    t("\\wp"),
+  }, { condition = tex.in_mathzone }),
 }
