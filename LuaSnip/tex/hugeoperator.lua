@@ -66,5 +66,36 @@ for k, v in pairs(Operators) do
       { condition = tex.in_math }
     )
   )
+  table.insert(
+    M,
+    s(
+      { trig = "\\" .. v .. "(_%b{})([%a%d])", snippetType = "autosnippet", regTrig = true },
+      fmta("\\" .. v .. "<><><><><><>", {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        f(function(_, snip)
+          local str = snip.captures[1]
+          str = str:gsub("^_{(.-)}$", "%1")
+          str = str:gsub("\\{.*\\}", "")
+          str = str:gsub("{.*}", "")
+          return string.find(str, "=") and "^{" or ""
+        end),
+        f(function(_, snip)
+          return snip.captures[2]
+        end),
+        i(1),
+        f(function(_, snip)
+          local str = snip.captures[1]
+          str = str:gsub("^_{(.-)}$", "%1")
+          str = str:gsub("\\{.*\\}", "")
+          str = str:gsub("{.*}", "")
+          return string.find(str, "=") and "}" or ""
+        end),
+        i(0),
+      }),
+      { condition = tex.in_math }
+    )
+  )
 end
 return M
