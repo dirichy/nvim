@@ -50,7 +50,11 @@ local Operators = {
   bodot = "bigodot",
   oint = "oint",
 }
-M = {}
+M = {
+  s({ trig = "\\int", priority = 2000, snippetType = "autosnippet" }, {
+    t("\\int"),
+  }, { condition = tex.in_math }),
+}
 for k, v in pairs(Operators) do
   table.insert(
     M,
