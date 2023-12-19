@@ -128,10 +128,11 @@ M = {
       regTrig = true,
       wordTrig = false,
       hidden = true,
+      priority = 10000,
     },
     fmta(
       [[
-    <> <><><>
+    <><><><>
     ]],
       {
         f(function(_, snip)
