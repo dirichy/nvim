@@ -39,6 +39,7 @@ local greek_specs = {
   alp = [[\alpha]],
   ale = [[\aleph]],
   bet = [[\beta]],
+  chi = [[\chi]],
   gam = [[\gamma]],
   Gam = [[\Gamma]],
   del = [[\delta]],
