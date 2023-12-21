@@ -133,7 +133,7 @@ return {
     t("\\infty"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "perp", snippetType = "autosnippet" }, {
-    t("^\\perp"),
+    t("\\perp"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "xx", snippetType = "autosnippet" }, {
     t("\\times"),
