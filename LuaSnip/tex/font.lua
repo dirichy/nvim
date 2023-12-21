@@ -27,7 +27,7 @@ for k, v in pairs(mathupperfont) do
   table.insert(
     font_snippets,
     s(
-      { trig = k .. "(%a)", regTrig = true, snippetType = "autosnippet" },
+      { trig = "%f[%a]" .. k .. "(%a)", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
       fmta("\\" .. v .. "{<>}<>", {
         f(function(_, snip)
           return string.upper(snip.captures[1])
@@ -40,7 +40,7 @@ for k, v in pairs(mathupperfont) do
   table.insert(
     font_snippets,
     s(
-      { trig = "m" .. k, snippetType = "autosnippet" },
+      { trig = "%f[%a]m" .. k, wordTrig = false, regTrig = true, snippetType = "autosnippet" },
       fmta("\\" .. v .. "{<>}<>", {
         i(1),
         i(0),
@@ -53,7 +53,7 @@ for k, v in pairs(mathnormalfont) do
   table.insert(
     font_snippets,
     s(
-      { trig = k .. "(%a)", regTrig = true, snippetType = "autosnippet" },
+      { trig = "%f[%a]" .. k .. "(%a)", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
       fmta("\\" .. v .. "{<>}<>", {
         f(function(_, snip)
           return snip.captures[1]
@@ -84,15 +84,15 @@ for k, v in pairs(textfont) do
         i(1),
         i(0),
       }),
-      { condition = tex.in_math }
+      { condition = tex.in_text }
     )
   )
 end
 M = {
-  s({ trig = "bb1", snippetType = "autosnippet" }, {
+  s({ trig = "%f[%a]bb1", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, {
     t("\\mathbbm{1}"),
   }, { condition = tex.in_math }),
-  s({ trig = "bm1", snippetType = "autosnippet" }, {
+  s({ trig = "%f[%a]bm1", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, {
     t("\\mathbbm{1}"),
   }, { condition = tex.in_math }),
 }

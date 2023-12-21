@@ -87,20 +87,7 @@ for k, v in pairs(greek_specs) do
   table.insert(
     greek_snippets,
     s(
-      { trig = "([_^])" .. k, wordTrig = false, snippetType = "autosnippet", regTrig = true },
-      fmta("<>" .. v .. "<>", {
-        f(function(_, snip)
-          return snip.captures[1]
-        end),
-        i(0),
-      }),
-      { condition = tex.in_math }
-    )
-  )
-  table.insert(
-    greek_snippets,
-    s(
-      { trig = k, snippetType = "autosnippet", regTrig = true },
+      { trig = "%f[%a]" .. k, snippetType = "autosnippet", regTrig = true, wordTrig = false },
       fmta(v .. "<>", {
         i(0),
       }),
