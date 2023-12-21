@@ -23,10 +23,11 @@ return {
     { trig = "jj", snippetType = "autosnippet" },
     fmta(
       [[
-      \(<>\)
+      \(<>\)<>
       ]],
       {
         i(1),
+        i(0),
       }
     ),
     { condition = tex.in_text }
