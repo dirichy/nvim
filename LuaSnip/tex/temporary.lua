@@ -63,4 +63,7 @@ return {
   s({ trig = "wp", snippetType = "autosnippet" }, {
     t("\\wp"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "sym", snippetType = "autosnippet" }, {
+    t("\\sym"),
+  }, { condition = tex.in_mathzone }),
 }

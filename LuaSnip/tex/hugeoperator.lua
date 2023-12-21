@@ -79,8 +79,13 @@ for k, v in pairs(Operators) do
   table.insert(
     M,
     s(
-      { trig = "\\" .. v .. ".. ", snippetType = "autosnippet", regTrig = true },
-      t("\\" .. v .. " "),
+      { trig = "\\" .. v .. "%.%.([^%a%d%+%-])", snippetType = "autosnippet", regTrig = true },
+      fmta("\\" .. v .. "<><>", {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        i(0),
+      }),
       { condition = tex.in_math }
     )
   )

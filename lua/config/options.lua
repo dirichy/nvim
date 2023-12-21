@@ -18,6 +18,8 @@ let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'leftharpoonup', 'mathmode': 1, 'conceal': 1, 'concealchar':'↽'},
   \ {'name': 'rightharpoondown', 'mathmode': 1, 'conceal': 1, 'concealchar':'⇁'},
   \ {'name': 'leftharpoondown', 'mathmode': 1, 'conceal': 1, 'concealchar':'↽'},
+  \ {'name': 'implies', 'mathmode': 1, 'conceal': 1, 'concealchar':'➡'},
+  \ {'name': 'impliedby', 'mathmode': 1, 'conceal': 1, 'concealchar':'⬅'},
   \]
 ]])
 vim.cmd([[
