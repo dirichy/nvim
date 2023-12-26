@@ -30,9 +30,6 @@ return {
   s({ trig = "...", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\cdots"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "c.", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\cdot"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "iff", snippetType = "autosnippet" }, {
     t("\\iff"),
   }, { condition = tex.in_mathzone }),

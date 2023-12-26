@@ -76,6 +76,19 @@ local generate_cases = function(args, snip)
   table.remove(nodes, #nodes)
   return sn(nil, nodes)
 end
+local generate_equs = function(args, snip)
+  local rows = tonumber(snip.captures[1]) or 2 -- default option 2 for equs
+  local nodes = {}
+  local ins_indx = 1
+  for j = 1, rows do
+    table.insert(nodes, r(ins_indx, tostring(j) .. "x1", i(1)))
+    ins_indx = ins_indx + 1
+    table.insert(nodes, t({ "\\\\", "" }))
+  end
+  -- fix last node.
+  table.remove(nodes, #nodes)
+  return sn(nil, nodes)
+end
 
 M = {
   s(
@@ -102,7 +115,7 @@ M = {
         end),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
 
   autosnippet(
@@ -115,7 +128,19 @@ M = {
     ]],
       { d(1, generate_cases) }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
+  ),
+  autosnippet(
+    { trig = "(%d?)equs", name = "equs", dscr = "equs", regTrig = true, hidden = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+    \begin{cases}
+    <>
+    \end{cases}
+    ]],
+      { d(1, generate_equs) }
+    ),
+    { condition = tex.in_math }
   ),
 }
 
