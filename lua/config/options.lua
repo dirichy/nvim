@@ -38,3 +38,4 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'res', 'mathmode': 1, 'nargs':2, 'cchar_mid':'↾',},
   \]
 ]])
+vim.api.nvim_set_option("foldmethod", "manual")

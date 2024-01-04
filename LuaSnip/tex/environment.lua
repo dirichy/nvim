@@ -46,6 +46,9 @@ local envs = {
   en = { name = "enumerate", condition = 2, item = true },
   it = { name = "itemize", condition = 2, item = true },
   eq = { name = "equation", condition = 2, label = "equ" },
+  de = { name = "defination", condition = 2, label = "def" },
+  co = { name = "corollary", condition = 2, label = "cor" },
+  th = { name = "theorem", condition = 2, label = "the" },
 }
 local make_label = function(_, snip)
   local env = envs[snip.captures[1]]
