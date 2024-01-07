@@ -30,12 +30,6 @@ return {
   s({ trig = "...", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\cdots"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "c.", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\cdot"),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = "v.", wordTrig = false, snippetType = "autosnippet", priority = 2000 }, {
-    t("\\vdots"),
-  }, { condition = tex.in_mathzone }),
   s({ trig = "iff", snippetType = "autosnippet" }, {
     t("\\iff"),
   }, { condition = tex.in_mathzone }),
@@ -136,7 +130,7 @@ return {
     t("\\infty"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "perp", snippetType = "autosnippet" }, {
-    t("^\\perp"),
+    t("\\perp"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "xx", snippetType = "autosnippet" }, {
     t("\\times"),

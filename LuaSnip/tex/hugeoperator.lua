@@ -35,45 +35,84 @@ local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" }
 local tex = require("util.conditions")
 local line_begin = require("luasnip.extras.conditions.expand").line_begin
 local Operators = {
-  sum = "sum",
+  band = "bigwedge",
   bcap = "bigcap",
   bcup = "bigcup",
-  bor = "bigvee",
-  band = "bigwedge",
-  prod = "prod",
-  int = "int",
-  iint = "iint",
-  iiint = "iiint",
+  bodot = "bigodot",
   bopl = "bigoplus",
+  bor = "bigvee",
   boti = "bigotimes",
   bscup = "bigsqcup",
-  bodot = "bigodot",
+  iiint = "iiint",
+  iint = "iint",
+  int = "int",
   oint = "oint",
+  prod = "prod",
+  sum = "sum",
 }
-M = {}
+M = {
+  s({ trig = "\\int", priority = 2000, snippetType = "autosnippet" }, {
+    t("\\int.."),
+  }, { condition = tex.in_math }),
+}
 for k, v in pairs(Operators) do
   table.insert(
     M,
     s({ trig = k, snippetType = "autosnippet" }, {
-      t("\\" .. v),
+      t("\\" .. v .. ".."),
     }, { condition = tex.in_math })
+  )
+  --  table.insert(
+  --    M,
+  --    s(
+  --      { trig = "\\" .. v .. "(%a)", snippetType = "autosnippet", regTrig = true },
+  --      fmta("\\" .. v .. "_{<><>}<>", {
+  --        f(function(_, snip)
+  --          return snip.captures[1]
+  --        end),
+  --        i(1),
+  --        i(0),
+  --      }),
+  --      { condition = tex.in_math }
+  --    )
+  --  )
+  table.insert(
+    M,
+    s(
+      { trig = "\\" .. v .. "%.%.([^%a%d%+%-])", snippetType = "autosnippet", regTrig = true },
+      fmta("\\" .. v .. "<><>", {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        i(0),
+      }),
+      { condition = tex.in_math }
+    )
   )
   table.insert(
     M,
     s(
-      { trig = "\\" .. v .. "([%d%a])", snippetType = "autosnippet", regTrig = true },
-      fmta("\\" .. v .. "_{<><>}<><>", {
+      { trig = "\\" .. v .. "(_%b{})([%a%d])", snippetType = "autosnippet", regTrig = true },
+      fmta("\\" .. v .. "<><><><><><>", {
         f(function(_, snip)
           return snip.captures[1]
         end),
+        f(function(_, snip)
+          local str = snip.captures[1]
+          str = str:gsub("^_{(.-)}$", "%1")
+          str = str:gsub("{.*}", "")
+          return string.find(str, "=") and "^{" or ""
+        end),
+        f(function(_, snip)
+          return snip.captures[2]
+        end),
         i(1),
-        f(function(args)
-          if string.find(args[1][1], "=") then
-            return "'"
-          else
-            return ""
-          end
-        end, { 1 }),
+        f(function(_, snip)
+          local str = snip.captures[1]
+          str = str:gsub("^_{(.-)}$", "%1")
+          str = str:gsub("{.*}", "")
+          return string.find(str, "=") and "}" or ""
+        end),
         i(0),
       }),
       { condition = tex.in_math }

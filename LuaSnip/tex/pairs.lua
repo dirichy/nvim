@@ -50,7 +50,7 @@ local brackets = {
 M = {
   autosnippet(
     {
-      trig = ";([aAsSdfFgGbBqw])",
+      trig = ";([aAsSdfFgGbB])",
       name = "left right",
       dscr = "left right delimiters",
       regTrig = true,
@@ -59,7 +59,7 @@ M = {
     },
     fmta(
       [[
-    <><><><>
+    <> <><><>
     ]],
       {
         f(function(_, snip)
@@ -74,7 +74,7 @@ M = {
         i(0),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -96,7 +96,7 @@ M = {
         end),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
   ),
   autosnippet(
     {
@@ -118,7 +118,36 @@ M = {
         end),
       }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math }
+  ),
+  autosnippet(
+    {
+      trig = ";;([asdfbqw])",
+      name = "left right",
+      dscr = "left right delimiters",
+      regTrig = true,
+      wordTrig = false,
+      hidden = true,
+      priority = 10000,
+    },
+    fmta(
+      [[
+    <><><><>
+    ]],
+      {
+        f(function(_, snip)
+          local cap = snip.captures[1]
+          return brackets[cap][1]
+        end),
+        i(1),
+        f(function(_, snip)
+          local cap = snip.captures[1]
+          return brackets[cap][2]
+        end),
+        i(0),
+      }
+    ),
+    { condition = tex.in_text }
   ),
 }
 

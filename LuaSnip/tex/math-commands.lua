@@ -161,6 +161,24 @@ return {
     { condition = tex.in_mathzone }
   ),
   s(
+    { trig = "(\\%a+)hat", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\hat{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "(%a)hat", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\hat{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
     { trig = "(%a)bar", regTrig = true, snippetType = "autosnippet" },
     fmta("\\overline{<>}", {
       f(function(_, snip)

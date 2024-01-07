@@ -23,10 +23,11 @@ return {
     { trig = "jj", snippetType = "autosnippet" },
     fmta(
       [[
-      \(<>\)
+      \(<>\)<>
       ]],
       {
         i(1),
+        i(0),
       }
     ),
     { condition = tex.in_text }
@@ -183,20 +184,6 @@ return {
       \begin{dcases}
         <>
       \end{dcases}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone }
-  ),
-  s(
-    { trig = "case", snippetType = "autosnippet" },
-    fmta(
-      [[
-      \begin{cases}
-        <>
-      \end{cases}
       ]],
       {
         i(0),
