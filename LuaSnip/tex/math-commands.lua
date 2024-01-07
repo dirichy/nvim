@@ -57,6 +57,9 @@ return {
     }),
     { condition = tex.in_mathzone }
   ),
+  s({ trig = "arg", snippetType = "autosnippet" }, {
+    t("\\arg"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "set", snippetType = "autosnippet" }, {
     t("\\set"),
   }, { condition = tex.in_mathzone }),
