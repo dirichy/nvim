@@ -97,4 +97,17 @@ return {
     ),
     { condition = line_begin }
   ),
+  s(
+    { trig = "envsnip", snippetType = "autosnippet" },
+    fmta(
+      [[
+s({ trig = "<>", snippetType = "autosnippet" },
+  fmta("\\begin{<>}<>\n  \n\\end{<>}", {
+  }),
+ { condition = line_begin}),
+    ]],
+      { i(1), i(2), i(3), rep(2) }
+    ),
+    { condition = line_begin }
+  ),
 }
