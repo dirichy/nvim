@@ -37,7 +37,7 @@ M = {
     { trig = "(%d?)(r?)env", regTrig = true, snippetType = "autosnippet" },
     fmta(
       [[
-    \\<>newenvironment<>{<>}%
+    \<>newenvironment{<>}<>%
     {<>}%
     {<>}
     ]],
@@ -45,10 +45,10 @@ M = {
         f(function(_, snip)
           return snip.captures[2] ~= "" and "re" or ""
         end),
+        i(1),
         f(function(_, snip)
           return snip.captures[1] ~= "" and "[" .. snip.captures[1] .. "]" or ""
         end),
-        i(1),
         i(2),
         i(3),
       }
@@ -61,10 +61,10 @@ M = {
       f(function(_, snip)
         return snip.captures[2] ~= "" and "re" or ""
       end),
+      i(1),
       f(function(_, snip)
         return snip.captures[1] ~= "" and "[" .. snip.captures[1] .. "]" or ""
       end),
-      i(1),
       i(2),
     }),
     { condition = tex.in_preamble * line_begin }
