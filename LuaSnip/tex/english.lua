@@ -81,65 +81,55 @@ return {
   s({ trig = "x", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, {
     t("\\ae "),
   }, { condition = in_tipa }),
-  -- s(
-  --   { trig = "([%a]+)@", regTrig = true, snippetType = "autosnippet" },
-  --   fmta("\\emword[wo:<>]{<>}", {
-  --     f(function(_, snip)
-  --       return snip.captures[1]
-  --     end),
-  --     f(function(_, snip)
-  --       return snip.captures[1]
-  --     end),
-  --   }),
-  --   {}
-  -- ),
-  -- s(
-  --   { trig = "([%a]+)#", regTrig = true, snippetType = "autosnippet" },
-  --   fmta("\\emword{<>}", {
-  --     f(function(_, snip)
-  --       return snip.captures[1]
-  --     end),
-  --   }),
-  --   {}
-  -- ),
-  -- s(
-  --   { trig = "([^%.%?!]+[%.%?!])@", regTrig = true, snippetType = "autosnippet" },
-  --   fmta("\\emsent[se:<>]{<>}", {
-  --     f(function(_, snip)
-  --       local sentence = snip.captures[1]
-  --       local s = string.match(sentence, "^.")
-  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
-  --       s = s .. string.match(sentence, "^.")
-  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
-  --       s = s .. string.match(sentence, "^.")
-  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
-  --       s = s .. string.match(sentence, "^.")
-  --       return s
-  --     end),
-  --     f(function(_, snip)
-  --       return snip.captures[1]
-  --     end),
-  --   }),
-  --   {}
-  -- ),
-  -- s(
-  --   { trig = "([^%.%?!]+[%.%?!])#", regTrig = true, snippetType = "autosnippet" },
-  --   fmta("\\emsent{<>}", {
-  --     f(function(_, snip)
-  --       local sentence = snip.captures[1]
-  --       local s = string.match(sentence, "^.")
-  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
-  --       s = s .. string.match(sentence, "^.")
-  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
-  --       s = s .. string.match(sentence, "^.")
-  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
-  --       s = s .. string.match(sentence, "^.")
-  --       return s
-  --     end),
-  --     f(function(_, snip)
-  --       return snip.captures[1]
-  --     end),
-  --   }),
-  --   {}
-  -- ),
+  s(
+    { trig = "([%a]+)@", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\emword[wo:<>]{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    }),
+    {}
+  ),
+  s(
+    { trig = "([%a]+)#", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\emword{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    }),
+    {}
+  ),
+  s(
+    { trig = "([^%.%?!]+[%.%?!])@", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\emsent[se:<>]{<>}", {
+      f(function(_, snip)
+        local sentence = snip.captures[1]
+        sentence = string.gsub(sentence, "^ *", "")
+        local str = string.match(sentence, "^.")
+        sentence = string.gsub(sentence, "^[^ ]* ", "")
+        str = str .. string.match(sentence, "^.")
+        sentence = string.gsub(sentence, "^[^ ]* ", "")
+        str = str .. string.match(sentence, "^.")
+        sentence = string.gsub(sentence, "^[^ ]* ", "")
+        str = str .. string.match(sentence, "^.")
+        return str
+      end),
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    }),
+    {}
+  ),
+  s(
+    { trig = "([^%.%?!]+[%.%?!])#", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\emsent{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    }),
+    {}
+  ),
 }
