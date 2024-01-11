@@ -36,11 +36,12 @@ return {
   s(
     { trig = ".wo", snippetType = "autosnippet" },
     fmta(
-      "\\begin{word}{<>}{<>}{<>}\n\\begin{enumerate}[label=(\\arabic*)]\n\\item <> \n\\end{enumerate}\n\\end{word}",
+      "\\begin{word}{<>}{<>}{<>}\\label{wo:<>}\n\\begin{enumerate}[label=(\\arabic*)]\n\\item <> \n\\end{enumerate}\n\\end{word}",
       {
         i(1),
         i(2),
         i(3),
+        rep(1),
         i(4),
       }
     ),
@@ -80,4 +81,65 @@ return {
   s({ trig = "x", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, {
     t("\\ae "),
   }, { condition = in_tipa }),
+  -- s(
+  --   { trig = "([%a]+)@", regTrig = true, snippetType = "autosnippet" },
+  --   fmta("\\emword[wo:<>]{<>}", {
+  --     f(function(_, snip)
+  --       return snip.captures[1]
+  --     end),
+  --     f(function(_, snip)
+  --       return snip.captures[1]
+  --     end),
+  --   }),
+  --   {}
+  -- ),
+  -- s(
+  --   { trig = "([%a]+)#", regTrig = true, snippetType = "autosnippet" },
+  --   fmta("\\emword{<>}", {
+  --     f(function(_, snip)
+  --       return snip.captures[1]
+  --     end),
+  --   }),
+  --   {}
+  -- ),
+  -- s(
+  --   { trig = "([^%.%?!]+[%.%?!])@", regTrig = true, snippetType = "autosnippet" },
+  --   fmta("\\emsent[se:<>]{<>}", {
+  --     f(function(_, snip)
+  --       local sentence = snip.captures[1]
+  --       local s = string.match(sentence, "^.")
+  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
+  --       s = s .. string.match(sentence, "^.")
+  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
+  --       s = s .. string.match(sentence, "^.")
+  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
+  --       s = s .. string.match(sentence, "^.")
+  --       return s
+  --     end),
+  --     f(function(_, snip)
+  --       return snip.captures[1]
+  --     end),
+  --   }),
+  --   {}
+  -- ),
+  -- s(
+  --   { trig = "([^%.%?!]+[%.%?!])#", regTrig = true, snippetType = "autosnippet" },
+  --   fmta("\\emsent{<>}", {
+  --     f(function(_, snip)
+  --       local sentence = snip.captures[1]
+  --       local s = string.match(sentence, "^.")
+  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
+  --       s = s .. string.match(sentence, "^.")
+  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
+  --       s = s .. string.match(sentence, "^.")
+  --       sentence = string.gsub(sentence, "^[^ ]* ", "")
+  --       s = s .. string.match(sentence, "^.")
+  --       return s
+  --     end),
+  --     f(function(_, snip)
+  --       return snip.captures[1]
+  --     end),
+  --   }),
+  --   {}
+  -- ),
 }
