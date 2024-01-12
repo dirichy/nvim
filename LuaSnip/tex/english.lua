@@ -91,7 +91,7 @@ return {
         return snip.captures[1]
       end),
     }),
-    {}
+    { condition = not in_tipa }
   ),
   s(
     { trig = "([%a]+)#", regTrig = true, snippetType = "autosnippet" },
@@ -121,7 +121,7 @@ return {
         return snip.captures[1]
       end),
     }),
-    {}
+    { condition = not in_tipa }
   ),
   s(
     { trig = "([^%.%?!]+[%.%?!])#", regTrig = true, snippetType = "autosnippet" },
