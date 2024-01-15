@@ -13,7 +13,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "(%a+)/", regTrig = true, snippetType = "autosnippet", priority = 100 },
@@ -23,7 +23,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "(%b())/", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
@@ -33,7 +33,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "(\\%a+)/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
@@ -43,7 +43,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "(\\%a+%b[])/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
@@ -53,7 +53,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "(\\%a+%b{})/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
@@ -63,7 +63,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "(\\%a+%b{}%b{})/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
@@ -73,7 +73,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "(\\%a+%b[]%b{}%b{})/", regTrig = true, snippetType = "autosnippet", priority = 3000 },
@@ -83,7 +83,7 @@ M = {
       end),
       i(1),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "//", regTrig = true, snippetType = "autosnippet", priority = 3000 },
@@ -91,7 +91,7 @@ M = {
       i(1),
       i(2),
     }),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
 }
 return M

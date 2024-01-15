@@ -58,6 +58,18 @@ return {
     }),
     { condition = tex.in_text }
   ),
+  s(
+    { trig = "([,.?;!])(%a)", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 3000 },
+    fmta("<><>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      f(function(_, snip)
+        return snip.captures[2]
+      end),
+    }),
+    { condition = tex.in_text * line_begin }
+  ),
   s({ trig = "lim", regTrig = true, snippetType = "autosnippet" }, fmta("\\lim", {}), { condition = tex.in_mathzone }),
   -- s(
   --   { trig = "sum", regTrig = true, snippetType = "autosnippet" },
