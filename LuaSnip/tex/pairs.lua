@@ -45,12 +45,16 @@ local brackets = {
   B = { "\\left|", "\\right|" },
   q = { "``", "''" },
   w = { "`", "'" },
+  u = { "\\lceil", "\\rceil" },
+  U = { "\\left\\lceil", "\\right\\rceil" },
+  n = { "\\lfloor", "\\rfloor" },
+  N = { "\\left\\lfloor", "\\right\\rfloor" },
 }
 
 M = {
   autosnippet(
     {
-      trig = ";([aAsSdfFgGbB])",
+      trig = ";([aAsSdfFgGbBuUnN])",
       name = "left right",
       dscr = "left right delimiters",
       regTrig = true,
@@ -78,7 +82,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = ";h([aAsSdDfFgGbB])",
+      trig = ";h([aAsSdDfFgGbBuUnN])",
       name = "left right",
       dscr = "left right delimiters",
       regTrig = true,
@@ -100,7 +104,7 @@ M = {
   ),
   autosnippet(
     {
-      trig = ";l([aAsSdDfFgGbB])",
+      trig = ";l([aAsSdDfFgGbBuUnN])",
       name = "left right",
       dscr = "left right delimiters",
       regTrig = true,
