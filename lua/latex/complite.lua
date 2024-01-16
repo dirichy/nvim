@@ -25,8 +25,11 @@ local comp = function()
   local path = vim.fn.expand("%:p")
   path = string.gsub(path, "/[^/]*$", "")
   method = compliter[method]
-  print("use " .. method .. " to complite!")
-  i = vim.api.nvim_exec("!cd " .. path .. ";log=$(" .. method .. " %:p);echo $?", { output = true })
-  print(i)
+  print(
+    "use "
+      .. method
+      .. " to complite!"
+      .. tostring(vim.api.nvim_exec("!cd " .. path .. ";log=$(" .. method .. " %:p);echo $?", { output = true }))
+  )
 end
 return comp

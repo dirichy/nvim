@@ -70,8 +70,9 @@ return {
   ),
   s(
     { trig = ".ar", snippetType = "autosnippet" },
-    fmta("\\begin{article}\n <> \n\\end{article}", {
+    fmta("\\begin{article}{<>}\n <> \n\\end{article}", {
       i(1),
+      i(2),
     }),
     { condition = line_begin }
   ),
@@ -91,7 +92,11 @@ return {
         return snip.captures[1]
       end),
     }),
-    { condition = not in_tipa }
+    {
+      condition = function()
+        return not in_tipa()
+      end,
+    }
   ),
   s(
     { trig = "([%a]+)#", regTrig = true, snippetType = "autosnippet" },
@@ -121,7 +126,11 @@ return {
         return snip.captures[1]
       end),
     }),
-    { condition = not in_tipa }
+    {
+      condition = function()
+        return not in_tipa()
+      end,
+    }
   ),
   s(
     { trig = "([^%.%?!]+[%.%?!])#", regTrig = true, snippetType = "autosnippet" },
