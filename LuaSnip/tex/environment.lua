@@ -35,7 +35,7 @@ local auto_backslash_snippet = require("util.scaffolding").auto_backslash_snippe
 local symbol_snippet = require("util.scaffolding").symbol_snippet
 local single_command_snippet = require("util.scaffolding").single_command_snippet
 local postfix_snippet = require("util.scaffolding").postfix_snippet
-local text_line_begin_leader = "."
+local text_line_begin_leader = "。"
 local envs = {
   pf = { name = "proof", condition = 2 },
   so = { name = "solution", condition = 2 },

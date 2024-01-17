@@ -8,3 +8,4 @@ autocmd("BufEnter", {
     vim.g.minipairs_disable = true
   end,
 })
+pcall(require, "computer.rime")

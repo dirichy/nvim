@@ -9,7 +9,7 @@ local d = ls.dynamic_node
 local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
-local tex = require("util.latex")
+local tex = require("util.conditions")
 local get_visual = function(args, parent)
   if #parent.snippet.env.SELECT_RAW > 0 then
     return sn(nil, t(parent.snippet.env.SELECT_RAW))
@@ -21,6 +21,19 @@ end
 return {
   s(
     { trig = "jj", snippetType = "autosnippet" },
+    fmta(
+      [[
+      \(<>\)<>
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    { condition = tex.in_text }
+  ),
+  s(
+    { trig = "  ", snippetType = "autosnippet" },
     fmta(
       [[
       \(<>\)<>
@@ -189,7 +202,7 @@ return {
         i(0),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "bal" },
@@ -203,7 +216,7 @@ return {
         i(0),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "beq" },
@@ -231,7 +244,7 @@ return {
         d(1, get_visual),
       }
     ),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
   s(
     { trig = "bit" },
