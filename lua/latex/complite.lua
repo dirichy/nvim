@@ -6,27 +6,15 @@ local compliter = {
   bibtex = "bibtex",
   bib = "bibtex",
 }
+local get_magic_comment = require("latex.get_magic_comment")
 local comp = function()
-  local method = "pdf"
-  local i = 0
-  while true do
-    local line = vim.api.nvim_buf_get_lines(0, i, i + 1, false)[1]
-    if string.match(line, "^%%!") then
-      line = string.lower(line)
-      if string.match(line, "tex ts%-program") then
-        method = string.match(line, "[^ =]*$")
-        break
-      end
-      i = i + 1
-    else
-      break
-    end
-  end
+  local method = get_magic_comment("TEX TS-Program") or "pdf"
   local path = vim.fn.expand("%:p")
   path = string.gsub(path, "/[^/]*$", "")
   method = compliter[method]
-  print("use " .. method .. " to complite!")
-  i = vim.api.nvim_exec("!cd " .. path .. ";log=$(" .. method .. " %:p);echo $?", { output = true })
-  print(i)
+  local output = vim.api.nvim_exec2("!cd " .. path .. ";dirichylog=$(" .. method .. " %:p);echo $?", { output = true })
+  local message = string.match(output.output, "\n.\n$")
+  message = string.gsub(message, "\n", "")
+  print("Use " .. method .. " to complite, complite " .. (message == "0" and "success" or "unsuccess"))
 end
 return comp
