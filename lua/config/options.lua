@@ -3,4 +3,4 @@
 -- Add any additional options here
 require("latex.conceal")
 vim.api.nvim_set_option("foldmethod", "manual")
-vim.api.nvim_exec2("set noautowrite", {})
+vim.api.nvim_exec2("set noautowrite wrap linebreak", {})

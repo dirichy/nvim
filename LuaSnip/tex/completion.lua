@@ -10,7 +10,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
-local tex = require("util.latex")
+local tex = require("util.conditions")
 
 local get_visual = function(args, parent)
   if #parent.snippet.env.SELECT_RAW > 0 then
@@ -28,7 +28,7 @@ return {
   --       return snip.captures[1]
   --     end),
   --   }),
-  --   { condition = tex.in_mathzone}
+  --   { condition = tex.in_math}
   -- ),
   s(
     { trig = "\\%)(%a)", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
@@ -70,18 +70,18 @@ return {
     }),
     { condition = tex.in_text * line_begin }
   ),
-  s({ trig = "lim", regTrig = true, snippetType = "autosnippet" }, fmta("\\lim", {}), { condition = tex.in_mathzone }),
+  s({ trig = "lim", regTrig = true, snippetType = "autosnippet" }, fmta("\\lim", {}), { condition = tex.in_math }),
   -- s(
   --   { trig = "sum", regTrig = true, snippetType = "autosnippet" },
   --   fmta("\\sum\\limits_{<>}^{<>}", {
   --     i(1),
   --     i(1),
   --   }),
-  --   { condition = tex.in_mathzone }
+  --   { condition = tex.in_math }
   -- ),
   s(
     { trig = "sup", regTrig = true, snippetType = "autosnippet", priority = 2000 },
     t("\\sup"),
-    { condition = tex.in_mathzone }
+    { condition = tex.in_math }
   ),
 }
