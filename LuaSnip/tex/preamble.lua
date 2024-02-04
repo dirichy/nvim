@@ -4,6 +4,7 @@ local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
+local rep = require("luasnip.extras").rep
 local fmta = require("luasnip.extras.fmt").fmta
 local tex = require("util.conditions")
 M = {
@@ -44,6 +45,22 @@ M = {
       f(function(_, snip)
         return snip.captures[1] ~= "" and "[" .. snip.captures[1] .. "]" or ""
       end),
+      i(2),
+    }),
+    { condition = tex.in_preamble * line_begin }
+  ),
+  s(
+    { trig = "opt", snippetType = "autosnippet" },
+    fmta("\\DeclareMathOpe{\\<>}{<>}", {
+      i(1),
+      rep(1),
+    }),
+    { condition = tex.in_preamble * line_begin }
+  ),
+  s(
+    { trig = "Opt", snippetType = "autosnippet" },
+    fmta("\\DeclareMathOpe{\\<>}{<>}", {
+      i(1),
       i(2),
     }),
     { condition = tex.in_preamble * line_begin }

@@ -1,14 +1,12 @@
 local ls = require("luasnip")
 local s = ls.snippet
 local t = ls.text_node
+local f = ls.function_node
 local i = ls.insert_node
 local fmta = require("luasnip.extras.fmt").fmta
 local tex = require("util.conditions")
 
 return {
-  s({ trig = "dps", snippetType = "autosnippet" }, {
-    t("\\displaystyle"),
-  }, { condition = tex.in_math }),
   s({ trig = "if" }, {
     t("\\text{\\ if\\ }"),
   }, { condition = tex.in_math }),
@@ -24,14 +22,27 @@ return {
 
   s({ trig = "label", snippetType = "autosnippet" }, {
     t("\\label{"),
-    i(0),
+    i(1),
     t("}"),
   }, { condition = tex.in_text, show_condition = tex.in_text }),
-  s({ trig = "cref", snippetType = "autosnippet" }, {
-    t("\\Cref{"),
-    i(0),
+  s(
+    { trig = "cref", snippetType = "autosnippet" },
+    fmta("\\<>ref{<>}", {
+      f(function(args, _)
+        if args[1][1] ~= "" then
+          return "C"
+        end
+        return ""
+      end, { 1 }),
+      i(1),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s({ trig = "ref", snippetType = "autosnippet" }, {
+    t("\\ref{"),
+    i(1),
     t("}"),
-  }, { condition = tex.in_text, show_condition = tex.in_text }),
+  }, { condition = tex.in_text }),
   s(
     { trig = "href", snippetType = "autosnippet" },
     fmta("\\href{<>}{<>}", {

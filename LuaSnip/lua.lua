@@ -39,7 +39,7 @@ return {
         { condition = tex.<> }
       ),
       ]],
-      { i(1), rep(1), rep(1), c(2, { t("in_text"), t("in_quantikz"), t("in_mathzone") }) }
+      { i(1), rep(1), rep(1), c(2, { t("in_text"), t("in_math") }) }
     ),
     { condition = line_begin }
   ),
@@ -53,7 +53,7 @@ return {
         { condition = tex.<> }
       ),
       ]],
-      { i(1), rep(1), rep(1), c(2, { t("in_quantikz"), t("in_mathzone") }) }
+      { i(1), rep(1), rep(1), c(2, { t("in_quantikz"), t("in_math") }) }
     ),
     { condition = line_begin }
   ),
@@ -67,7 +67,7 @@ return {
         { condition = tex.<> }
       ),
       ]],
-      { i(1), rep(1), rep(1), c(2, { t("in_quantikz"), t("in_mathzone") }) }
+      { i(1), rep(1), rep(1), c(2, { t("in_quantikz"), t("in_math") }) }
     ),
     { condition = line_begin }
   ),
@@ -81,7 +81,7 @@ return {
         }),
        { condition = tex.<> }),
       ]],
-      { i(1), rep(1), i(2, "i(1),"), c(3, { t("in_mathzone"), t("in_quantikz") }) }
+      { i(1), rep(1), i(2, "i(1),"), c(3, { t("in_math"), t("in_quantikz") }) }
     ),
     { condition = line_begin }
   ),
@@ -93,7 +93,7 @@ return {
         t("\\<>"),
       }, { condition = tex.<> }),
       ]],
-      { i(1), rep(1), c(2, { t("in_mathzone"), t("in_quantikz") }) }
+      { i(1), rep(1), c(2, { t("in_math"), t("in_quantikz") }) }
     ),
     { condition = line_begin }
   ),

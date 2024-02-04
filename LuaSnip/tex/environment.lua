@@ -20,12 +20,14 @@ local envs = {
   cr = { name = "center", condition = 2 },
   pr = { name = "problem", condition = 2, label = "pro" },
   le = { name = "lemma", condition = 2, label = "lem" },
-  en = { name = "enumerate", condition = 2, item = true },
-  it = { name = "itemize", condition = 2, item = true },
+  en = { name = "enumerate", condition = 2, prefix = "\\item " },
+  it = { name = "itemize", condition = 2, prefix = "\\item " },
   eq = { name = "equation", condition = 2, label = "equ" },
   de = { name = "defination", condition = 2, label = "def" },
   co = { name = "corollary", condition = 2, label = "cor" },
   th = { name = "theorem", condition = 2, label = "the" },
+  fr = { name = "frame", condition = 2 },
+  fg = { name = "figure", condition = 2, label = "fig", prefix = "\\centering" },
 }
 local make_label = function(_, snip)
   local env = envs[snip.captures[1]]
@@ -68,11 +70,7 @@ M = {
         end),
         d(1, make_label),
         f(function(_, snip)
-          if envs[snip.captures[1]].item then
-            return "\\item "
-          else
-            return ""
-          end
+          return envs[snip.captures[1]].prefix or ""
         end),
         i(2),
         f(function(_, snip)

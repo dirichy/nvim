@@ -22,7 +22,8 @@ local lp = "<leader>t"
 local lmap = function(key, cmd, opts)
   map("n", lp .. key, cmd, opts)
 end
-lmap("b", require("latex.complite"), { desc = "Build LaTeX file" })
+lmap("b", require("latex.complite").normalcomp, { desc = "build latex file" })
+lmap("B", require("latex.complite").fullcomp, { desc = "Build LaTeX file" })
 lmap("v", "<cmd>!mytexviewer %:p<cr>", { desc = "View pdf file" })
 lmap("f", forwardsearch, { desc = "Forwardsearch" })
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })

@@ -48,5 +48,8 @@ end
 function M.in_align()
   return env("align") or env("align*") or env("aligned")
 end
+function M.in_fig()
+  return env("figure")
+end
 
 return M
