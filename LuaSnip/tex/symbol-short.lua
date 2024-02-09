@@ -22,9 +22,6 @@ return {
   s({ trig = "||", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\mid"),
   }, { condition = tex.in_math }),
-  s({ trig = "  ", wordTrig = false, snippetType = "autosnippet" }, {
-    t("\\, "),
-  }, { condition = tex.in_math }),
   s({ trig = "=>", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\implies"),
   }, { condition = tex.in_math }),

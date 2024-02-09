@@ -62,7 +62,7 @@ return {
     { condition = tex.in_math }
   ),
   s(
-    { trig = "bar", snippetType = "autosnippet", priority = 2000 },
+    { trig = "bar", snippetType = "autosnippet", priority = 200 },
     fmta("\\overline{<>}", {
       d(1, get_visual),
     }),
@@ -91,29 +91,6 @@ return {
         return snip.captures[1]
       end),
     }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "(%a)hat", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\hat{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "(%a)bar", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\overline{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "\\mathbb{A}r", regTrig = true, snippetType = "autosnippet", priority = 2000 },
-    fmta("\\overline{b}", {}),
     { condition = tex.in_math }
   ),
   s(
