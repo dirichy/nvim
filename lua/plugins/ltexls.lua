@@ -1,5 +1,6 @@
 return {
   "vigoux/ltex-ls.nvim",
+  event = "VeryLazy",
   config = function()
     require("ltex-ls").setup({
       capabilities = {},
@@ -49,6 +50,7 @@ return {
     {
       "<leader>tc",
       function()
+        vim.api.nvim_exec2("w", {})
         vim.api.nvim_exec2("LtexCheckDocument", {})
       end,
       desc = "Latex Check English",

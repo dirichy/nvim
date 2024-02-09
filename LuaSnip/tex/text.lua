@@ -91,6 +91,23 @@ return {
   s({ trig = "homo" }, {
     t("homomorphic"),
   }, { condition = tex.in_text }),
+  s(
+    { trig = "\\%)(%a)", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
+    fmta("\\) <>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    })
+  ),
+  s(
+    { trig = "\\](%a)", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
+    fmta("\\] <>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    })
+  ),
+
   -- s({ trig = "psp", snippetType = "autosnippet" }, {
   --   t("\\(p\\)-subgroup"),
   -- }, { condition = tex.in_text }),

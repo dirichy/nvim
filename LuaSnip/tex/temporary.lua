@@ -28,12 +28,6 @@ return {
     }),
     { condition = tex.in_math }
   ),
-  s({ trig = "dom", snippetType = "autosnippet" }, {
-    t("\\dom"),
-  }, { condition = tex.in_math }),
-  s({ trig = "ran", snippetType = "autosnippet" }, {
-    t("\\ran"),
-  }, { condition = tex.in_math }),
   s({ trig = "mad", snippetType = "autosnippet" }, {
     t("\\madd"),
   }, { condition = tex.in_math }),
