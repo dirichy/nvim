@@ -34,6 +34,31 @@ local auto_backslash_snippet = require("util.scaffolding").auto_backslash_snippe
 local symbol_snippet = require("util.scaffolding").symbol_snippet
 local single_command_snippet = require("util.scaffolding").single_command_snippet
 local postfix_snippet = require("util.scaffolding").postfix_snippet
+local makesnip = function(_, snip, _, con, var)
+  local key = snip.captures[1]
+  local out = con[key]
+  if not out then
+    for k, v in pairs(var) do
+      if string.match(key, k) then
+        out = string.gsub(key, k, v)
+        break
+      end
+    end
+  end
+  if not out then
+    return sn(nil, { t(key) })
+  end
+  local _, count = string.gsub(out, "<>", "<>")
+  if count == 0 then
+    return sn(nil, { t(out) })
+  else
+    local nodes = {}
+    for index = 1, count do
+      table.insert(nodes, i(index))
+    end
+    return sn(nil, fmta(out, nodes))
+  end
+end
 
 local cmd2char = {
   ["in"] = [[\in]],
@@ -49,6 +74,14 @@ local cmd2char = {
   ["xi"] = [[\xi]],
 }
 local cmd3char = {
+  ["vec"] = [[\vec{<>}]],
+  ["abs"] = [[|<>|]],
+  ["dot"] = [[\dot{<>}]],
+  ["tdl"] = [[\tidle{<>}]],
+  ["hat"] = [[\hat{<>}]],
+  ["fun"] = [[\fun{<>}{<>}]],
+  ["bar"] = [[\overline{<>}]],
+  ["res"] = [[\res{<>}{<>}]],
   ["bor"] = [[\bigvee..]],
   ["int"] = [[\int..]],
   ["sum"] = [[\sum..]],
@@ -175,6 +208,7 @@ local cmd3charwithcom = {
   ["te(%a)"] = [[\text{%1}]],
 }
 local cmd4char = {
+  ["sqrt"] = [[\sqrt{<>}]],
   ["iiit"] = [[\iiint..]],
   ["bscp"] = [[\bigsqcup..]],
   ["bodt"] = [[\bigodot..]],
@@ -203,6 +237,8 @@ local cmd4char = {
   ["oset"] = [[\emptyset]],
 }
 local cmd4charwithcom = {
+  ["(%a)fun"] = [[\fun{%1}{<>}]],
+  ["(%a)res"] = [[\res{%1}{<>}]],
   ["cal(%a)"] = function(char)
     return [[\mathcal{]] .. string.upper(char) .. "}"
   end,
@@ -212,17 +248,18 @@ local cmd4charwithcom = {
   ["frk(%a)"] = [[\mathfrak{%1}]],
   ["(%a)bar"] = [[\overline{%1}]],
   ["(%a)hat"] = [[\hat{%1}]],
-  ["(%a)sim"] = [[\tilde{%1}]],
+  ["(%a)tdl"] = [[\tilde{%1}]],
   ["(%a)vec"] = [[\vec{%1}]],
   ["(%a)dot"] = [[\dot{%1}]],
 }
 local M = {
   -- add cmd3char
   s({ trig = "%f[%a\\](%a%a[%a ])", regTrig = true, priority = 500, snippetType = "autosnippet" }, {
-    f(function(_, snip)
-      local out = cmd3char[snip.captures[1]]
-      return out or snip.captures[1]
-    end),
+    d(1, makesnip, {}, { user_args = { cmd3char, cmd3charwithcom } }),
+    -- f(function(_, snip)
+    --   local out = cmd3char[snip.captures[1]]
+    --   return out or snip.captures[1]
+    -- end),
   }, { condition = tex.in_math }),
   -- add cmd2char and solve compact between cmd2cahr and cmd3char
   s({ trig = "%f[%a\\](%a%a)([^%a%s%d])", regTrig = true, priority = 500, snippetType = "autosnippet" }, {
@@ -239,10 +276,11 @@ local M = {
   }, { condition = tex.in_math }),
   -- add cmd4char
   s({ trig = "%f[%a\\](%a%a%a%a)", regTrig = true, priority = 500, snippetType = "autosnippet" }, {
-    f(function(_, snip)
-      local out = cmd4char[snip.captures[1]]
-      return out or snip.captures[1]
-    end),
+    d(1, makesnip, {}, { user_args = { cmd4char, cmd4charwithcom } }),
+    -- f(function(_, snip)
+    --   local out = cmd4char[snip.captures[1]]
+    --   return out or snip.captures[1]
+    -- end),
   }, { condition = tex.in_math }),
 }
 -- solve compact between cmd3char and cmd4char
@@ -270,26 +308,26 @@ for k, v in pairs(cmd4char) do
     end
   end
 end
-for k, v in pairs(cmd3charwithcom) do
-  table.insert(
-    M,
-    s({ trig = k, regTrig = true, priority = 1000, snippetType = "autosnippet" }, {
-      f(function(_, snip)
-        return string.gsub(snip.captures[1], "^(%a*)$", v)
-      end),
-    }, { condition = tex.in_math })
-  )
-end
-for k, v in pairs(cmd4charwithcom) do
-  table.insert(
-    M,
-    s({ trig = k, regTrig = true, priority = 1000, snippetType = "autosnippet" }, {
-      f(function(_, snip)
-        return string.gsub(snip.captures[1], "^(%a*)$", v)
-      end),
-    }, { condition = tex.in_math })
-  )
-end
+-- for k, v in pairs(cmd3charwithcom) do
+--   table.insert(
+--     M,
+--     s({ trig = k, regTrig = true, priority = 1000, snippetType = "autosnippet" }, {
+--       f(function(_, snip)
+--         return string.gsub(snip.captures[1], "^(%a*)$", v)
+--       end),
+--     }, { condition = tex.in_math })
+--   )
+-- end
+-- for k, v in pairs(cmd4charwithcom) do
+--   table.insert(
+--     M,
+--     s({ trig = k, regTrig = true, priority = 1000, snippetType = "autosnippet" }, {
+--       f(function(_, snip)
+--         return string.gsub(snip.captures[1], "^(%a*)$", v)
+--       end),
+--     }, { condition = tex.in_math })
+--   )
+-- end
 table.insert(
   M,
   s({ trig = "\\mathbb{A}r", snippetType = "autosnippet" }, {

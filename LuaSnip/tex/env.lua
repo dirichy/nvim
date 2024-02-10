@@ -46,92 +46,6 @@ return {
     { condition = tex.in_text }
   ),
   s(
-    { trig = "bad" },
-    fmta(
-      [[
-      \begin{adjustbox}{width=0.<>\textwidth}
-        <>
-      \end{adjustbox}
-      ]],
-      {
-        i(1, "8"),
-        i(0),
-      }
-    ),
-    { condition = line_begin }
-  ),
-  s(
-    { trig = "bpr" },
-    fmta(
-      [[
-      \begin{problem}
-        <>
-      \end{problem}
-      ]],
-      {
-        i(1),
-      }
-    ),
-    { condition = line_begin }
-  ),
-  s(
-    { trig = "bso" },
-    fmta(
-      [[
-      \begin{solution}
-        <>
-      \end{solution}
-      ]],
-      {
-        i(1),
-      }
-    ),
-    { condition = line_begin }
-  ),
-  s(
-    { trig = "ble" },
-    fmta(
-      [[
-      \begin{lemma}
-        <>
-      \end{lemma}
-      ]],
-      {
-        i(1),
-      }
-    ),
-    { condition = line_begin }
-  ),
-  s(
-    { trig = "bpf" },
-    fmta(
-      [[
-      \begin{proof}
-        <>
-      \end{proof}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = line_begin }
-  ),
-  s(
-    { trig = "bex" },
-    fmta(
-      [[
-      \begin{exercise}[<>]
-        <>
-      \end{exercise}
-      ]],
-      {
-        i(1),
-        i(0),
-      }
-    ),
-    { condition = line_begin }
-  ),
-  s(
     { trig = "beg" },
     fmta(
       [[
@@ -177,20 +91,6 @@ return {
     { condition = tex.in_text * line_begin }
   ),
   s(
-    { trig = "dcase", snippetType = "autosnippet", priority = 2000 },
-    fmta(
-      [[
-      \begin{dcases}
-        <>
-      \end{dcases}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_math }
-  ),
-  s(
     { trig = "bal" },
     fmta(
       [[
@@ -205,20 +105,6 @@ return {
     { condition = tex.in_math }
   ),
   s(
-    { trig = "beq" },
-    fmta(
-      [[
-      \begin{equation}
-        <>
-      \end{equation}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = tex.in_text }
-  ),
-  s(
     { trig = "bal", snippetType = "autosnippet", priority = 2000 },
     fmta(
       [[
@@ -231,20 +117,6 @@ return {
       }
     ),
     { condition = tex.in_math }
-  ),
-  s(
-    { trig = "bit" },
-    fmta(
-      [[
-      \begin{itemize}
-        \item <>
-      \end{itemize}
-      ]],
-      {
-        i(0),
-      }
-    ),
-    { condition = line_begin }
   ),
   s({ trig = "  item", snippetType = "autosnippet" }, {
     t("\\item"),

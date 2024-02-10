@@ -28,6 +28,7 @@ local envs = {
   th = { name = "theorem", condition = 2, label = "the" },
   fr = { name = "frame", condition = 2 },
   fg = { name = "figure", condition = 2, label = "fig", prefix = "\\centering" },
+  ct = { name = "center", condition = 2 },
 }
 local make_label = function(_, snip)
   local env = envs[snip.captures[1]]
