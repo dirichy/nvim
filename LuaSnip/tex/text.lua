@@ -5,6 +5,11 @@ local f = ls.function_node
 local i = ls.insert_node
 local fmta = require("luasnip.extras.fmt").fmta
 local tex = require("util.conditions")
+local knowntypes = {
+  pro = "Problem",
+  fig = "Figure",
+  lem = "Lemma",
+}
 
 return {
   s({ trig = "if" }, {
@@ -39,6 +44,12 @@ return {
     { condition = tex.in_mathzone }
   ),
   s({ trig = "ref", snippetType = "autosnippet" }, {
+    f(function(args, _)
+      local label = args[1][1]
+      local type = string.match(label, "^[^:]*")
+      type = knowntypes[type] and knowntypes[type] .. " " or ""
+      return type
+    end, { 1 }),
     t("\\ref{"),
     i(1),
     t("}"),
@@ -52,11 +63,11 @@ return {
     { condition = tex.in_text }
   ),
 
-  s({ trig = "wlog", snippetType = "autosnippet" }, {
-    t("without loss of generality"),
+  s({ trig = "wlog ", snippetType = "autosnippet" }, {
+    t("without loss of generality "),
   }, { condition = tex.in_text }),
-  s({ trig = "Wlog", snippetType = "autosnippet" }, {
-    t("Without loss of generality"),
+  s({ trig = "Wlog ", snippetType = "autosnippet" }, {
+    t("Without loss of generality "),
   }, { condition = tex.in_text }),
   s({ trig = "thm" }, {
     t("theorem"),

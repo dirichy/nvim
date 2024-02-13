@@ -19,6 +19,16 @@ end
 
 return {
   s(
+    { trig = "(%d)sqrt", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\sqrt[<>]{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      i(1),
+    }),
+    { condition = tex.in_math }
+  ),
+  s(
     { trig = "(\\%a+)res", regTrig = true, priority = 3000, snippetType = "autosnippet" },
     fmta("\\res{<>}{<>}", {
       f(function(_, snip)

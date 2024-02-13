@@ -5,6 +5,7 @@ local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
 local d = ls.dynamic_node
+local rep = require("luasnip.extras").rep
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 local fmta = require("luasnip.extras.fmt").fmta
 
@@ -81,6 +82,54 @@ M = {
       }
     ),
     { condition = tex.in_text * line_begin }
+  ),
+  s(
+    { trig = text_line_begin_leader .. "eg", regTrig = true, snippetType = "autosnippet", priority = 1000 },
+    fmta(
+      [[
+\begin{<>}
+  <>
+\end{<>}
+<>
+      ]],
+      {
+        i(1),
+        i(2),
+        rep(1),
+        i(0),
+      }
+    ),
+    { condition = tex.in_text * line_begin }
+  ),
+  s({ trig = "  item", snippetType = "autosnippet" }, {
+    t("\\item"),
+  }, { condition = tex.in_item * line_begin }),
+  s(
+    { trig = "jj", snippetType = "autosnippet" },
+    fmta(
+      [[
+      \(<>\)<>
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    { condition = tex.in_text }
+  ),
+  s(
+    { trig = "tt", snippetType = "autosnippet" },
+    fmta(
+      [[
+      \[
+        <>
+      \]
+      ]],
+      {
+        i(1),
+      }
+    ),
+    { condition = tex.in_text }
   ),
 }
 return M

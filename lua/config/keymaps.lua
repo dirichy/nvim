@@ -26,6 +26,9 @@ lmap("b", require("latex.complite").normalcomp, { desc = "build latex file" })
 lmap("B", require("latex.complite").fullcomp, { desc = "Build LaTeX file" })
 lmap("v", "<cmd>!mytexviewer %:p<cr>", { desc = "View pdf file" })
 lmap("f", forwardsearch, { desc = "Forwardsearch" })
+lmap("s", function()
+  vim.print(require("latex.snip").solveConflict)
+end, { desc = "display solved conflict of snips" })
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
@@ -33,3 +36,17 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window w
 map("i", "<C-z>", "<cmd>normal u<cr>", { desc = "undo" })
 map("i", "<C-v>", "<cmd>normal hpl<cr>", { desc = "paste" })
 map("n", "x", [["_x]], { desc = "delete without yank" })
+-- map("i", "<c-g>", function()
+--   local position = vim.api.nvim_win_get_cursor(0)
+--   local params = {
+--     textDocument = {
+--       uri = vim.uri_from_bufnr(0),
+--     },
+--     position = {
+--       line = position[1] - 1,
+--       character = position[2] - 1,
+--     },
+--   }
+--   local rsult = vim.lsp.buf_request_sync(0, "textDocument/hover", params, 100)
+--   vim.print(rsult)
+-- end)
