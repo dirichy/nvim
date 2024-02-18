@@ -13,7 +13,7 @@ local fmta = require("luasnip.extras.fmt").fmta
 -- personal imports
 -- ]
 local tex = require("util.conditions")
-local text_line_begin_leader = "[。%.]"
+local text_line_begin_leader = "%."
 local envs = {
   pf = { name = "proof", condition = 2 },
   so = { name = "solution", condition = 2 },
@@ -28,7 +28,7 @@ local envs = {
   co = { name = "corollary", condition = 2, label = "cor" },
   th = { name = "theorem", condition = 2, label = "the" },
   fr = { name = "frame", condition = 2 },
-  fg = { name = "figure", condition = 2, label = "fig", prefix = "\\centering" },
+  fg = { name = "figure", condition = 2, prefix = "\\centering" },
   ct = { name = "center", condition = 2 },
 }
 local make_label = function(_, snip)
@@ -102,6 +102,9 @@ M = {
     { condition = tex.in_text * line_begin }
   ),
   s({ trig = "  item", snippetType = "autosnippet" }, {
+    t("\\item"),
+  }, { condition = tex.in_item * line_begin }),
+  s({ trig = "item", snippetType = "autosnippet", priority = 100 }, {
     t("\\item"),
   }, { condition = tex.in_item * line_begin }),
   s(

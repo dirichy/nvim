@@ -83,4 +83,7 @@ return {
     ),
     { condition = line_begin * tex.in_text }
   ),
+  s({ trig = "。", snippetType = "autosnippet", priority = 2000 }, {
+    t("."),
+  }, { condition = tex.in_text * line_begin }),
 }

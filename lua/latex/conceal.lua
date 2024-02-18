@@ -17,6 +17,8 @@ let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'leftharpoondown', 'mathmode': 1, 'conceal': 1, 'concealchar':'↽'},
   \ {'name': 'implies', 'mathmode': 1, 'conceal': 1, 'concealchar':'➡'},
   \ {'name': 'impliedby', 'mathmode': 1, 'conceal': 1, 'concealchar':'⬅'},
+  \ {'name': 'AND', 'mathmode': 1, 'conceal': 1, 'concealchar':'∧'},
+  \ {'name': 'OR', 'mathmode': 1, 'conceal': 1, 'concealchar':'∨'},
   \]
 ]])
 vim.cmd([[
@@ -33,6 +35,6 @@ let g:vimtex_syntax_custom_cmds_with_concealed_delims = [
   \ {'name': 'label', 'mathmode': 0, 'nargs':1,'cchar_open': '📎','cchar_close': '📎','argstyle':'bold'},
   \ {'name': 'label', 'mathmode': 1, 'nargs':1,'cchar_open': '📎','cchar_close': '📎','argstyle':'bold'},
   \ {'name': 'res', 'mathmode': 1, 'nargs':2, 'cchar_mid':'↾',},
-  \ {'name': 'frac', 'mathmode': 1, 'nargs':2,'cchar_open': '{', 'cchar_mid':'/','cchar_close': '}'},
+  \ {'name': 'frac', 'mathmode': 1, 'nargs':2,'cchar_open': '⦑', 'cchar_mid':'/','cchar_close': '⦒'},
   \]
 ]])
