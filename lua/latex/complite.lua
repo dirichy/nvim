@@ -25,14 +25,13 @@ M.minicomp = function(path)
     return 1
   end
 end
-M.viewpdf = function(path)
-  local pdfname = string.gsub(path, "%.tex$", ".pdf")
-  pdfname = string.gsub(pdfname, "!", "\\!")
-  vim.api.nvim_exec2("!nohup okular --unique " .. pdfname .. " &", {})
+M.viewpdf = function(pdfpath)
+  vim.api.nvim_exec2("!mytexviewer %:p &", {})
 end
 M.normalcomp = function()
   local path = vim.fn.expand("%:p")
   if M.minicomp(path) == 0 then
+    path = string.gsub(path, "%.tex$", ".pdf")
     M.viewpdf(path)
     return 0
   end
