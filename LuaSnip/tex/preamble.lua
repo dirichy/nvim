@@ -65,5 +65,27 @@ M = {
     }),
     { condition = tex.in_preamble * line_begin }
   ),
+  s(
+    { trig = "thm", snippetType = "autosnippet" },
+    fmta("\\newtheorem{<>}{<>}", {
+      i(1),
+      i(2),
+    }),
+    { condition = tex.in_preamble * line_begin }
+  ),
+  s(
+    { trig = "@@@", snippetType = "autosnippet" },
+    fmta(
+      [[
+\makeatletter
+<>
+\makeatother
+    ]],
+      {
+        i(1),
+      }
+    ),
+    { condition = tex.in_preamble * line_begin }
+  ),
 }
 return M

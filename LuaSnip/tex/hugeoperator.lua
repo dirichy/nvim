@@ -16,30 +16,26 @@ local Operators = {
   band = "bigwedge",
   bcap = "bigcap",
   bcup = "bigcup",
-  bodot = "bigodot",
+  bodt = "bigodot",
   bopl = "bigoplus",
   bor = "bigvee",
   boti = "bigotimes",
-  bscup = "bigsqcup",
-  iiint = "iiint",
+  bscp = "bigsqcup",
+  iiit = "iiint",
   iint = "iint",
   int = "int",
   oint = "oint",
   prod = "prod",
   sum = "sum",
 }
-M = {
-  s({ trig = "\\int", priority = 2000, snippetType = "autosnippet" }, {
-    t("\\int.."),
-  }, { condition = tex.in_math }),
-}
+M = {}
 for k, v in pairs(Operators) do
-  table.insert(
-    M,
-    s({ trig = k, snippetType = "autosnippet" }, {
-      t("\\" .. v .. ".."),
-    }, { condition = tex.in_math })
-  )
+  -- table.insert(
+  --   M,
+  --   s({ trig = k, snippetType = "autosnippet" }, {
+  --     t("\\" .. v .. ".."),
+  --   }, { condition = tex.in_math })
+  -- )
   --  table.insert(
   --    M,
   --    s(
@@ -57,12 +53,12 @@ for k, v in pairs(Operators) do
   table.insert(
     M,
     s(
-      { trig = "\\" .. v .. "%.%.([^%a%d%+%-])", snippetType = "autosnippet", regTrig = true },
-      fmta("\\" .. v .. "<><>", {
+      { trig = "%f[^\\]" .. v .. "([%a%d%+%-])", snippetType = "autosnippet", regTrig = true },
+      fmta(v .. "_{<><>}", {
         f(function(_, snip)
           return snip.captures[1]
         end),
-        i(0),
+        i(1),
       }),
       { condition = tex.in_math }
     )
@@ -70,8 +66,8 @@ for k, v in pairs(Operators) do
   table.insert(
     M,
     s(
-      { trig = "\\" .. v .. "(_%b{})([%a%d])", snippetType = "autosnippet", regTrig = true },
-      fmta("\\" .. v .. "<><><><><><>", {
+      { trig = "%f[^\\]" .. v .. "(_%b{})([%a%d])", snippetType = "autosnippet", regTrig = true },
+      fmta(v .. "<><><><><><>", {
         f(function(_, snip)
           return snip.captures[1]
         end),

@@ -4,7 +4,6 @@ local sn = ls.snippet_node
 local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
-local d = ls.dynamic_node
 local fmta = require("luasnip.extras.fmt").fmta
 
 local tex = require("util.conditions")
@@ -19,16 +18,8 @@ end
 
 return {
   s(
-    { trig = "res", snippetType = "autosnippet" },
-    fmta("\\res{<>}{<>}", {
-      i(1),
-      i(2),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "(%a)res", regTrig = true, priority = 2000, snippetType = "autosnippet" },
-    fmta("\\res{<>}{<>}", {
+    { trig = "(%d)sqrt", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\sqrt[<>]{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
@@ -43,100 +34,6 @@ return {
         return snip.captures[1]
       end),
       i(1),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "sqrt", snippetType = "autosnippet" },
-    fmta("\\sqrt{<>}", {
-      i(1),
-    }),
-    { condition = tex.in_math }
-  ),
-  s({ trig = "arg", snippetType = "autosnippet" }, {
-    t("\\arg"),
-  }, { condition = tex.in_math }),
-  s({ trig = "set", snippetType = "autosnippet" }, {
-    t("\\set"),
-  }, { condition = tex.in_math }),
-  s({ trig = "ord", snippetType = "autosnippet" }, {
-    t("\\ord"),
-  }, { condition = tex.in_math }),
-  s({ trig = "card", snippetType = "autosnippet" }, {
-    t("\\card"),
-  }, { condition = tex.in_math }),
-  s({ trig = "ide", snippetType = "autosnippet" }, {
-    t("\\ide"),
-  }, { condition = tex.in_math }),
-  s({ trig = "van", snippetType = "autosnippet" }, {
-    t("\\van"),
-  }, { condition = tex.in_math }),
-  s({ trig = "sin", snippetType = "autosnippet" }, {
-    t("\\sin"),
-  }, { condition = tex.in_math }),
-  s({ trig = "asin", snippetType = "autosnippet" }, {
-    t("\\arcsin"),
-  }, { condition = tex.in_math }),
-  s({ trig = "cos", snippetType = "autosnippet" }, {
-    t("\\cos"),
-  }, { condition = tex.in_math }),
-  s({ trig = "acos", snippetType = "autosnippet" }, {
-    t("\\arccos"),
-  }, { condition = tex.in_math }),
-  s({ trig = "tan", snippetType = "autosnippet" }, {
-    t("\\tan"),
-  }, { condition = tex.in_math }),
-  s({ trig = "atan", snippetType = "autosnippet" }, {
-    t("\\arctan"),
-  }, { condition = tex.in_math }),
-  s({ trig = "cot", snippetType = "autosnippet" }, {
-    t("\\cot"),
-  }, { condition = tex.in_math }),
-  s({ trig = "acot", snippetType = "autosnippet" }, {
-    t("\\arccot"),
-  }, { condition = tex.in_math }),
-  s({ trig = "csc", snippetType = "autosnippet" }, {
-    t("\\csc"),
-  }, { condition = tex.in_math }),
-  s({ trig = "acsc", snippetType = "autosnippet" }, {
-    t("\\arccsc"),
-  }, { condition = tex.in_math }),
-  s({ trig = "sec", snippetType = "autosnippet" }, {
-    t("\\sec"),
-  }, { condition = tex.in_math }),
-  s({ trig = "asec", snippetType = "autosnippet" }, {
-    t("\\arcsec"),
-  }, { condition = tex.in_math }),
-  s({ trig = "log", snippetType = "autosnippet" }, {
-    t("\\log"),
-  }, { condition = tex.in_math }),
-  s({ trig = "max", snippetType = "autosnippet" }, {
-    t("\\max"),
-  }, { condition = tex.in_math }),
-  s({ trig = "min", snippetType = "autosnippet" }, {
-    t("\\min"),
-  }, { condition = tex.in_math }),
-  s({ trig = "ln ", snippetType = "autosnippet" }, {
-    t("\\ln "),
-  }, { condition = tex.in_math }),
-  s({ trig = "bb1", snippetType = "autosnippet", priority = 2000 }, {
-    t("\\mathbbm{1}"),
-  }, { condition = tex.in_math }),
-  s(
-    { trig = "fun", snippetType = "autosnippet", priority = 2000 },
-    fmta("\\fun{<>}{<>}", {
-      i(1),
-      i(2),
-    }),
-    { condition = tex.in_math }
-  ),
-  s({ trig = "exp", snippetType = "autosnippet" }, {
-    t("\\exp"),
-  }, { condition = tex.in_math }),
-  s(
-    { trig = "bar", snippetType = "autosnippet", priority = 2000 },
-    fmta("\\overline{<>}", {
-      d(1, get_visual),
     }),
     { condition = tex.in_math }
   ),
@@ -166,43 +63,6 @@ return {
     { condition = tex.in_math }
   ),
   s(
-    { trig = "(%a)hat", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\hat{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "(%a)bar", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\overline{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "\\mathbb{A}r", regTrig = true, snippetType = "autosnippet", priority = 2000 },
-    fmta("\\overline{b}", {}),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "mtd", snippetType = "autosnippet", priority = 2000 },
-    fmta("\\tilde{<>}", {
-      d(1, get_visual),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "mtd", snippetType = "autosnippet" },
-    fmta("\\tilde{<>}", {
-      i(1),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
     { trig = "(\\%a+)~", regTrig = true, snippetType = "autosnippet" },
     fmta("\\tilde{<>}", {
       f(function(_, snip)
@@ -220,53 +80,4 @@ return {
     }),
     { condition = tex.in_math }
   ),
-  s(
-    { trig = "dot", snippetType = "autosnippet", priority = 2000 },
-    fmta("\\dot{<>}", {
-      d(1, get_visual),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "dot", snippetType = "autosnippet" },
-    fmta("\\dot{<>}", {
-      i(1),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "hat", snippetType = "autosnippet", priority = 2000 },
-    fmta("\\hat{<>}", {
-      d(1, get_visual),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "hat", snippetType = "autosnippet" },
-    fmta("\\hat{<>}", {
-      i(1),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "abs", snippetType = "autosnippet" },
-    fmta("|<>|", {
-      i(1),
-    }),
-    { condition = tex.in_math }
-  ),
-  s(
-    { trig = "vec", snippetType = "autosnippet", priority = 2000 },
-    fmta("\\vec{<>}", {
-      d(1, get_visual),
-    }),
-    { condition = tex.in_math }
-  ),
-  s({ trig = "mod", snippetType = "autosnippet" }, fmta("\\mod", {}), { condition = tex.in_math }),
-  s({ trig = "sgn", snippetType = "autosnippet", priority = 2000 }, fmta("\\sgn", {}), { condition = tex.in_math }),
-  s({ trig = "gcd", snippetType = "autosnippet", priority = 2000 }, fmta("\\gcd", {}), { condition = tex.in_math }),
-  s({ trig = "deg", snippetType = "autosnippet", priority = 2000 }, fmta("\\deg", {}), { condition = tex.in_math }),
-  s({ trig = "span", snippetType = "autosnippet" }, {
-    t("\\Span"),
-  }, { condition = tex.in_math }),
 }

@@ -5,6 +5,8 @@ return {
       require("luasnip").config.set_config({
         enable_autosnippets = true,
         store_selection_keys = ".",
+        link_roots = true,
+        keep_roots = true,
       })
       require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/LuaSnip" })
       local auto_expand = require("luasnip").expand_auto

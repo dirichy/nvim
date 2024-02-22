@@ -1,4 +1,6 @@
 local compliter = {
+  lua = "lualatex",
+  lualatex = "lualatex",
   xelatex = "xelatex",
   xe = "xelatex",
   pdelatex = "pdflatex",
