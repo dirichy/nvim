@@ -30,7 +30,7 @@ end
 M.viewpdf = function(path)
   local pdfname = string.gsub(path, "%.tex$", ".pdf")
   pdfname = string.gsub(pdfname, "!", "\\!")
-  vim.api.nvim_exec2("!nohup okular --unique " .. pdfname .. " &", {})
+  vim.api.nvim_exec2("silent !cat " .. pdfname .. " | shortcuts run 'openfile' -i -", {})
 end
 M.normalcomp = function()
   local path = vim.fn.expand("%:p")
