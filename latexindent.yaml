@@ -251,7 +251,6 @@ indentAfterItems:
 # indentAfterItems) using this technique.
 itemNames:
     item: 1
-    myitem: 1
 
 # specialBeginEnd is, by default, mathmode focus, although
 # there's no restrictions
@@ -314,15 +313,8 @@ maximumIndentation: -1
 # the *current* level of indentation they just won't
 # get any *additional* indentation
 noAdditionalIndent:
-    myexample: 1
-    mydefinition: 1
-    problem: 1
-    exercises: 1
-    mysolution: 1
     foreach: 0
-    widepage: 1
-    comment: 1
-    document: 1
+    document: 0
     frame: 0
 
 # if you have indent rules for particular code blocks

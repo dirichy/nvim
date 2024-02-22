@@ -96,6 +96,6 @@ return {
         require("rust-tools").setup({})
       end,
     })
-    require("chinese.rime").setup_rime()
+    -- require("chinese.rime").setup_rime()
   end,
 }

@@ -37,7 +37,7 @@ return {
       --
       -- Example of using shfmt with extra args
       latexindent = {
-        prepend_args = { "-m", "-l=~/.config/nvim/latexindent.yaml", "-" },
+        prepend_args = { "-m", "-l", "~/.config/nvim/latexindent.yaml", "-" },
       },
     },
   },
