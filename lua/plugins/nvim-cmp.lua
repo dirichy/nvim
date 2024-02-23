@@ -1,5 +1,59 @@
 local cmp = require("cmp")
 local compare = require("cmp.config.compare")
+local keys = {
+  ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+  ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+  ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  ["<C-Space>"] = cmp.mapping.complete(),
+  ["<C-e>"] = cmp.mapping.abort(),
+  ["<S-CR>"] = cmp.mapping.confirm({
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = true,
+  }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  ["<C-CR>"] = function(fallback)
+    cmp.abort()
+    fallback()
+  end,
+  ["<Space>"] = cmp.mapping(function(fallback)
+    local entry = cmp.get_selected_entry()
+    if entry == nil then
+      entry = cmp.core.view:get_first_entry()
+    end
+    if entry and entry.source.name == "nvim_lsp" and entry.source.source.client.name == "rime_ls" then
+      cmp.confirm({
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      })
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
+  ["<CR>"] = cmp.mapping(function(fallback)
+    local entry = cmp.get_selected_entry()
+    if entry == nil then
+      entry = cmp.core.view:get_first_entry()
+    end
+    if entry and entry.source.name == "nvim_lsp" and entry.source.source.client.name == "rime_ls" then
+      cmp.abort()
+    else
+      if entry ~= nil then
+        cmp.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        })
+      else
+        fallback()
+      end
+    end
+  end, { "i", "s" }),
+}
+-- for i = 2, 9 do
+--   keys[tostring(i)] = cmp.mapping(function(fallback)
+--     vim.print(cmp.get_entries())
+--     cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+--   end, { "i", "s" })
+-- end
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -24,23 +78,7 @@ return {
             require("luasnip").lsp_expand(args.body)
           end,
         },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<S-CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<C-CR>"] = function(fallback)
-            cmp.abort()
-            fallback()
-          end,
-        }),
+        mapping = cmp.mapping.preset.insert(keys),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },

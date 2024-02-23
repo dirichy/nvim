@@ -24,7 +24,7 @@ local lmap = function(key, cmd, opts)
 end
 lmap("b", require("latex.complite").normalcomp, { desc = "build latex file" })
 lmap("B", require("latex.complite").fullcomp, { desc = "Build LaTeX file" })
-lmap("v", "<cmd>!mytexviewer %:p<cr>", { desc = "View pdf file" })
+lmap("v", require("latex.complite").viewpdf, { desc = "View pdf file" })
 lmap("f", forwardsearch, { desc = "Forwardsearch" })
 lmap("s", function()
   vim.print(require("latex.snip").solveConflict)
