@@ -1,28 +1,42 @@
 local tex = require("util.conditions")
+local get_magic_comment = require("latex.get_magic_comment")
 local autocmd = vim.api.nvim_create_autocmd
-autocmd("CursorMovedI", {
+local get_curenv = function()
+  if tex.in_math() then
+    return "math"
+  end
+  if tex.in_preamble() then
+    return "prea"
+  end
+  if tex.in_comment() then
+    return "comm"
+  end
+  return "text"
+end
+autocmd("BufEnter", {
   pattern = "*.tex",
   callback = function()
-    if tex.in_text() then
-      vim.cmd("silent !nohup fcitx-remote -o > /dev/null")
-    else
-      vim.cmd("silent !nohup fcitx-remote -c > /dev/null")
-    end
+    local language = get_magic_comment("language") or "en"
+    vim.g.curlang = language
+    vim.g.custom_rime_enabled = (vim.g.curlang == "zh")
   end,
 })
-autocmd("InsertLeave", {
+
+local updateenv = function()
+  local nextenv = get_curenv()
+  if (vim.g.curenv ~= "text") and (nextenv == "text") then
+    vim.cmd("doautocmd User TextEnter")
+  end
+  if (vim.g.curenv == "text") and (nextenv ~= "text") then
+    vim.cmd("doautocmd User TextLeave")
+  end
+  vim.g.curenv = nextenv
+end
+autocmd("CursorMovedI", {
   pattern = "*.tex",
-  callback = function()
-    vim.cmd("silent !fcitx-remote -c")
-  end,
+  callback = updateenv,
 })
 autocmd("InsertEnter", {
   pattern = "*.tex",
-  callback = function()
-    if tex.in_text() then
-      vim.cmd("silent !fcitx-remote -o")
-    else
-      vim.cmd("silent !fcitx-remote -c")
-    end
-  end,
+  callback = updateenv,
 })

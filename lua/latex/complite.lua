@@ -28,7 +28,7 @@ M.minicomp = function(path)
   end
 end
 M.viewpdf = function(pdfpath)
-  vim.api.nvim_exec2("!mytexviewer %:p &", {})
+  vim.api.nvim_exec2("silent !okular " .. pdfpath, {})
 end
 M.normalcomp = function()
   local path = vim.fn.expand("%:p")

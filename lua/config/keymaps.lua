@@ -49,4 +49,11 @@ map("n", "x", [["_x]], { desc = "delete without yank" })
 --   }
 --   local rsult = vim.lsp.buf_request_sync(0, "textDocument/hover", params, 100)
 --   vim.print(rsult)
--- end)
+-- end){
+map({ "n", "x", "o" }, "s", function()
+  if vim.g.curlang == "zh" then
+    require("flash-zh").jump()
+  else
+    require("flash").jump()
+  end
+end, { desc = "Flash between Chinese" })
