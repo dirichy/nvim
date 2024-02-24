@@ -8,13 +8,3 @@ autocmd("BufEnter", {
     vim.g.minipairs_disable = true
   end,
 })
-autocmd("BufEnter", {
-  pattern = "*.tex",
-  callback = function()
-    local lang = require("latex.get_magic_comment")("Language") or "en"
-    if lang == "zh" then
-      pcall(require, "computer.rime")
-      vim.api.nvim_exec2('let g:dirichy_language="' .. lang .. '"', {})
-    end
-  end,
-})

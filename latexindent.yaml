@@ -320,10 +320,9 @@ noAdditionalIndent:
     exercises: 1
     mysolution: 1
     foreach: 0
-    widepage: 1
-    comment: 1
     document: 1
     frame: 0
+    problem: 0
 
 # if you have indent rules for particular code blocks
 # then you can populate them in indentRules; for example, you might just want
@@ -496,7 +495,7 @@ dos2unixlinebreaks: 0
 #
 # you can specify settings on a per-name basis
 modifyLineBreaks:
-    preserveBlankLines: 1                   # 0/1
+    preserveBlankLines: 0                   # 0/1
     condenseMultipleBlankLinesInto: 1       # 0/1
     oneSentencePerLine:
         manipulateSentences: 0              # 0/1
@@ -518,7 +517,7 @@ modifyLineBreaks:
             a-z: 0                          # 0/1
             other: 0                        # regex
         sentencesEndWith:
-            basicFullStop: 0                # 0/1
+            basicFullStop: 1                # 0/1
             betterFullStop: 1               # 0/1
             exclamationMark: 1              # 0/1
             questionMark: 1                 # 0/1
