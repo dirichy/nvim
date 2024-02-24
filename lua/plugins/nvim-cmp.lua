@@ -48,12 +48,6 @@ local keys = {
     end
   end, { "i", "s" }),
 }
--- for i = 2, 9 do
---   keys[tostring(i)] = cmp.mapping(function(fallback)
---     vim.print(cmp.get_entries())
---     cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })
---   end, { "i", "s" })
--- end
 return {
   {
     "hrsh7th/nvim-cmp",

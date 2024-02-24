@@ -57,3 +57,6 @@ map({ "n", "x", "o" }, "s", function()
     require("flash").jump()
   end
 end, { desc = "Flash between Chinese" })
+map({ "i" }, "<C-t>", function()
+  vim.print(require("cmp").get_entries()[2])
+end)

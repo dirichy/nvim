@@ -93,5 +93,4 @@ A language server for librime
     capabilities = capabilities,
   })
 end
-
 return M

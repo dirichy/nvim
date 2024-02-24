@@ -40,3 +40,20 @@ autocmd("InsertEnter", {
   pattern = "*.tex",
   callback = updateenv,
 })
+autocmd("InsertCharPre", {
+  pattern = "*",
+  callback = function()
+    if string.find(vim.v.char, "%d") then
+      vim.g.lastnumber = vim.v.char
+    else
+      vim.g.lastnumber = ""
+    end
+  end,
+})
+--     local entris = cmp.get_entries()
+--     if
+--     then
+--       cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert, count = i - 1 })
+--     end
+--   end, { noremap = true })
+-- end
