@@ -27,8 +27,10 @@ M.minicomp = function(path)
     return 1
   end
 end
-M.viewpdf = function(pdfpath)
-  vim.api.nvim_exec2("silent !okular " .. pdfpath, {})
+M.viewpdf = function(path)
+  local pdfname = string.gsub(path, "%.tex$", ".pdf")
+  pdfname = string.gsub(pdfname, "!", "\\!")
+  vim.api.nvim_exec2("silent !open " .. pdfname, {})
 end
 M.normalcomp = function()
   local path = vim.fn.expand("%:p")
