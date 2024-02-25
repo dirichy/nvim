@@ -1,6 +1,7 @@
 return {
   {
     "L3MON4D3/LuaSnip",
+    event = "VeryLazy",
     config = function()
       require("luasnip").config.set_config({
         enable_autosnippets = true,
@@ -66,17 +67,6 @@ return {
           "<Plug>luasnip-prev-choice",
           mode = { "i", "s" },
         },
-        -- {
-        --   "<tab>",
-        --   function()
-        --     if require("luasnip").expand_or_jumpable() then
-        --       require("luasnip").expand_or_jump()
-        --     else
-        --       return "<tab>"
-        --     end
-        --   end,
-        --   mode = { "i", "s" },
-        -- },
       }
     end,
   },

@@ -3,6 +3,7 @@ return {
     "rainzm/flash-zh.nvim",
     event = "VeryLazy",
     dependencies = "folke/flash.nvim",
+    lazy = true,
     keys = {
       {
         "s",

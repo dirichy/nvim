@@ -1,6 +1,7 @@
 local M = {}
 
 function M.setup_rime()
+  vim.g.rime_enabled = true
   -- global status
   -- add rime-ls to lspconfig as a custom server
   -- see `:h lspconfig-new`
@@ -39,15 +40,11 @@ A language server for librime
     vim.keymap.set("n", "<leader>um", function()
       toggle_rime()
     end)
-    vim.keymap.set("i", "<C-x>", function()
-      toggle_rime()
-      vim.g.custom_rime_enabled = vim.g.rime_enabled
-    end)
     vim.keymap.set("n", "<leader>rs", function()
       vim.lsp.buf.execute_command({ command = "rime-ls.sync-user-data" })
     end)
     local auto_open_rime = function()
-      if vim.g.rime_enabled or not vim.g.custom_rime_enabled then
+      if vim.g.rime_enabled then
         return
       end
       toggle_rime()
@@ -59,12 +56,14 @@ A language server for librime
       toggle_rime()
     end
     vim.api.nvim_create_autocmd("User", {
-      pattern = "TextLeave",
-      callback = auto_close_rime,
-    })
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "TextEnter",
-      callback = auto_open_rime,
+      pattern = "Changed",
+      callback = function()
+        if vim.g.curlang == "zh" and vim.g.curenv == "text" and vim.g.mode == "i" then
+          auto_open_rime()
+        else
+          auto_close_rime()
+        end
+      end,
     })
   end
 
@@ -79,7 +78,7 @@ A language server for librime
     -- cmd = { "/Users/rain/.local/bin/rime_ls" },
     filetypes = { "tex", "markdown", "gitcommit", "norg", "TelescopePrompt" },
     init_options = {
-      enabled = false, -- 初始关闭, 手动开启
+      enabled = vim.g.curenv == "text" and vim.g.curlang == "zh" and vim.g.mode == "i", -- 初始关闭, 手动开启
       shared_data_dir = "~/.config/fcitx/rime", -- rime 公共目录
       user_data_dir = "~/.config/fcitx/rime", -- 指定用户目录, 最好新建一个
       log_dir = "~/.local/share/rime-ls/log", -- 日志目录
