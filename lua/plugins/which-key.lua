@@ -3,6 +3,10 @@ return {
   event = "VeryLazy",
   opts = {
     plugins = { spelling = true },
+    window = {
+      margin = { 0, 0, 0, 0 },
+      padding = { 0, 0, 0, 0 },
+    },
     defaults = {
       mode = { "n", "v" },
       ["g"] = { name = "+goto" },
