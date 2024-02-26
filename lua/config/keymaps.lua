@@ -29,6 +29,7 @@ lmap("f", forwardsearch, { desc = "Forwardsearch" })
 lmap("s", function()
   vim.print(require("latex.snip").solveConflict)
 end, { desc = "display solved conflict of snips" })
+lmap("u", "<cmd>!bypy upload %:p:r.pdf<cr>", { desc = "Upload to bypy" })
 map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
@@ -50,6 +51,17 @@ map("n", "x", [["_x]], { desc = "delete without yank" })
 --   local rsult = vim.lsp.buf_request_sync(0, "textDocument/hover", params, 100)
 --   vim.print(rsult)
 -- end){
+-- local sessionkeys = {
+--   { "<leader>qL", require("session_manager").load_session, desc = "Load Session" },
+--   { "<leader>qc", require("session_manager").load_current_dir_session, desc = "Load current dir session" },
+--   { "<leader>ql", require("session_manager").load_last_session, desc = "Load Last Session" },
+--   { "<leader>qs", require("session_manager").save_current_session, desc = "Save Current Session" },
+--   { "<leader>qD", require("session_manager").delete_session, desc = "Select and Delete Session" },
+--   { "<leader>qd", require("session_manager").delete_current_dir_session, desc = "Select and Delete Session" },
+-- }
+-- for _, key in ipairs(sessionkeys) do
+--   map("n", key[1], key[2], { desc = key.desc })
+-- end
 map({ "n", "x", "o" }, "s", function()
   if vim.g.curlang == "zh" then
     require("flash-zh").jump()
@@ -57,3 +69,6 @@ map({ "n", "x", "o" }, "s", function()
     require("flash").jump()
   end
 end, { desc = "Flash between Chinese" })
+map({ "i" }, "<C-t>", function()
+  vim.print(require("cmp").get_entries()[2])
+end)

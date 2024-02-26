@@ -1,6 +1,8 @@
 vim.cmd([[
 let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'mathcal', 'mathmode': 1, 'conceal': 1, 'argstyle': 'bold'},
+  \ {'name': 'mathscr', 'mathmode': 1, 'conceal': 1, 'argstyle': 'bold'},
+  \ {'name': 'mathbbm', 'mathmode': 1, 'conceal': 1, 'argstyle': 'bold'},
   \ {'name': 'ide', 'mathmode': 1, 'conceal': 1, 'concealchar':'𝕀'},
   \ {'name': 'van', 'mathmode': 1, 'conceal': 1, 'concealchar':'𝕍'},
   \ {'name': 'iff', 'mathmode': 1, 'conceal': 1, 'concealchar':'⬌'},

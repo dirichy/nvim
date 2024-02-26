@@ -48,17 +48,34 @@ autocmd("InsertEnter", {
   pattern = "*.tex",
   callback = updateenv,
 })
-local input_source = {
-  zh = "im.rime.inputmethod.Squirrel.Hans",
-  en = "com.apple.keylayout.ABC",
-}
-local change_im = function()
-  if vim.g.curlang == "zh" and vim.g.curenv == "text" and vim.g.mode == "i" then
-    vim.cmd("silent !macism " .. input_source["zh"])
-  else
-    vim.cmd("silent !macism " .. input_source["en"])
-  end
-end
+autocmd("InsertCharPre", {
+  pattern = "*",
+  callback = function()
+    if string.find(vim.v.char, "%d") then
+      vim.g.lastnumber = vim.v.char
+    else
+      vim.g.lastnumber = ""
+    end
+  end,
+})
+--     local entris = cmp.get_entries()
+--     if
+--     then
+--       cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert, count = i - 1 })
+--     end
+--   end, { noremap = true })
+-- end
+-- local input_source = {
+--   zh = "im.rime.inputmethod.Squirrel.Hans",
+--   en = "com.apple.keylayout.ABC",
+-- }
+-- local change_im = function()
+--   if vim.g.curlang == "zh" and vim.g.curenv == "text" and vim.g.mode == "i" then
+--     vim.cmd("silent !macism " .. input_source["zh"])
+--   else
+--     vim.cmd("silent !macism " .. input_source["en"])
+--   end
+-- end
 autocmd("InsertLeavePre", {
   pattern = "*.tex",
   callback = function()
@@ -73,7 +90,7 @@ autocmd("InsertEnter", {
     vim.cmd("doautocmd User Changed")
   end,
 })
-autocmd("User", {
-  pattern = "Changed",
-  callback = change_im,
-})
+-- autocmd("User", {
+--   pattern = "Changed",
+--   callback = change_im,
+-- })

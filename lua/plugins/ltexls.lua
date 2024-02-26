@@ -1,6 +1,6 @@
 return {
   "vigoux/ltex-ls.nvim",
-  event = "VeryLazy",
+  event = "LazyFile",
   config = function()
     require("ltex-ls").setup({
       capabilities = {},
