@@ -1,3 +1,22 @@
+local cmd_with_output = function(cmd, default)
+  local handle = io.popen(cmd)
+  local output = default
+  if handle ~= nil then
+    output = handle:read("*a")
+    handle:close()
+  end
+  return output
+end
+local systemos = cmd_with_output("neofetch os", "Linux")
+systemos = string.gsub(systemos, "os:", "")
+systemos = string.gsub(systemos, "[^%a]", "")
+vim.g.systemos = systemos
+local sshtty = cmd_with_output("echo $SSHTTY")
+if sshtty then
+  vim.g.ssh = true
+else
+  vim.g.ssh = false
+end
 local tex = require("util.conditions")
 local get_magic_comment = require("latex.get_magic_comment")
 local autocmd = vim.api.nvim_create_autocmd
@@ -58,24 +77,23 @@ autocmd("InsertCharPre", {
     end
   end,
 })
---     local entris = cmp.get_entries()
---     if
---     then
---       cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert, count = i - 1 })
---     end
---   end, { noremap = true })
--- end
--- local input_source = {
---   zh = "im.rime.inputmethod.Squirrel.Hans",
---   en = "com.apple.keylayout.ABC",
--- }
--- local change_im = function()
---   if vim.g.curlang == "zh" and vim.g.curenv == "text" and vim.g.mode == "i" then
---     vim.cmd("silent !macism " .. input_source["zh"])
---   else
---     vim.cmd("silent !macism " .. input_source["en"])
---   end
--- end
+if vim.g.systemos == "macOS" then
+  local input_source = {
+    zh = "im.rime.inputmethod.Squirrel.Hans",
+    en = "com.apple.keylayout.ABC",
+  }
+  local change_im = function()
+    if vim.g.curlang == "zh" and vim.g.curenv == "text" and vim.g.mode == "i" then
+      vim.cmd("silent !macism " .. input_source["zh"])
+    else
+      vim.cmd("silent !macism " .. input_source["en"])
+    end
+  end
+  autocmd("User", {
+    pattern = "Changed",
+    callback = change_im,
+  })
+end
 autocmd("InsertLeavePre", {
   pattern = "*.tex",
   callback = function()
@@ -90,7 +108,3 @@ autocmd("InsertEnter", {
     vim.cmd("doautocmd User Changed")
   end,
 })
--- autocmd("User", {
---   pattern = "Changed",
---   callback = change_im,
--- })
