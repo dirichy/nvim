@@ -1,6 +1,7 @@
 return {
   "jbyuki/nabla.nvim",
+  ft = "*.tex",
   keys = {
-    { "<leader>tp", [[<cmd>lua require("nabla").popup()<cr>]], desc = "Nabla POP" },
+    { "<leader>v", [[<cmd>lua require("nabla").popup()<cr>]], desc = "Nabla POP" },
   },
 }
