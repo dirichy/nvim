@@ -21,6 +21,7 @@ let g:vimtex_syntax_custom_cmds = [
   \ {'name': 'impliedby', 'mathmode': 1, 'conceal': 1, 'concealchar':'⬅'},
   \ {'name': 'AND', 'mathmode': 1, 'conceal': 1, 'concealchar':'∧'},
   \ {'name': 'OR', 'mathmode': 1, 'conceal': 1, 'concealchar':'∨'},
+  \ {'name': 'tipa', 'mathmode': 0, 'conceal': 0},
   \]
 ]])
 vim.cmd([[
