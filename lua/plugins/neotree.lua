@@ -27,8 +27,8 @@ return {
       use_libuv_file_watcher = true,
     },
     window = {
-      position = "current",
-      width = 100,
+      position = "left",
+      width = 30,
       mappings = {
         ["<space>"] = "none",
         ["Y"] = function(state)

@@ -12,7 +12,8 @@ systemos = string.gsub(systemos, "os:", "")
 systemos = string.gsub(systemos, "[^%a]", "")
 vim.g.systemos = systemos
 local sshtty = cmd_with_output("echo $SSHTTY")
-if sshtty then
+sshtty = string.gsub(sshtty, "%s", "")
+if sshtty ~= "" then
   vim.g.ssh = true
 else
   vim.g.ssh = false
