@@ -32,16 +32,12 @@ if vim.g.ssh then
     return true
   end
 elseif vim.g.systemos == "macOS" then
-  M.viewpdf = function(path)
-    local pdfname = string.gsub(path, "%.tex$", ".pdf")
-    pdfname = string.gsub(pdfname, "!", "\\!")
-    vim.api.nvim_exec2("silent !open " .. pdfname, {})
+  M.viewpdf = function()
+    vim.api.nvim_exec2("!nohup zathura %:p:r.pdf > /dev/null &", {})
   end
 elseif vim.g.systemos == "Linux" then
-  M.viewpdf = function(path)
-    local pdfname = string.gsub(path, "%.tex$", ".pdf")
-    pdfname = string.gsub(pdfname, "!", "\\!")
-    vim.api.nvim_exec2("silent !okular " .. pdfname, {})
+  M.viewpdf = function()
+    vim.api.nvim_exec2("silent !okular %:p:r.pdf", {})
   end
 end
 M.normalcomp = function()
