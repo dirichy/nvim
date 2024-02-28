@@ -1,5 +1,11 @@
 return {
   "aserowy/tmux.nvim",
+  keys = {
+    { "<C-h>", [[<cmd>lua require("tmux").move_left()<cr>]], desc = "Move Left" },
+    { "<C-j>", [[<cmd>lua require("tmux").move_bottom()<cr>]] },
+    { "<C-k>", [[<cmd>lua require("tmux").move_top()<cr>]] },
+    { "<C-l>", [[<cmd>lua require("tmux").move_right()<cr>]] },
+  },
   opts = {
     copy_sync = {
       -- enables copy sync. by default, all registers are synchronized.
