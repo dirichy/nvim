@@ -1,3 +1,4 @@
+local Util = require("lazy.core.util")
 return {
   "nvim-neo-tree/neo-tree.nvim",
   dependencies = {
