@@ -78,6 +78,19 @@ autocmd("InsertCharPre", {
     end
   end,
 })
+if vim.g.systemos == "Linux" then
+  local change_im = function()
+    if vim.g.curlang == "zh" and vim.g.curenv == "text" and vim.g.mode == "i" then
+      vim.cmd("silent !fcitx-remote -o")
+    else
+      vim.cmd("silent !fcitx-remote -c")
+    end
+  end
+  autocmd("User", {
+    pattern = "Changed",
+    callback = change_im,
+  })
+end
 if vim.g.systemos == "macOS" then
   local input_source = {
     zh = "im.rime.inputmethod.Squirrel.Hans",
