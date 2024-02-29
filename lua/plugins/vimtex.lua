@@ -27,21 +27,21 @@ let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 " supported backends and further explanation is provided in the documentation,
 " see ":help vimtex-compiler".
 let g:vimtex_compiler_method = 'latexmk'
-    let g:vimtex_syntax_conceal = {
-          \ 'accents': 0,
-          \ 'ligatures': 0,
-          \ 'cites': 0,
-          \ 'fancy': 0,
-          \ 'spacing': 0,
-          \ 'greek': 0,
-          \ 'math_bounds': 0,
-          \ 'math_delimiters': 0,
-          \ 'math_fracs': 0,
-          \ 'math_super_sub': 0,
-          \ 'math_symbols': 0,
-          \ 'sections': 0,
-          \ 'styles': 0,
-          \}
+    " let g:vimtex_syntax_conceal = {
+    "       \ 'accents': 0,
+    "       \ 'ligatures': 0,
+    "       \ 'cites': 0,
+    "       \ 'fancy': 0,
+    "       \ 'spacing': 0,
+    "       \ 'greek': 0,
+    "       \ 'math_bounds': 0,
+    "       \ 'math_delimiters': 0,
+    "       \ 'math_fracs': 0,
+    "       \ 'math_super_sub': 0,
+    "       \ 'math_symbols': 0,
+    "       \ 'sections': 0,
+    "       \ 'styles': 0,
+    "       \}
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = "\\"

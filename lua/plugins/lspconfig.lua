@@ -96,7 +96,7 @@ return {
         require("rust-tools").setup({})
       end,
     })
-    if vim.g.systemos == "Linux" then
+    if vim.g.ssh then
       require("chinese.rime").setup_rime()
     end
   end,

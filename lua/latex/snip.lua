@@ -21,6 +21,7 @@ M.cmd2char = {
   ["dd"] = [[\d]],
 }
 M.cmd3char = {
+  ["cob"] = [[\binom{<>}{<>}]],
   ["vec"] = [[\vec{<>}]],
   ["abs"] = [[|<>|]],
   ["dot"] = [[\dot{<>}]],
@@ -182,6 +183,7 @@ local cmd4charwithcom = {
   ["(%a)tdl"] = [[\tilde{%1}]],
   ["(%a)vec"] = [[\vec{%1}]],
   ["(%a)dot"] = [[\dot{%1}]],
+  ["(%a)cob"] = [[\binom{%1}{<>}]],
 }
 for k, v in pairs(cmd3charwithcom) do
   local k1 = string.gsub(k, "%(%%a%)", "%%s")
