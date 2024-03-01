@@ -11,6 +11,7 @@ return {
     { "<leader>qD", "<cmd>SessionManager delete_session<cr>", desc = "Select and Delete Session" },
     { "<leader>qd", "<cmd>SessionManager delete_current_dir_session<cr>", desc = "Select and Delete Session" },
   },
+  event = "VeryLazy",
   config = function()
     local Path = require("plenary.path")
     local config = require("session_manager.config")
