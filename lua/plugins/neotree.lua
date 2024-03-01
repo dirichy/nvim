@@ -64,7 +64,7 @@ return {
   },
   config = function(_, opts)
     local function on_move(data)
-      Util.lsp.on_rename(data.source, data.destination)
+      vim.lsp.on_rename(data.source, data.destination)
     end
 
     local events = require("neo-tree.events")
