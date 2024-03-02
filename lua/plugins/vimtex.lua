@@ -46,15 +46,14 @@ let g:vimtex_compiler_method = 'latexmk'
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = "\\"
 set conceallevel=2
-setlocal foldmethod=expr
-setlocal foldexpr=vimtex#fold#level(v:lnum)
-setlocal foldtext=vimtex#fold#text()
+set foldmethod=expr
+set foldexpr=vimtex#fold#level(v:lnum)
+set foldtext=vimtex#fold#text()
 let g:vimtex_ui_method = {
       \ 'confirm': 'nvim',
       \ 'input': 'nvim',
       \ 'select': 'nvim',
       \}
-let g:vimtex_syntax_conceal_disable = 1
       ]])
     end,
   },
