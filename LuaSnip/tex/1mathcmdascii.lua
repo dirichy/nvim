@@ -58,15 +58,15 @@ local cmd3char = cmds.cmd3char
 local cmd4char = cmds.cmd4char
 local M = {
   -- add cmd3char
-  s({ trig = "%f[%a\\](%a%a%a)", regTrig = true, priority = 500, snippetType = "autosnippet" }, {
+  s({ trig = "%f[%a\\](%a%a%a)", wordTrig = false, regTrig = true, priority = 500, snippetType = "autosnippet" }, {
     d(1, makesnip, {}, { user_args = { cmd3char } }),
   }, { condition = tex.in_math }),
   -- add cmd2char
-  s({ trig = "%f[%a\\](%a%a)", regTrig = true, priority = 500, snippetType = "autosnippet" }, {
+  s({ trig = "%f[%a\\](%a%a)", wordTrig = false, regTrig = true, priority = 500, snippetType = "autosnippet" }, {
     d(1, makesnip, {}, { user_args = { cmd2char } }),
   }, { condition = tex.in_math }),
   -- add cmd4char
-  s({ trig = "%f[%a\\](%a%a%a%a)", regTrig = true, priority = 500, snippetType = "autosnippet" }, {
+  s({ trig = "%f[%a\\](%a%a%a%a)", wordTrig = false, regTrig = true, priority = 500, snippetType = "autosnippet" }, {
     d(1, makesnip, {}, { user_args = { cmd4char } }),
   }, { condition = tex.in_math }),
 }
