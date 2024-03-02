@@ -9,19 +9,19 @@ autocmd("BufEnter", {
     vim.g.minipairs_disable = true
   end,
 })
-vim.api.nvim_create_autocmd("TextChangedI", {
-  callback = function()
-    local entris = cmp.get_entries()
-    if
-      entris[1] ~= nil
-      and entris[2] == nil
-      and entris[1].source.name == "nvim_lsp"
-      and entris[1].source.source.client.name == "rime_ls"
-    then
-      cmp.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      })
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("TextChangedI", {
+--   callback = function()
+--     local entris = cmp.get_entries()
+--     if
+--       entris[1] ~= nil
+--       and entris[2] == nil
+--       and entris[1].source.name == "nvim_lsp"
+--       and entris[1].source.source.client.name == "rime_ls"
+--     then
+--       cmp.confirm({
+--         behavior = cmp.ConfirmBehavior.Replace,
+--         select = true,
+--       })
+--     end
+--   end,
+-- })
