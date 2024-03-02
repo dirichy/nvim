@@ -9,14 +9,14 @@ return {
   deactivate = function()
     vim.cmd([[Neotree close]])
   end,
-  init = function()
-    if vim.fn.argc(-1) == 1 then
-      local stat = vim.loop.fs_stat(vim.fn.argv(0))
-      if stat and stat.type == "directory" then
-        require("neo-tree")
-      end
-    end
-  end,
+  -- init = function()
+  --   if vim.fn.argc(-1) == 1 then
+  --     local stat = vim.loop.fs_stat(vim.fn.argv(0))
+  --     if stat and stat.type == "directory" then
+  --       require("neo-tree")
+  --     end
+  --   end
+  -- end,
   opts = {
     close_if_last_window = true,
     sources = { "filesystem", "buffers", "git_status", "document_symbols" },
@@ -30,14 +30,14 @@ return {
     window = {
       position = "left",
       width = 30,
-      mappings = {
-        ["<space>"] = "none",
-        ["Y"] = function(state)
-          local node = state.tree:get_node()
-          local path = node:get_id()
-          vim.fn.setreg("+", path, "c")
-        end,
-      },
+      -- mappings = {
+      --   ["<space>"] = "none",
+      --   ["Y"] = function(state)
+      --     local node = state.tree:get_node()
+      --     local path = node:get_id()
+      --     vim.fn.setreg("+", path, "c")
+      --   end,
+      -- },
     },
     default_component_configs = {
       container = {
