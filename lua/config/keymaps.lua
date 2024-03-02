@@ -62,6 +62,7 @@ map("n", "x", [["_x]], { desc = "delete without yank" })
 -- for _, key in ipairs(sessionkeys) do
 --   map("n", key[1], key[2], { desc = key.desc })
 -- end
+vim.cmd("set virtualedit=onemore")
 map({ "n", "x", "o" }, "s", function()
   if vim.g.curlang == "zh" then
     require("flash-zh").jump()
