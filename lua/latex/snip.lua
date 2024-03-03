@@ -236,6 +236,16 @@ for k, v in pairs(M.cmd4char) do
     M.solveConflict[cmd3 .. last] = v
     conflictNum = conflictNum + 1
   end
+  last = string.sub(k, -1, -1) .. last
+  k = string.sub(k, 1, 2)
+  local cmd2 = M.cmd2char[k]
+  if cmd2 then
+    if string.match(cmd2, "<>") then
+      print("there is conflict in snip " .. k .. "=" .. cmd2 .. " and " .. k .. last .. "=" .. v)
+    end
+    M.solveConflict[cmd2 .. last] = v
+    conflictNum = conflictNum + 1
+  end
 end
 for k, v in pairs(M.cmd3char) do
   local last = string.sub(k, -1, -1)
