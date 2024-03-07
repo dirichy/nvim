@@ -37,7 +37,7 @@ elseif vim.g.systemos == "macOS" then
   end
 elseif vim.g.systemos == "Linux" then
   M.viewpdf = function()
-    vim.api.nvim_exec2("silent !okular %:p:r.pdf", {})
+    vim.api.nvim_exec2("silent !nohup okular --unique %:p:r.pdf > /dev/null &", {})
   end
 end
 M.normalcomp = function()

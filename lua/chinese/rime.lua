@@ -78,7 +78,7 @@ A language server for librime
     -- cmd = { "/Users/rain/.local/bin/rime_ls" },
     filetypes = { "tex", "markdown", "gitcommit", "norg", "TelescopePrompt" },
     init_options = {
-      enabled = vim.g.curenv == "text" and vim.g.curlang == "zh" and vim.g.mode == "i", -- 初始关闭, 手动开启
+      enabled = true, -- 初始关闭, 手动开启
       shared_data_dir = "~/.config/fcitx/rime", -- rime 公共目录
       user_data_dir = "~/.config/fcitx/rime", -- 指定用户目录, 最好新建一个
       log_dir = "~/.local/share/rime-ls/log", -- 日志目录
