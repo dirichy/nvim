@@ -1,12 +1,4 @@
-local cmd_with_output = function(cmd, default)
-  local handle = io.popen(cmd)
-  local output = default
-  if handle ~= nil then
-    output = handle:read("*a")
-    handle:close()
-  end
-  return output
-end
+local cmd_with_output = require("util").cmd
 local systemos = cmd_with_output("neofetch os", "Linux")
 systemos = string.gsub(systemos, "os:", "")
 systemos = string.gsub(systemos, "[^%a]", "")

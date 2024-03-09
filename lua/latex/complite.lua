@@ -1,3 +1,5 @@
+local async = require("plenary.async")
+local cmd = require("util").cmd
 local compliter = {
   lua = "lualatex",
   lualatex = "lualatex",
@@ -12,14 +14,12 @@ local get_magic_comment = require("latex.get_magic_comment")
 local M = {}
 M.minicomp = function(path)
   vim.api.nvim_exec2("w", {})
+  local file = path
   path = string.gsub(path, "/[^/]*$", "")
   local method = get_magic_comment("TEX TS-Program") or "pdf"
   method = compliter[method]
-  local output = vim.api.nvim_exec2("!cd " .. path .. ";dirichylog=$(" .. method .. " %:p);echo $?", { output = true })
-  print(output)
-  local message = string.match(output.output, "\n.\n$")
-  message = string.gsub(message, "\n", "")
-  if message == "0" then
+  local message = cmd("cd " .. path .. ";dirichylog=$(" .. method .. " " .. file .. ");echo $?")
+  if tonumber(message) == 0 then
     print("Use " .. method .. " to complite, complite " .. "success. You are good texer!")
     return 0
   else
@@ -28,27 +28,25 @@ M.minicomp = function(path)
   end
 end
 if vim.g.ssh then
-  M.viewpdf = function(pdfpath)
+  M.viewpdf = function(path)
     return true
   end
 elseif vim.g.systemos == "macOS" then
-  M.viewpdf = function()
-    vim.api.nvim_exec2("!nohup zathura %:p:r.pdf > /dev/null &", {})
+  M.viewpdf = function(path)
+    vim.api.nvim_exec2("!nohup zathura " .. path .. " > /dev/null &", {})
   end
 elseif vim.g.systemos == "Linux" then
-  M.viewpdf = function()
-    vim.api.nvim_exec2("silent !nohup okular --unique %:p:r.pdf > /dev/null &", {})
+  M.viewpdf = function(path)
+    cmd("nohup okular --unique " .. path .. " > /dev/null &")
   end
 end
-M.normalcomp = function()
+M.normalcomp = async.void(function()
   local path = vim.fn.expand("%:p")
   if M.minicomp(path) == 0 then
     path = string.gsub(path, "%.tex$", ".pdf")
     M.viewpdf(path)
-    return 0
   end
-  return 1
-end
+end)
 M.fig2tikz = function(figpath)
   return 0
 end
