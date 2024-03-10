@@ -13,7 +13,10 @@ return {
     vim.keymap.set("n", "<leader>qs", "<cmd>Autosession search<cr>", { desc = "Search Session to Load" })
     vim.api.nvim_create_autocmd("VimLeavePre", {
       pattern = "*",
-      command = "SessionSave",
+      callback = function()
+        vim.cmd([[Neotree close]])
+        vim.cmd([[SessionSave]])
+      end,
     })
   end,
 }
