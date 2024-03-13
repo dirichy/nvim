@@ -45,6 +45,18 @@ return {
   --   { condition = tex.in_math }
   -- ),
   s(
+    { trig = "(\\%a+)inv", regTrig = true, snippetType = "autosnippet" },
+    fmta("<>^{-1}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+    }),
+    { condition = tex.in_math }
+  ),
+  s({ trig = "\\?inv", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, {
+    t("^{-1}"),
+  }, { condition = tex.in_math }),
+  s(
     { trig = "(\\%a+)bar", regTrig = true, snippetType = "autosnippet" },
     fmta("\\overline{<>} ", {
       f(function(_, snip)

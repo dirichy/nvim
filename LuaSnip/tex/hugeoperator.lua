@@ -28,28 +28,31 @@ local Operators = {
   prod = "prod",
   sum = "sum",
 }
+local limits = {
+  lim = "lim",
+  lms = "limsup",
+  lmi = "liminf",
+  sup = "sup",
+  inf = "inf",
+  max = "max",
+  min = "min",
+  band = "bigwedge",
+  bcap = "bigcap",
+  bcup = "bigcup",
+  bodt = "bigodot",
+  bopl = "bigoplus",
+  bor = "bigvee",
+  boti = "bigotimes",
+  bscp = "bigsqcup",
+  iiit = "iiint",
+  iint = "iint",
+  int = "int",
+  oint = "oint",
+  prod = "prod",
+  sum = "sum",
+}
 M = {}
-for k, v in pairs(Operators) do
-  -- table.insert(
-  --   M,
-  --   s({ trig = k, snippetType = "autosnippet" }, {
-  --     t("\\" .. v .. ".."),
-  --   }, { condition = tex.in_math })
-  -- )
-  --  table.insert(
-  --    M,
-  --    s(
-  --      { trig = "\\" .. v .. "(%a)", snippetType = "autosnippet", regTrig = true },
-  --      fmta("\\" .. v .. "_{<><>}<>", {
-  --        f(function(_, snip)
-  --          return snip.captures[1]
-  --        end),
-  --        i(1),
-  --        i(0),
-  --      }),
-  --      { condition = tex.in_math }
-  --    )
-  --  )
+for _, v in pairs(limits) do
   table.insert(
     M,
     s(
@@ -63,6 +66,8 @@ for k, v in pairs(Operators) do
       { condition = tex.in_math }
     )
   )
+end
+for _, v in pairs(Operators) do
   table.insert(
     M,
     s(

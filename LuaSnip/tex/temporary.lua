@@ -28,9 +28,6 @@ return {
     }),
     { condition = tex.in_math }
   ),
-  s({ trig = "mad", snippetType = "autosnippet" }, {
-    t("\\madd"),
-  }, { condition = tex.in_math }),
   s({ trig = "img", snippetType = "autosnippet" }, {
     t("\\im"),
   }, { condition = tex.in_math }),

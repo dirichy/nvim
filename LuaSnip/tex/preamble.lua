@@ -87,5 +87,22 @@ M = {
     ),
     { condition = tex.in_preamble * line_begin }
   ),
+  s(
+    { trig = ".do", snippetType = "autosnippet" },
+    fmta(
+      [[
+\documentclass{<>}
+<>
+\begin{document}
+<>
+\end{document}
+      ]],
+      {
+        i(1),
+        i(2),
+        i(0),
+      }
+    )
+  ),
 }
 return M

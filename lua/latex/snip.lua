@@ -19,8 +19,11 @@ M.cmd2char = {
   ["aa"] = [[\forall]],
   ["ee"] = [[\exists]],
   ["dd"] = [[\d]],
+  ["ln"] = [[\ln]],
 }
 M.cmd3char = {
+  ["lms"] = [[\limsup]],
+  ["lmi"] = [[\liminf]],
   ["cob"] = [[\binom{<>}{<>}]],
   ["vec"] = [[\vec{<>}]],
   ["abs"] = [[|<>|]],
@@ -108,7 +111,6 @@ M.cmd3char = {
   ["csc"] = [[\csc]],
   ["sec"] = [[\sec]],
   ["log"] = [[\log]],
-  ["ln "] = [[\ln ]],
   ["max"] = [[\max]],
   ["min"] = [[\min]],
   ["exp"] = [[\exp]],
@@ -124,6 +126,8 @@ M.cmd3char = {
   ["ran"] = [[\ran]],
   ["img"] = [[\im]],
   ["rel"] = [[\re]],
+  ["dto"] = [[\overset{d}{\to}]],
+  ["deq"] = [[\overset{d}{=}]],
 }
 local cmd3charwithcom = {
   ["bb(%a)"] = function(char)
