@@ -1,6 +1,6 @@
 return {
   {
-    "rainzm/flash-zh.nvim",
+    "dirichy/flash-zh.nvim",
     event = "VeryLazy",
     dependencies = "folke/flash.nvim",
     lazy = true,
