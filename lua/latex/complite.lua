@@ -29,7 +29,7 @@ M.minicomp = function(path)
 end
 if vim.g.ssh then
   M.viewpdf = function(path)
-    vim.cmd([[!cp ]] .. path .. [[ ~/temp.pdf]])
+    vim.cmd([[!cp -f ]] .. path .. [[ ~/temp.pdf]])
     vim.cmd([[!md5sum ~/temp.pdf > ~/temp.md5]])
     return true
   end
