@@ -9,6 +9,7 @@ local knowntypes = {
   pro = "Problem",
   fig = "Figure",
   lem = "Lemma",
+  equ = "Equation",
 }
 
 return {
@@ -50,7 +51,12 @@ return {
       type = knowntypes[type] and knowntypes[type] .. " " or ""
       return type
     end, { 1 }),
-    t("\\ref{"),
+    f(function(args, _)
+      local label = args[1][1]
+      local type = string.match(label, "^[^:]*")
+      type = type == "equ" and "\\eqref{" or "\\ref{"
+      return type
+    end, { 1 }),
     i(1),
     t("}"),
   }, { condition = tex.in_text }),
