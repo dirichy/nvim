@@ -56,7 +56,7 @@ for _, v in pairs(limits) do
   table.insert(
     M,
     s(
-      { trig = "%f[^\\]" .. v .. "([%a%d%+%-])", snippetType = "autosnippet", regTrig = true },
+      { trig = "%f[^\\]" .. v .. "([^%s])", snippetType = "autosnippet", regTrig = true },
       fmta(v .. "_{<><>}", {
         f(function(_, snip)
           return snip.captures[1]
@@ -71,30 +71,28 @@ for _, v in pairs(Operators) do
   table.insert(
     M,
     s(
-      { trig = "%f[^\\]" .. v .. "(_%b{})([%a%d])", snippetType = "autosnippet", regTrig = true },
-      fmta(v .. "<><><><><><>", {
+      { trig = "%f[^\\]" .. v .. "(_%b{})([%a%d])", snippetType = "autosnippet", regTrig = true, priority = 10000 },
+      fmta(v .. "<>^{<><>} <>", {
         f(function(_, snip)
           return snip.captures[1]
-        end),
-        f(function(_, snip)
-          local str = snip.captures[1]
-          str = str:gsub("^_{(.-)}$", "%1")
-          str = str:gsub("{.*}", "")
-          return string.find(str, "=") and "^{" or ""
         end),
         f(function(_, snip)
           return snip.captures[2]
         end),
         i(1),
-        f(function(_, snip)
-          local str = snip.captures[1]
-          str = str:gsub("^_{(.-)}$", "%1")
-          str = str:gsub("{.*}", "")
-          return string.find(str, "=") and "}" or ""
-        end),
         i(0),
       }),
-      { condition = tex.in_math }
+      {
+        condition = function(_, _, captures)
+          if not tex.in_math() then
+            return false
+          end
+          local str = captures[1]
+          str = str:gsub("^_{(.-)}$", "%1")
+          str = str:gsub("{.*}", "")
+          return string.find(str, "=")
+        end,
+      }
     )
   )
 end

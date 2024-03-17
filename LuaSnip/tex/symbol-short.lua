@@ -22,6 +22,12 @@ return {
   s({ trig = "<=", snippetType = "autosnippet" }, {
     t("\\impliedby"),
   }, { condition = tex.in_math }),
+  s({ trig = "=>", wordTrig = false, snippetType = "autosnippet" }, {
+    t("``\\(\\implies\\)'':"),
+  }, { condition = tex.in_text }),
+  s({ trig = "<=", snippetType = "autosnippet" }, {
+    t("``\\(\\impliedby\\)'':"),
+  }, { condition = tex.in_text }),
   s({ trig = "##", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\# "),
   }, { condition = tex.in_math }),

@@ -17,4 +17,16 @@ return {
     end)
   ),
   s("choicenode", c(1, { t("choice 1"), t("choice 2"), t("choice 3") })),
+  -- s(
+  --   { trig = "test(%d)", regTrig = true, snippetType = "autosnippet" },
+  --   fmta("<>", {
+  --     i(1),
+  --   }),
+  --   {
+  --     condition = function(_, _, captures)
+  --       vim.print(captures)
+  --       return true
+  --     end,
+  --   }
+  -- ),
 }
