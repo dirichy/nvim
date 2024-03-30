@@ -35,7 +35,16 @@ if vim.g.ssh then
   end
 elseif vim.g.systemos == "macOS" then
   M.viewpdf = function(path)
-    vim.api.nvim_exec2("!nohup zathura " .. path .. " > /dev/null &", {})
+    vim.api.nvim_exec2(
+      "!if [[ -z $(ps -A | awk "
+        .. [['$4=="zathura" && $5=="]]
+        .. path
+        .. [["') ]]
+        .. "]];then nohup zathura "
+        .. path
+        .. [[ >/dev/null &;fi]],
+      {}
+    )
   end
 elseif vim.g.systemos == "Linux" then
   M.viewpdf = function(path)

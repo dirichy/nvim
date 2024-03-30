@@ -17,7 +17,7 @@ return {
   s(
     { trig = ".wo", snippetType = "autosnippet" },
     fmta(
-      "\\begin{word}{<>}{<>}{<>}\\label{wo:<>}\n\\begin{enumerate}[label=(\\arabic*)]\n\\item <> \n\\end{enumerate}\n\\end{word}",
+      "\\begin{newword}{<>}{\\mytipa{<>}}{<>}\\label{wo:<>}\n\\begin{enumerate}[label=(\\arabic*)]\n\\item <> \n\\end{enumerate}\n\\end{newword}",
       {
         i(1),
         i(2),
