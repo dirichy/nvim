@@ -25,9 +25,3 @@ autocmd("BufEnter", {
 --     end
 --   end,
 -- })
-autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    require("latex.phonetic").conceal()
-  end,
-})
