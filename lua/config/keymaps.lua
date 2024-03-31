@@ -83,7 +83,7 @@ vim.keymap.set("i", "<Space>", function()
 end, { remap = false })
 vim.keymap.set("n", "<leader>uc", function()
   require("latex.customconceal")
-end)
+end, { desc = "Custom Conceal" })
 vim.keymap.set(
   "n",
   "<C-e>",

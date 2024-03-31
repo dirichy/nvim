@@ -25,3 +25,9 @@ autocmd("BufEnter", {
 --     end
 --   end,
 -- })
+autocmd("User", {
+  pattern = "VimtexLoaded",
+  callback = function()
+    require("latex.customconceal")()
+  end,
+})
