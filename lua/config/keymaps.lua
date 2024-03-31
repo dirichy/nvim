@@ -82,5 +82,11 @@ vim.keymap.set("i", "<Space>", function()
   vim.api.nvim_feedkeys(" ", "n", true)
 end, { remap = false })
 vim.keymap.set("n", "<leader>uc", function()
-  require("latex.phonetic").conceal()
+  require("latex.customconceal")
 end)
+vim.keymap.set(
+  "n",
+  "<C-e>",
+  "<cmd>echo synIDattr(synID(line('.'), col('.'), 1), 'name')<cr>",
+  { noremap = true, silent = false }
+)

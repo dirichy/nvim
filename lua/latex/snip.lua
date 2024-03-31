@@ -142,6 +142,7 @@ local cmd3charwithcom = {
   ["te(%a)"] = [[\text{%1}]],
 }
 M.cmd4char = {
+  ["pmod"] = [[\pmod{<>}]],
   ["flor"] = [[\floor{<>}]],
   ["ceil"] = [[\ceil{<>}]],
   ["sqrt"] = [[\sqrt{<>}]],

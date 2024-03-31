@@ -13,8 +13,8 @@ M.phone = {
   ["3"] = { tipa = "3", conceal = "ɜ", trig = "e" },
   [":"] = { tipa = ":", conceal = "ː" },
   ["@"] = { tipa = "@", conceal = "ə", trig = "e" },
-  ['""'] = { tipa = '""', conceal = "ˌ" },
-  ['"'] = { tipa = '"', conceal = "ˈ" },
+  ['"'] = { tipa = '""', conceal = "ˌ" },
+  ["'"] = { tipa = '"', conceal = "ˈ" },
   a = { tipa = "a", conceal = "𝖺" },
   b = { tipa = "b", conceal = "b" },
   c = { tipa = "c", conceal = "c" },
@@ -42,15 +42,49 @@ M.phone = {
   y = { tipa = "2", conceal = "ᴧ", trig = "a" },
   z = { tipa = "z", conceal = "z" },
 }
-M.conceal = function()
-  for k, v in pairs(M.phone) do
-    if k == '"' then
-      vim.cmd([[syntax match BWTIPA "\"" containedin=texCMytipaArg contained conceal cchar=]] .. v.conceal)
-    elseif k == '""' then
-      vim.cmd([[syntax match BWTIPA "\"\"" containedin=texCMytipaArg contained conceal cchar=]] .. v.conceal)
-    else
-      vim.cmd([[syntax match BWTIPA "]] .. k .. [[" containedin=texCMytipaArg contained conceal cchar=]] .. v.conceal)
-    end
-  end
-end
+M.fphone = {
+  A = { tipa = "A", conceal = "𝘢", tirg = "a" },
+  E = { tipa = "E", conceal = "ɛ" },
+  I = { tipa = "I", conceal = "ɪ" },
+  N = { tipa = "\\textltailn ", conceal = "ɲ", trig = "n" },
+  O = { tipa = "O", conceal = "ɔ", trig = "o" },
+  Q = { tipa = "\\o ", conceal = "ø", trig = "o" },
+  S = { tipa = "S", conceal = "ʃ", trig = "s" },
+  U = { tipa = "U", conceal = "ʊ", trig = "u" },
+  X = { tipa = "\\~\\oe ", conceal = "Œ", trig = "o" },
+  Y = { tipa = "\\textlhtlongy ", conceal = "ɥ", trig = "y" },
+  Z = { tipa = "Z", conceal = "ʒ", trig = "r" },
+  ["0"] = { tipa = "\\~O", conceal = "O", trig = "o" },
+  ["3"] = { tipa = "\\~E", conceal = "E", trig = "e" },
+  [":"] = { tipa = ":", conceal = "ː" },
+  ["@"] = { tipa = "@", conceal = "ə", trig = "e" },
+  ['"'] = { tipa = '""', conceal = "ˌ" },
+  ["'"] = { tipa = '"', conceal = "ˈ" },
+  a = { tipa = "a", conceal = "𝖺" },
+  b = { tipa = "b", conceal = "b" },
+  c = { tipa = "c", conceal = "c" },
+  d = { tipa = "d", conceal = "d" },
+  e = { tipa = "e", conceal = "e" },
+  f = { tipa = "f", conceal = "f" },
+  g = { tipa = "g", conceal = "ɡ" },
+  h = { tipa = "h", conceal = "h" },
+  i = { tipa = "i", conceal = "i" },
+  j = { tipa = "j", conceal = "j" },
+  k = { tipa = "k", conceal = "k" },
+  l = { tipa = "l", conceal = "l" },
+  m = { tipa = "m", conceal = "m" },
+  n = { tipa = "n", conceal = "n" },
+  o = { tipa = "o", conceal = "o" },
+  p = { tipa = "p", conceal = "p" },
+  q = { tipa = "\\~a", conceal = "ã", trig = "a" },
+  r = { tipa = "K", conceal = "ʁ" },
+  s = { tipa = "s", conceal = "s" },
+  t = { tipa = "t", conceal = "t" },
+  u = { tipa = "u", conceal = "u" },
+  v = { tipa = "v", conceal = "v" },
+  w = { tipa = "w", conceal = "w" },
+  x = { tipa = "\\oe ", conceal = "œ", trig = "o" },
+  y = { tipa = "y", conceal = "y" },
+  z = { tipa = "z", conceal = "z" },
+}
 return M
