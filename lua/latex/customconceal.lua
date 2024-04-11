@@ -14,8 +14,7 @@ local function conceal()
       vim.cmd([[syntax match BWTIPA "]] .. k .. [[" containedin=texCMyftipaArg contained conceal cchar=]] .. v.conceal)
     end
   end
-  vim.cmd([[syntax match SpaceInMath " " containedin=texMathZoneLI contained conceal]])
-  vim.cmd([[syntax match SpaceInMath " " containedin=texMathZoneEnv contained conceal]])
-  vim.cmd([[syntax match SpaceInMath " " containedin=texMathZoneLD contained conceal]])
+  vim.cmd([[syntax match SpaceInMath "\s" containedin=texMath.* contained conceal]])
+  vim.cmd([[syntax match IndentInMath "^\s*" containedin=texMath.* contained]])
 end
 return conceal
