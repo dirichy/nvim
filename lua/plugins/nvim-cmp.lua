@@ -58,10 +58,10 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
+      "doxnit/cmp-luasnip-choice",
     },
     opts = function()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-      local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
       return {
         completion = {
@@ -78,6 +78,7 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
+          { name = "luasnip_choice" },
         }),
         formatting = {
           format = function(_, item)
@@ -109,6 +110,9 @@ return {
     end,
     ---@param opts cmp.ConfigSchema
     config = function(_, opts)
+      require("cmp_luasnip_choice").setup({
+        auto_open = true,
+      })
       for _, source in ipairs(opts.sources) do
         source.group_index = source.group_index or 1
       end

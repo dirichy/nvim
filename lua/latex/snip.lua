@@ -20,8 +20,11 @@ M.cmd2char = {
   ["ee"] = [[\exists]],
   ["dd"] = [[\d]],
   ["ln"] = [[\ln]],
+  ["OR"] = [[\vee]],
 }
 M.cmd3char = {
+  ["AND"] = [[\wedge]],
+  ["neg"] = [[\neg]],
   ["lms"] = [[\limsup]],
   ["lmi"] = [[\liminf]],
   ["cob"] = [[\binom{<>}{<>}]],
@@ -142,6 +145,8 @@ local cmd3charwithcom = {
   ["te(%a)"] = [[\text{%1}]],
 }
 M.cmd4char = {
+  ["amin"] = [[\wedge]],
+  ["amax"] = [[\vee]],
   ["pmod"] = [[\pmod{<>}]],
   ["flor"] = [[\floor{<>}]],
   ["ceil"] = [[\ceil{<>}]],
