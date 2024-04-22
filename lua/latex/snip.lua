@@ -128,6 +128,8 @@ M.cmd3char = {
   ["rel"] = [[\re]],
   ["dto"] = [[\overset{d}{\to}]],
   ["deq"] = [[\overset{d}{=}]],
+  ["det"] = [[\det]],
+  ["tra"] = [[\tra]],
 }
 local cmd3charwithcom = {
   ["bb(%a)"] = function(char)
@@ -140,8 +142,10 @@ local cmd3charwithcom = {
   ["rm(%a)"] = [[\mathrm{%1}]],
   ["fk(%a)"] = [[\mathfrak{%1}]],
   ["te(%a)"] = [[\text{%1}]],
+  ["(%a)tr"] = [[%1^{\mathsf{T}}]],
 }
 M.cmd4char = {
+  ["pmat"] = [[pmat]], --for matrix.lua
   ["pmod"] = [[\pmod{<>}]],
   ["flor"] = [[\floor{<>}]],
   ["ceil"] = [[\ceil{<>}]],
