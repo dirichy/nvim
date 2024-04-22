@@ -20,10 +20,9 @@ M.cmd2char = {
   ["ee"] = [[\exists]],
   ["dd"] = [[\d]],
   ["ln"] = [[\ln]],
-  ["OR"] = [[\vee]],
 }
 M.cmd3char = {
-  ["AND"] = [[\wedge]],
+  ["det"] = [[\mathrm{det}]],
   ["neg"] = [[\neg]],
   ["lms"] = [[\limsup]],
   ["lmi"] = [[\liminf]],
