@@ -144,6 +144,8 @@ local cmd3charwithcom = {
   ["te(%a)"] = [[\text{%1}]],
 }
 M.cmd4char = {
+  ["aseq"] = [[\overset{\text{a.s.}}{=}]],
+  ["aeeq"] = [[\overset{\text{a.e.}}{=}]],
   ["amin"] = [[\wedge]],
   ["amax"] = [[\vee]],
   ["pmod"] = [[\pmod{<>}]],
