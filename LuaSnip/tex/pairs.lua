@@ -132,6 +132,11 @@ M = {
     ),
     { condition = tex.in_text }
   ),
+  -- accent.grave,
+  -- accent.circonflexe,
+  -- accent.trema,
+  -- accent.aigu,
+  -- accent.cedille
 }
 
 return M

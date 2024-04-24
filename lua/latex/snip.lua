@@ -22,6 +22,8 @@ M.cmd2char = {
   ["ln"] = [[\ln]],
 }
 M.cmd3char = {
+  ["str"] = [[^{*}]],
+  ["neg"] = [[\neg]],
   ["lms"] = [[\limsup]],
   ["lmi"] = [[\liminf]],
   ["cob"] = [[\binom{<>}{<>}]],
@@ -146,6 +148,10 @@ local cmd3charwithcom = {
 }
 M.cmd4char = {
   ["pmat"] = [[pmat]], --for matrix.lua
+  ["aseq"] = [[\overset{\text{a.s.}}{=}]],
+  ["aeeq"] = [[\overset{\text{a.e.}}{=}]],
+  ["amin"] = [[\wedge]],
+  ["amax"] = [[\vee]],
   ["pmod"] = [[\pmod{<>}]],
   ["flor"] = [[\floor{<>}]],
   ["ceil"] = [[\ceil{<>}]],
@@ -178,6 +184,7 @@ M.cmd4char = {
   ["oset"] = [[\emptyset]],
 }
 local cmd4charwithcom = {
+  ["(%a)str"] = [[%1^{*}]],
   ["(%a)fun"] = [[\fun{%1}{<>}]],
   ["(%a)res"] = [[\res{%1}{<>}]],
   ["cal(%a)"] = function(char)
