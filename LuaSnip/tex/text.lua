@@ -1,4 +1,5 @@
 local ls = require("luasnip")
+local get_magic_comment = require("latex.get_magic_comment")
 local s = ls.snippet
 local t = ls.text_node
 local f = ls.function_node
@@ -6,10 +7,11 @@ local i = ls.insert_node
 local fmta = require("luasnip.extras.fmt").fmta
 local tex = require("util.conditions")
 local knowntypes = {
-  pro = "Problem",
-  fig = "Figure",
-  lem = "Lemma",
-  equ = "Equation",
+  pro = { en = "Problem", zh = "问题" },
+  fig = { en = "Figure", zh = "图" },
+  lem = { en = "Lemma", zh = "引理" },
+  equ = { en = "Equation", zh = "公式" },
+  unknown = { en = "", zh = "" },
 }
 
 return {
@@ -53,7 +55,8 @@ return {
     f(function(args, _)
       local label = args[1][1]
       local type = string.match(label, "^[^:]*")
-      type = knowntypes[type] and knowntypes[type] .. " " or ""
+      type = knowntypes[type] and knowntypes[type] or knowntypes["unknown"]
+      type = type[get_magic_comment("language")] and type[get_magic_comment("language")] .. " " or ""
       return type
     end, { 1 }),
     f(function(args, _)

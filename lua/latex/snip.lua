@@ -22,6 +22,7 @@ M.cmd2char = {
   ["ln"] = [[\ln]],
 }
 M.cmd3char = {
+  ["pto"] = [[\overset{\mathbb{P}}{\to}]],
   ["det"] = [[\mathrm{det}]],
   ["neg"] = [[\neg]],
   ["lms"] = [[\limsup]],
