@@ -33,22 +33,18 @@ if vim.g.ssh then
     vim.cmd([[!md5sum ~/temp.pdf > ~/temp.md5]])
     return true
   end
-elseif vim.g.systemos == "macOS" then
+else
   M.viewpdf = function(path)
     vim.api.nvim_exec2(
-      "!if [[ -z $(ps -A | awk "
-        .. [['$4=="zathura" && $5=="]]
+      "!if [[ -z $(ps -A | grep "
+        .. [["zathura.*]]
         .. path
-        .. [["') ]]
+        .. [[") ]]
         .. "]];then nohup zathura "
         .. path
-        .. [[ >/dev/null &;fi]],
+        .. [[ >/dev/null & fi]],
       {}
     )
-  end
-elseif vim.g.systemos == "Linux" then
-  M.viewpdf = function(path)
-    cmd("nohup okular --unique " .. path .. " > /dev/null &")
   end
 end
 M.normalcomp = async.void(function()

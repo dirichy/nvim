@@ -1,5 +1,6 @@
 local M = {}
 M.cmd2char = {
+  ["ot"] = [[\leftarrow]],
   ["ad"] = [[+]],
   ["mn"] = [[-]],
   ["pm"] = [[\pm]],
@@ -23,7 +24,8 @@ M.cmd2char = {
 }
 M.cmd3char = {
   ["pto"] = [[\overset{\mathbb{P}}{\to}]],
-  ["det"] = [[\mathrm{det}]],
+  ["oto"] = [[\leftrightarrow]],
+  ["str"] = [[^{*}]],
   ["neg"] = [[\neg]],
   ["lms"] = [[\limsup]],
   ["lmi"] = [[\liminf]],
@@ -131,6 +133,8 @@ M.cmd3char = {
   ["rel"] = [[\re]],
   ["dto"] = [[\overset{d}{\to}]],
   ["deq"] = [[\overset{d}{=}]],
+  ["det"] = [[\det]],
+  ["tra"] = [[\tra]],
 }
 local cmd3charwithcom = {
   ["bb(%a)"] = function(char)
@@ -143,9 +147,12 @@ local cmd3charwithcom = {
   ["rm(%a)"] = [[\mathrm{%1}]],
   ["fk(%a)"] = [[\mathfrak{%1}]],
   ["te(%a)"] = [[\text{%1}]],
+  ["(%a)tr"] = [[%1^{\mathsf{T}}]],
 }
 M.cmd4char = {
+  ["pmat"] = [[pmat]], --for matrix.lua
   ["aseq"] = [[\overset{\text{a.s.}}{=}]],
+  ["asto"] = [[\overset{\text{a.s.}}{\to}]],
   ["aeeq"] = [[\overset{\text{a.e.}}{=}]],
   ["asto"] = [[\overset{\text{a.s.}}{\to}]],
   ["amin"] = [[\wedge]],
@@ -182,6 +189,7 @@ M.cmd4char = {
   ["oset"] = [[\emptyset]],
 }
 local cmd4charwithcom = {
+  ["(%a)str"] = [[%1^{*}]],
   ["(%a)fun"] = [[\fun{%1}{<>}]],
   ["(%a)res"] = [[\res{%1}{<>}]],
   ["cal(%a)"] = function(char)
