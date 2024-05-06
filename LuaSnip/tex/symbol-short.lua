@@ -7,6 +7,9 @@ return {
   s({ trig = "...", wordTrig = false, snippetType = "autosnippet" }, {
     t("\\cdots"),
   }, { condition = tex.in_math }),
+  s({ trig = ";;;", wordTrig = false, snippetType = "autosnippet" }, {
+    t("\\vdots"),
+  }, { condition = tex.in_math }),
   s({ trig = "==", wordTrig = false, snippetType = "autosnippet" }, {
     t("&="),
   }, { condition = tex.in_math }),

@@ -1,5 +1,6 @@
 local M = {}
 M.cmd2char = {
+  ["ot"] = [[\leftarrow]],
   ["ad"] = [[+]],
   ["mn"] = [[-]],
   ["pm"] = [[\pm]],
@@ -22,6 +23,7 @@ M.cmd2char = {
   ["ln"] = [[\ln]],
 }
 M.cmd3char = {
+  ["oto"] = [[\leftrightarrow]],
   ["str"] = [[^{*}]],
   ["neg"] = [[\neg]],
   ["lms"] = [[\limsup]],
@@ -149,6 +151,7 @@ local cmd3charwithcom = {
 M.cmd4char = {
   ["pmat"] = [[pmat]], --for matrix.lua
   ["aseq"] = [[\overset{\text{a.s.}}{=}]],
+  ["asto"] = [[\overset{\text{a.s.}}{\to}]],
   ["aeeq"] = [[\overset{\text{a.e.}}{=}]],
   ["amin"] = [[\wedge]],
   ["amax"] = [[\vee]],
