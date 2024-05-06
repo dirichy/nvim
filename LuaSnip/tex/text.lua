@@ -31,6 +31,11 @@ return {
     i(1),
     t("}"),
   }, { condition = tex.in_text, show_condition = tex.in_text }),
+  s({ trig = "cite", snippetType = "autosnippet" }, {
+    t("\\cite{"),
+    i(1),
+    t("}"),
+  }, { condition = tex.in_text, show_condition = tex.in_text }),
   s(
     { trig = "cref", snippetType = "autosnippet" },
     fmta("\\<>ref{<>}", {

@@ -153,6 +153,7 @@ M.cmd4char = {
   ["aseq"] = [[\overset{\text{a.s.}}{=}]],
   ["asto"] = [[\overset{\text{a.s.}}{\to}]],
   ["aeeq"] = [[\overset{\text{a.e.}}{=}]],
+  ["asto"] = [[\overset{\text{a.s.}}{\to}]],
   ["amin"] = [[\wedge]],
   ["amax"] = [[\vee]],
   ["pmod"] = [[\pmod{<>}]],
