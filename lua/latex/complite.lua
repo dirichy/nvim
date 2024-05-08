@@ -33,7 +33,20 @@ if vim.g.ssh then
     vim.cmd([[!md5sum ~/temp.pdf > ~/temp.md5]])
     return true
   end
-else
+elseif vim.g.systemos == "macOS" then
+  M.viewpdf = function(path)
+    vim.api.nvim_exec2(
+      "!if [[ -z $(ps -A | awk "
+        .. [['$4=="zathura" && $5=="]]
+        .. path
+        .. [["') ]]
+        .. "]];then nohup zathura "
+        .. path
+        .. [[ >/dev/null &;fi]],
+      {}
+    )
+  end
+elseif vim.g.systemos == "Linux" then
   M.viewpdf = function(path)
     vim.api.nvim_exec2(
       "!if [[ -z $(ps -A | grep "
