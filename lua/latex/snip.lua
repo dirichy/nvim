@@ -23,6 +23,7 @@ M.cmd2char = {
   ["ln"] = [[\ln]],
 }
 M.cmd3char = {
+  ["ind"] = [[\ind]],
   ["pto"] = [[\overset{\mathbb{P}}{\to}]],
   ["oto"] = [[\leftrightarrow]],
   ["str"] = [[^{*}]],
@@ -135,6 +136,7 @@ M.cmd3char = {
   ["deq"] = [[\overset{d}{=}]],
   ["det"] = [[\det]],
   ["tra"] = [[\tra]],
+  ["lgd"] = [[\legendre{<>}{<>}]],
 }
 local cmd3charwithcom = {
   ["bb(%a)"] = function(char)
