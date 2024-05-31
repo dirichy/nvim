@@ -135,6 +135,7 @@ M.cmd3char = {
   ["deq"] = [[\overset{d}{=}]],
   ["det"] = [[\det]],
   ["tra"] = [[\tra]],
+  ["lgd"] = [[\legendre{<>}{<>}]],
 }
 local cmd3charwithcom = {
   ["bb(%a)"] = function(char)
@@ -152,7 +153,6 @@ local cmd3charwithcom = {
 M.cmd4char = {
   ["pmat"] = [[pmat]], --for matrix.lua
   ["aseq"] = [[\overset{\text{a.s.}}{=}]],
-  ["asto"] = [[\overset{\text{a.s.}}{\to}]],
   ["aeeq"] = [[\overset{\text{a.e.}}{=}]],
   ["asto"] = [[\overset{\text{a.s.}}{\to}]],
   ["amin"] = [[\wedge]],
