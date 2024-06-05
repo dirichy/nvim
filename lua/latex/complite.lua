@@ -49,7 +49,7 @@ elseif vim.g.systemos == "macOS" then
 elseif vim.g.systemos == "Linux" then
   M.viewpdf = function(path)
     vim.api.nvim_exec2(
-      "!if [[ -z $(ps -A | grep "
+      "!if [[ -z $(ps aux | grep "
         .. [["zathura.*]]
         .. path
         .. [[") ]]
