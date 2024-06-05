@@ -38,6 +38,7 @@ M.cmd3char = {
   ["hat"] = [[\hat{<>}]],
   ["fun"] = [[\fun{<>}{<>}]],
   ["bar"] = [[\overline{<>}]],
+  ["udl"] = [[\underline{<>}]],
   ["res"] = [[\res{<>}{<>}]],
   ["bor"] = [[\bigvee]],
   ["int"] = [[\int]],
