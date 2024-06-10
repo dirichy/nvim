@@ -23,6 +23,7 @@ M.cmd2char = {
   ["ln"] = [[\ln]],
 }
 M.cmd3char = {
+  ["prf"] = [[\vdash]],
   ["ind"] = [[\ind]],
   ["pto"] = [[\overset{\mathbb{P}}{\to}]],
   ["oto"] = [[\leftrightarrow]],

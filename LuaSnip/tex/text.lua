@@ -132,7 +132,13 @@ return {
       end),
     })
   ),
-
+  s(
+    { trig = "udl", snippetType = "snippet" },
+    fmta("\\underline{<>}", {
+      i(1),
+    }),
+    {}
+  ),
   -- s({ trig = "psp", snippetType = "autosnippet" }, {
   --   t("\\(p\\)-subgroup"),
   -- }, { condition = tex.in_text }),

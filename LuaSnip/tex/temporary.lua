@@ -46,4 +46,10 @@ return {
   s({ trig = "odt", snippetType = "autosnippet" }, {
     t("\\odt"),
   }, { condition = tex.in_math }),
+  s({ trig = "yidk", snippetType = "autosnippet" }, {
+    t("\\square"),
+  }, { condition = tex.in_math }),
+  s({ trig = "keng", snippetType = "autosnippet" }, {
+    t("\\lozenge"),
+  }, { condition = tex.in_math }),
 }
