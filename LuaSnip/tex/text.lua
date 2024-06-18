@@ -6,6 +6,8 @@ local f = ls.function_node
 local i = ls.insert_node
 local fmta = require("luasnip.extras.fmt").fmta
 local tex = require("util.conditions")
+local rep = require("luasnip.extras").rep
+local pinyin = require("latex.flypy")
 local knowntypes = {
   pro = { en = "Problem", zh = "问题" },
   fig = { en = "Figure", zh = "图" },
@@ -138,6 +140,28 @@ return {
       i(1),
     }),
     {}
+  ),
+  s(
+    { trig = "idx", snippetType = "autosnippet" },
+    fmta("\\index{<>@<>}<>", {
+      f(function(args, _)
+        return pinyin(args[1][1])
+      end, { 1 }),
+      i(1),
+      rep(1),
+    }),
+    { condition = tex.in_text }
+  ),
+  s(
+    { trig = "bfidx", snippetType = "autosnippet" },
+    fmta("\\index{<>@<>|textbf}\\textbf{<>}", {
+      f(function(args, _)
+        return pinyin(args[1][1])
+      end, { 1 }),
+      i(1),
+      rep(1),
+    }),
+    { condition = tex.in_text }
   ),
   -- s({ trig = "psp", snippetType = "autosnippet" }, {
   --   t("\\(p\\)-subgroup"),
