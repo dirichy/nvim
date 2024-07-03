@@ -137,7 +137,7 @@ M.cmd3char = {
   ["dto"] = [[\overset{d}{\to}]],
   ["deq"] = [[\overset{d}{=}]],
   ["det"] = [[\det]],
-  ["tra"] = [[\tra]],
+  ["tra"] = [[\trace]],
   ["lgd"] = [[\legendre{<>}{<>}]],
 }
 local cmd3charwithcom = {
