@@ -37,8 +37,9 @@ local postfix_snippet = require("util.scaffolding").postfix_snippet
 local M = {
   s(
     { trig = "grf", snippetType = "autosnippet" },
-    fmta("\\includegraphics{<>}", {
+    fmta("\\includegraphics{<>}%![](<>)", {
       i(1),
+      rep(1),
     }),
     { condition = tex.in_fig }
   ),

@@ -51,7 +51,7 @@ M = {
   ),
   s(
     { trig = "opt", snippetType = "autosnippet" },
-    fmta("\\DeclareMathOpe{\\<>}{<>}", {
+    fmta("\\DeclareMathOperator{\\<>}{<>}", {
       i(1),
       rep(1),
     }),
@@ -59,7 +59,7 @@ M = {
   ),
   s(
     { trig = "Opt", snippetType = "autosnippet" },
-    fmta("\\DeclareMathOpe{\\<>}{<>}", {
+    fmta("\\DeclareMathOperator{\\<>}{<>}", {
       i(1),
       i(2),
     }),
