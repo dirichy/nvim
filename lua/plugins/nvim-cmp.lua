@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local ls = require("luasnip")
 local compare = require("cmp.config.compare")
 local keys = {
   ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -15,36 +16,22 @@ local keys = {
     cmp.abort()
     fallback()
   end,
-  ["<Space>"] = cmp.mapping(function(fallback)
+  ["<CR>"] = cmp.mapping(function(fallback)
     local entry = cmp.get_selected_entry()
     if entry == nil then
       entry = cmp.core.view:get_first_entry()
     end
-    if entry and entry.source.name == "nvim_lsp" and entry.source.source.client.name == "rime_ls" then
+    if ls.expandable() then
+      ls.expand()
+      return
+    end
+    if entry ~= nil then
       cmp.confirm({
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       })
     else
       fallback()
-    end
-  end, { "i", "s" }),
-  ["<CR>"] = cmp.mapping(function(fallback)
-    local entry = cmp.get_selected_entry()
-    if entry == nil then
-      entry = cmp.core.view:get_first_entry()
-    end
-    if entry and entry.source.name == "nvim_lsp" and entry.source.source.client.name == "rime_ls" then
-      cmp.abort()
-    else
-      if entry ~= nil then
-        cmp.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        })
-      else
-        fallback()
-      end
     end
   end, { "i", "s" }),
 }
@@ -58,10 +45,10 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      "doxnit/cmp-luasnip-choice",
     },
     opts = function()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+      local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
       return {
         completion = {
@@ -78,7 +65,6 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
-          { name = "luasnip_choice" },
         }),
         formatting = {
           format = function(_, item)
@@ -110,9 +96,6 @@ return {
     end,
     ---@param opts cmp.ConfigSchema
     config = function(_, opts)
-      require("cmp_luasnip_choice").setup({
-        auto_open = true,
-      })
       for _, source in ipairs(opts.sources) do
         source.group_index = source.group_index or 1
       end

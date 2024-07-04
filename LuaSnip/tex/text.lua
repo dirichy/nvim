@@ -35,24 +35,6 @@ return {
     i(1),
     t("}"),
   }, { condition = tex.in_text, show_condition = tex.in_text }),
-  s({ trig = "cite", snippetType = "autosnippet" }, {
-    t("\\cite{"),
-    i(1),
-    t("}"),
-  }, { condition = tex.in_text, show_condition = tex.in_text }),
-  s(
-    { trig = "cref", snippetType = "autosnippet" },
-    fmta("\\<>ref{<>}", {
-      f(function(args, _)
-        if args[1][1] ~= "" then
-          return "C"
-        end
-        return ""
-      end, { 1 }),
-      i(1),
-    }),
-    { condition = tex.in_mathzone }
-  ),
   s({ trig = "ref", snippetType = "autosnippet" }, {
     f(function(args, _)
       local label = args[1][1]
@@ -71,54 +53,6 @@ return {
     t("}"),
   }, { condition = tex.in_text }),
   s(
-    { trig = "href", snippetType = "autosnippet" },
-    fmta("\\href{<>}{<>}", {
-      i(1),
-      i(2),
-    }),
-    { condition = tex.in_text }
-  ),
-
-  s({ trig = "wlog ", snippetType = "autosnippet" }, {
-    t("without loss of generality "),
-  }, { condition = tex.in_text }),
-  s({ trig = "Wlog ", snippetType = "autosnippet" }, {
-    t("Without loss of generality "),
-  }, { condition = tex.in_text }),
-  s({ trig = "thm" }, {
-    t("theorem"),
-  }, { condition = tex.in_text }),
-  s({ trig = "propp" }, {
-    t("proposition"),
-  }, { condition = tex.in_text }),
-  s({ trig = "deff" }, {
-    t("definition"),
-  }, { condition = tex.in_text }),
-  s({ trig = "exaa" }, {
-    t("example"),
-  }, { condition = tex.in_text }),
-  s({ trig = "iee" }, {
-    t("i.e."),
-  }, { condition = tex.in_text }),
-  s({ trig = "stt" }, {
-    t("such that"),
-  }, { condition = tex.in_text }),
-  s({ trig = "iff" }, {
-    t("if and only if"),
-  }, { condition = tex.in_text }),
-  s({ trig = "iso" }, {
-    t("isomorphic"),
-  }, { condition = tex.in_text }),
-  s({ trig = "iso" }, {
-    t("isomorphism"),
-  }, { condition = tex.in_text }),
-  s({ trig = "homo" }, {
-    t("homomorphism"),
-  }, { condition = tex.in_text }),
-  s({ trig = "homo" }, {
-    t("homomorphic"),
-  }, { condition = tex.in_text }),
-  s(
     { trig = "\\%)(%a)", regTrig = true, wordTrig = false, snippetType = "autosnippet", priority = 2000 },
     fmta("\\) <>", {
       f(function(_, snip)
@@ -133,13 +67,6 @@ return {
         return snip.captures[1]
       end),
     })
-  ),
-  s(
-    { trig = "udl", snippetType = "snippet" },
-    fmta("\\underline{<>}", {
-      i(1),
-    }),
-    {}
   ),
   s(
     { trig = "idx", snippetType = "autosnippet" },

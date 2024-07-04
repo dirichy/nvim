@@ -87,6 +87,9 @@ for _, v in pairs(Operators) do
           if not tex.in_math() then
             return false
           end
+          if v == "int" then
+            return true
+          end
           local str = captures[1]
           str = str:gsub("^_{(.-)}$", "%1")
           str = str:gsub("{.*}", "")

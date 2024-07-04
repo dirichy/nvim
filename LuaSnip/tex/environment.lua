@@ -83,6 +83,9 @@ M = {
     ),
     { condition = tex.in_text * line_begin }
   ),
+  s({ trig = "。", snippetType = "autosnippet", priority = 2000 }, {
+    t("."),
+  }, { condition = tex.in_text * line_begin }),
   s(
     { trig = text_line_begin_leader .. "eg", regTrig = true, snippetType = "autosnippet", priority = 1000 },
     fmta(
