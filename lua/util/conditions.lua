@@ -51,5 +51,8 @@ end
 function M.in_fig()
   return env("figure")
 end
+function M.in_tblr()
+  return env("tblr")
+end
 
 return M

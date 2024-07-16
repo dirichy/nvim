@@ -9,15 +9,55 @@ local i = ls.insert_node
 local f = ls.function_node
 local d = ls.dynamic_node
 local r = ls.restore_node
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
 local fmta = require("luasnip.extras.fmt").fmta
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
-
+local function get_column_in_tblr()
+  local curcol = vim.api.nvim_win_get_cursor(0)[1]
+  local line = ""
+  while curcol > 1 do
+    line = vim.api.nvim_buf_get_lines(0, curcol - 1, curcol, false)[1]
+    if string.match(line, "^\\begin{tblr}") then
+      return tonumber(string.match(line, "%%!column%s*=%s*(.*)$"))
+    end
+    curcol = curcol - 1
+  end
+end
 -- [
 -- personal imports
 -- ]
 local tex = require("util.conditions")
 
 -- Generating functions for Matrix/Cases - thanks L3MON4D3!
+---@param str string
+local function count_column(str)
+  if string.find(str, "colspec") then
+    str = string.match(str, "colspec%s*=%s*(%b{})")
+    str = string.match(str, "^{(.*)}$")
+  else
+    local test = string.gsub(str, "%b{}", "")
+    if string.find(test, "=") then
+      return nil
+    end
+  end
+  str = string.gsub(str, [[|]], "")
+  str = string.gsub(str, [=[%b[]]=], "")
+  str = string.gsub(str, [=[%b{}]=], "")
+  return string.len(str)
+end
+local generate_oneline = function(col)
+  if not col or col == 0 then
+    return sn(nil, { r(1, "1", i(1)) })
+  end
+  local nodes = {}
+  for j = 1, col - 1 do
+    table.insert(nodes, r(j, tostring(j), i(1)))
+    table.insert(nodes, t(" & "))
+  end
+  table.insert(nodes, r(col, tostring(col), i(1)))
+  table.insert(nodes, t({ "\\\\" }))
+  return sn(nil, nodes)
+end
 local generate_matrix = function(args, snip)
   local rows = snip.captures[2] and tonumber(snip.captures[2]) or 2
   local cols = snip.captures[3] and tonumber(snip.captures[3]) or rows
@@ -124,6 +164,65 @@ M = {
     ),
     { condition = tex.in_math }
   ),
+  s(
+    { trig = ".lt", snippetType = "autosnippet" },
+    fmta(
+      [[
+\begin{tblr}<><><>{<>} %!column = <>
+<>
+<>
+\end{tblr}
+    ]],
+      {
+        f(function(args, snip)
+          return args[1][1] ~= "" and "[" or ""
+        end, { 1 }),
+        i(1),
+        f(function(args, snip)
+          return args[1][1] ~= "" and "]" or ""
+        end, { 1 }),
+        i(2),
+        f(function(args, snip)
+          local col = count_column(args[1][1])
+          return tostring(col)
+        end, { 2 }),
+        d(3, function(args, snip)
+          local col = count_column(args[1][1])
+          return generate_oneline(col)
+        end, { 2 }),
+        i(4),
+      }
+    ),
+    { condition = line_begin }
+  ),
+  s(
+    { trig = "([^%s])", regTrig = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+<><>
+<>
+]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        d(1, function()
+          local col = get_column_in_tblr()
+          return generate_oneline(col)
+        end),
+        i(0),
+      }
+    ),
+    {
+      condition = function()
+        if not tex.in_tblr() then
+          return false
+        end
+        local curcol = vim.api.nvim_win_get_cursor(0)[1]
+        local line = vim.api.nvim_buf_get_lines(0, curcol - 1, curcol, false)[1]
+        return string.match(line, "^%s*[^%s]$")
+      end,
+    }
+  ),
 }
-
 return M

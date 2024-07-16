@@ -8,6 +8,7 @@ local get_magic_comment = function(key, ific)
   local i = 0
   local value = nil
   while true do
+    vim.api.nvim_win_get_cursor(0)
     local line = vim.api.nvim_buf_get_lines(0, i, i + 1, false)[1]
     if string.match(line, "^%%!") then
       if ific then
