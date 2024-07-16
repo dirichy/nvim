@@ -2,6 +2,7 @@ return {
   {
     "lervag/vimtex",
     ft = "tex",
+    priority = 1001,
     config = function()
       vim.cmd([[
       " This is necessary for VimTeX to load properly. The "indent" is optional.
